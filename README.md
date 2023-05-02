@@ -1,2 +1,0 @@
-# 22k
-Projetinho java
