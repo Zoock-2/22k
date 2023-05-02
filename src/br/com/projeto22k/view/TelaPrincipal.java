@@ -28,6 +28,19 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.border.LineBorder;
+import javax.swing.JFormattedTextField;
 
 public class TelaPrincipal extends JFrame {
 
@@ -64,7 +77,6 @@ public class TelaPrincipal extends JFrame {
 	private JLabel lblNewLabel_4;
 	private JTextField textField_6;
 	private JLabel lblDisciplina_4;
-	private JList list_1;
 	private JTextField textField_7;
 	private JLabel lblSemestre_2;
 	private JTextField textField_4;
@@ -89,6 +101,24 @@ public class TelaPrincipal extends JFrame {
 	private JLabel lblDisciplina_9;
 	private JTable table;
 	private JScrollPane scrollPane;
+	private JMenuBar menuBar;
+	private JMenu mnNewMenu;
+	private JMenuItem mntmNewMenuItem;
+	private JMenuItem mntmNewMenuItem_1;
+	private JMenuItem mntmNewMenuItem_2;
+	private JMenuItem mntmNewMenuItem_3;
+	private JMenuItem mntmNewMenuItem_4;
+	private JMenu mnNewMenu_1;
+	private JMenuItem mntmNewMenuItem_5;
+	private JMenuItem mntmNewMenuItem_6;
+	private JMenuItem mntmNewMenuItem_7;
+	private JMenuItem mntmNewMenuItem_8;
+	private JMenu mnNewMenu_2;
+	private JMenuItem mntmNewMenuItem_9;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
+	private JButton btnNewButton_2;
+	private JButton btnNewButton_3;
 
 	/**
 	 * Launch the application.
@@ -112,6 +142,50 @@ public class TelaPrincipal extends JFrame {
 	public TelaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1100, 600);
+		
+		menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		mnNewMenu = new JMenu("Aluno");
+		menuBar.add(mnNewMenu);
+		
+		mntmNewMenuItem = new JMenuItem("Salvar");
+		mntmNewMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK | InputEvent.ALT_DOWN_MASK));
+		mnNewMenu.add(mntmNewMenuItem);
+		
+		mntmNewMenuItem_1 = new JMenuItem("Alterar");
+		mnNewMenu.add(mntmNewMenuItem_1);
+		
+		mntmNewMenuItem_2 = new JMenuItem("Consultar");
+		mnNewMenu.add(mntmNewMenuItem_2);
+		
+		mntmNewMenuItem_3 = new JMenuItem("Excluir");
+		mnNewMenu.add(mntmNewMenuItem_3);
+		
+		mntmNewMenuItem_4 = new JMenuItem("Sair");
+		mntmNewMenuItem_4.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK));
+		mnNewMenu.add(mntmNewMenuItem_4);
+		
+		mnNewMenu_1 = new JMenu("Notas e faltas");
+		menuBar.add(mnNewMenu_1);
+		
+		mntmNewMenuItem_5 = new JMenuItem("Salvar");
+		mnNewMenu_1.add(mntmNewMenuItem_5);
+		
+		mntmNewMenuItem_6 = new JMenuItem("Alterar");
+		mnNewMenu_1.add(mntmNewMenuItem_6);
+		
+		mntmNewMenuItem_7 = new JMenuItem("Excluir");
+		mnNewMenu_1.add(mntmNewMenuItem_7);
+		
+		mntmNewMenuItem_8 = new JMenuItem("Editar");
+		mnNewMenu_1.add(mntmNewMenuItem_8);
+		
+		mnNewMenu_2 = new JMenu("Ajuda");
+		menuBar.add(mnNewMenu_2);
+		
+		mntmNewMenuItem_9 = new JMenuItem("Sobre");
+		mnNewMenu_2.add(mntmNewMenuItem_9);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -123,7 +197,7 @@ public class TelaPrincipal extends JFrame {
 		tabbedPane.setFont(new Font("Lato", Font.PLAIN, 18));
 		tabbedPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		tabbedPane.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		tabbedPane.setBounds(10, 11, 1064, 539);
+		tabbedPane.setBounds(10, 16, 1064, 512);
 		contentPane.add(tabbedPane);
 		
 		panel_4 = new JPanel();
@@ -399,10 +473,6 @@ public class TelaPrincipal extends JFrame {
 		lblDisciplina_4.setBounds(414, 279, 155, 28);
 		panel.add(lblDisciplina_4);
 		
-		list_1 = new JList();
-		list_1.setBounds(414, 333, 398, 128);
-		panel.add(list_1);
-		
 		comboBox_2 = new JComboBox();
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Analise e desenvolvimento de sistemas", "Ciência da computação", "Engenharia de software"}));
 		comboBox_2.setFont(new Font("Lato", Font.PLAIN, 18));
@@ -430,6 +500,41 @@ public class TelaPrincipal extends JFrame {
 		lblDisciplina_9.setBounds(28, 412, 155, 28);
 		panel.add(lblDisciplina_9);
 		
+		btnNewButton = new JButton("");
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\FACULDADE\\3 Semestre\\Programação voltada a obejeto\\22k\\image\\delete.png"));
+		btnNewButton.setBounds(28, 451, 105, 45);
+		panel.add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\FACULDADE\\3 Semestre\\Programação voltada a obejeto\\22k\\image\\editing.png"));
+		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton_1.setBounds(176, 451, 105, 45);
+		panel.add(btnNewButton_1);
+		
+		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\FACULDADE\\3 Semestre\\Programação voltada a obejeto\\22k\\image\\exchange.png"));
+		btnNewButton_2.setBackground(Color.WHITE);
+		btnNewButton_2.setBounds(309, 451, 105, 45);
+		panel.add(btnNewButton_2);
+		
+		btnNewButton_3 = new JButton("");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// === Informação que a informação foi salva
+					JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+				// ===
+			}
+		});
+		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\FACULDADE\\3 Semestre\\Programação voltada a obejeto\\22k\\image\\save.png"));
+		btnNewButton_3.setBackground(Color.WHITE);
+		btnNewButton_3.setBounds(464, 451, 105, 45);
+		panel.add(btnNewButton_3);
+		
 		boletimPanel = new JPanel();
 		boletimPanel.setBackground(Color.WHITE);
 		tabbedPane.addTab("Boletim", null, boletimPanel, null);
@@ -450,7 +555,7 @@ public class TelaPrincipal extends JFrame {
 				{null, null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"RGM", "Aluno", "Curso", "Disciplinas", "A1", "A2", "AF", "M\u00E9dia Final", "Faltas"
+				"RGM", "Aluninhos", "Curso", "Disciplinas", "A1", "A2", "AF", "M\u00E9dia Final", "Faltas"
 			}
 		) {
 			Class[] columnTypes = new Class[] {
