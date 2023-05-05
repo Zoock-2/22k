@@ -360,7 +360,7 @@ public class TelaPrincipal extends JFrame {
 		panel.add(lblDisciplina_1);
 
 		textField = new JTextField();
-		textField.setFont(new Font("Lato", Font.PLAIN, 18));
+		textField.setFont(new Font("Dialog", Font.PLAIN, 19));
 		textField.setBounds(28, 53, 180, 40);
 		panel.add(textField);
 		textField.setColumns(10);
