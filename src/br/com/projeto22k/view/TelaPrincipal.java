@@ -59,7 +59,7 @@ public class TelaPrincipal extends JFrame {
 	private JLabel lblDisciplina_1;
 	private JPanel panel_1;
 	private JPanel boletimPanel;
-	private JTextField textField;
+	private JTextField txrRgm;
 	private JTextField txtPauloCorazimDa;
 	private JTextField txtCinciaDaComputao;
 	private JComboBox comboBox;
@@ -119,6 +119,18 @@ public class TelaPrincipal extends JFrame {
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
 	private JButton btnNewButton_3;
+	private JPanel panel_2;
+	private JPanel panel_5;
+	private JLabel lblNewLabel_5;
+	private JTextField textField_1;
+	private JLabel lblNomeDoAluno_2;
+	private JTextField textField_2;
+	private JTable table_1;
+	private JPanel panel_6;
+	private JLabel lblDisciplina_10;
+	private JLabel lblDisciplina_11;
+	private JLabel lblDisciplina_12;
+	private JScrollPane scrollPane_1;
 
 	/**
 	 * Launch the application.
@@ -259,234 +271,6 @@ public class TelaPrincipal extends JFrame {
 		tabbedPane.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		tabbedPane.setBounds(10, 16, 1064, 512);
 		contentPane.add(tabbedPane);
-
-		panel_3 = new JPanel();
-		panel_3.setBackground(new Color(255, 255, 255));
-		tabbedPane.addTab("Cursos", null, panel_3, null);
-		panel_3.setLayout(null);
-
-		lblDisciplina = new JLabel("Campus");
-		lblDisciplina.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina.setBounds(28, 26, 155, 28);
-		panel_3.add(lblDisciplina);
-
-		lblSemestre = new JLabel("Período");
-		lblSemestre.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblSemestre.setBounds(28, 182, 155, 28);
-		panel_3.add(lblSemestre);
-
-		comboBox_Campus = new JComboBox();
-		comboBox_Campus.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Campus.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Universidade Cidade de São Paulo - Tatuapé", "Universidade Cidade de São Paulo - Pinheiros", "Universidade Cidade de São Paulo - Online"}));
-		comboBox_Campus.setBounds(28, 53, 650, 40);
-		panel_3.add(comboBox_Campus);
-
-		lblCurso_2 = new JLabel("Curso");
-		lblCurso_2.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblCurso_2.setBounds(28, 104, 155, 28);
-		panel_3.add(lblCurso_2);
-
-		comboBox_Curso = new JComboBox();
-		comboBox_Curso.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Analise e desenvolvimento de sistemas", "Ciência da computação", "Engenharia de software"}));
-		comboBox_Curso.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Curso.setBounds(28, 131, 650, 40);
-		panel_3.add(comboBox_Curso);
-
-		lblSemestre_5 = new JLabel("Semestre");
-		lblSemestre_5.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblSemestre_5.setBounds(248, 182, 155, 28);
-		panel_3.add(lblSemestre_5);
-
-		lblSemestre_4 = new JLabel("Turma");
-		lblSemestre_4.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblSemestre_4.setBounds(468, 181, 155, 28);
-		panel_3.add(lblSemestre_4);
-
-		comboBox_Periodo = new JComboBox();
-		comboBox_Periodo.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Matutino", "Diurno", "Noturno"}));
-		comboBox_Periodo.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Periodo.setBounds(28, 209, 210, 40);
-		panel_3.add(comboBox_Periodo);
-
-		label = new JLabel("New label");
-		label.setBounds(548, 366, -227, -36);
-		panel_3.add(label);
-
-		comboBox_Semestre = new JComboBox();
-		comboBox_Semestre.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "1°", "2°", "3°", "4°", "5°", "6°", "7°", "8°", "9°", "10°"}));
-		comboBox_Semestre.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Semestre.setBounds(248, 210, 210, 40);
-		panel_3.add(comboBox_Semestre);
-
-		comboBox_Turma = new JComboBox();
-		comboBox_Turma.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "A", "B", "C", "D", "E"}));
-		comboBox_Turma.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Turma.setBounds(468, 209, 210, 40);
-		panel_3.add(comboBox_Turma);
-
-		panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
-		tabbedPane.addTab("Notas e faltas", null, panel, null);
-		panel.setLayout(null);
-
-		lblNewLabel = new JLabel("RGM");
-		lblNewLabel.setFont(new Font("Lato", Font.PLAIN, 16));
-		lblNewLabel.setBounds(28, 27, 66, 20);
-		panel.add(lblNewLabel);
-
-		lblNomeDoAluno = new JLabel("Nome do Aluno");
-		lblNomeDoAluno.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblNomeDoAluno.setBounds(281, 14, 145, 28);
-		panel.add(lblNomeDoAluno);
-
-		lblCurso = new JLabel("Curso");
-		lblCurso.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblCurso.setBounds(28, 104, 66, 28);
-		panel.add(lblCurso);
-
-		lblDisciplina = new JLabel("Disciplina");
-		lblDisciplina.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina.setBounds(28, 183, 155, 28);
-		panel.add(lblDisciplina);
-
-		lblSemestre = new JLabel("Semestre");
-		lblSemestre.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblSemestre.setBounds(414, 183, 155, 28);
-		panel.add(lblSemestre);
-
-		lblDisciplina_1 = new JLabel("Notas");
-		lblDisciplina_1.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina_1.setBounds(28, 279, 155, 28);
-		panel.add(lblDisciplina_1);
-
-		textField = new JTextField();
-		textField.setFont(new Font("Dialog", Font.PLAIN, 19));
-		textField.setBounds(28, 53, 180, 40);
-		panel.add(textField);
-		textField.setColumns(10);
-
-		txtPauloCorazimDa = new JTextField();
-		txtPauloCorazimDa.setFont(new Font("Lato", Font.PLAIN, 18));
-		txtPauloCorazimDa.setColumns(10);
-		txtPauloCorazimDa.setBounds(281, 53, 372, 40);
-		panel.add(txtPauloCorazimDa);
-
-		comboBox = new JComboBox();
-		comboBox.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Programação orientada a objetos", "Matemática discrete"}));
-		comboBox.setBounds(28, 210, 350, 40);
-		panel.add(comboBox);
-
-		lblDisciplina_4 = new JLabel("Lista de presença");
-		lblDisciplina_4.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina_4.setBounds(414, 279, 155, 28);
-		panel.add(lblDisciplina_4);
-
-		comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Analise e desenvolvimento de sistemas", "Ciência da computação", "Engenharia de software"}));
-		comboBox_2.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_2.setBounds(28, 132, 350, 40);
-		panel.add(comboBox_2);
-
-		comboBox_6 = new JComboBox();
-		comboBox_6.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "2019-6", "2019-2", "2019-8", "2020-3", "2021-2", "2022-9", "2022-8", "2023-3"}));
-		comboBox_6.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_6.setBounds(414, 211, 239, 40);
-		panel.add(comboBox_6);
-
-		lblDisciplina_7 = new JLabel("A1");
-		lblDisciplina_7.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina_7.setBounds(28, 334, 155, 28);
-		panel.add(lblDisciplina_7);
-
-		lblDisciplina_8 = new JLabel("A2");
-		lblDisciplina_8.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina_8.setBounds(28, 373, 155, 28);
-		panel.add(lblDisciplina_8);
-
-		lblDisciplina_9 = new JLabel("AF");
-		lblDisciplina_9.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina_9.setBounds(28, 412, 155, 28);
-		panel.add(lblDisciplina_9);
-
-		btnNewButton = new JButton("");
-		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//===================== Informando que foi excluido
-				 int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?");
-			        if (resposta == JOptionPane.YES_OPTION) {
-			            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
-			        } else if (resposta == JOptionPane.NO_OPTION) {
-			            JOptionPane.showMessageDialog(null, "Dados não excluídos!");
-			        }
-			      //==========================================
-			}
-		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\delete.png"));
-		btnNewButton.setBounds(28, 451, 105, 45);
-		panel.add(btnNewButton);
-
-		btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\editing.png"));
-		btnNewButton_1.setBackground(Color.WHITE);
-		btnNewButton_1.setBounds(176, 451, 105, 45);
-		panel.add(btnNewButton_1);
-
-		btnNewButton_2 = new JButton("");
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\exchange.png"));
-		btnNewButton_2.setBackground(Color.WHITE);
-		btnNewButton_2.setBounds(309, 451, 105, 45);
-		panel.add(btnNewButton_2);
-
-		btnNewButton_3 = new JButton("");
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//==================== Informando que foi salva
-				 int resposta = JOptionPane.showConfirmDialog(null, "Deseja Salvar?");
-			        if (resposta == JOptionPane.YES_OPTION) {
-			            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
-			        } else if (resposta == JOptionPane.NO_OPTION) {
-			            JOptionPane.showMessageDialog(null, "Fechar");
-			        }
-			      //==========================================
-			}
-		});
-		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\save.png"));
-		btnNewButton_3.setBackground(Color.WHITE);
-		btnNewButton_3.setBounds(464, 451, 105, 45);
-		panel.add(btnNewButton_3);
-
-		boletimPanel = new JPanel();
-		boletimPanel.setBackground(Color.WHITE);
-		tabbedPane.addTab("Boletim", null, boletimPanel, null);
-		boletimPanel.setLayout(null);
-
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(22, 22, 830, 190);
-		boletimPanel.add(scrollPane);
-
-		table = new JTable();
-		table.setFont(new Font("Lato", Font.PLAIN, 18));
-		scrollPane.setViewportView(table);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"", null, null, null, null, null, null, null, null},
-				{null, null, null, "", null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, ""},
-				{null, null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"RGM", "Aluninhos", "Curso", "Disciplinas", "A1", "A2", "AF", "M\u00E9dia Final", "Faltas"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				String.class, Object.class, Object.class, Object.class, Object.class, Object.class, Object.class, Object.class, Object.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
 		
 				panel_4 = new JPanel();
 				panel_4.setLayout(null);
@@ -620,8 +404,323 @@ public class TelaPrincipal extends JFrame {
 																																												txtCep.setFont(new Font("Dialog", Font.PLAIN, 18));
 																																												txtCep.setBounds(28, 211, 180, 40);
 																																												panel_4.add(txtCep);
+
+		panel_3 = new JPanel();
+		panel_3.setBackground(new Color(255, 255, 255));
+		tabbedPane.addTab("Cursos", null, panel_3, null);
+		panel_3.setLayout(null);
+
+		lblDisciplina = new JLabel("Campus");
+		lblDisciplina.setFont(new Font("Lato", Font.PLAIN, 18));
+		lblDisciplina.setBounds(30, 106, 155, 28);
+		panel_3.add(lblDisciplina);
+
+		lblSemestre = new JLabel("Período");
+		lblSemestre.setFont(new Font("Lato", Font.PLAIN, 18));
+		lblSemestre.setBounds(30, 262, 155, 28);
+		panel_3.add(lblSemestre);
+
+		comboBox_Campus = new JComboBox();
+		comboBox_Campus.setFont(new Font("Lato", Font.PLAIN, 18));
+		comboBox_Campus.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Universidade Cidade de São Paulo - Tatuapé", "Universidade Cidade de São Paulo - Pinheiros", "Universidade Cidade de São Paulo - Online"}));
+		comboBox_Campus.setBounds(30, 133, 650, 40);
+		panel_3.add(comboBox_Campus);
+
+		lblCurso_2 = new JLabel("Curso");
+		lblCurso_2.setFont(new Font("Lato", Font.PLAIN, 18));
+		lblCurso_2.setBounds(30, 184, 155, 28);
+		panel_3.add(lblCurso_2);
+
+		comboBox_Curso = new JComboBox();
+		comboBox_Curso.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Analise e desenvolvimento de sistemas", "Ciência da computação", "Engenharia de software"}));
+		comboBox_Curso.setFont(new Font("Lato", Font.PLAIN, 18));
+		comboBox_Curso.setBounds(30, 211, 650, 40);
+		panel_3.add(comboBox_Curso);
+
+		lblSemestre_5 = new JLabel("Semestre");
+		lblSemestre_5.setFont(new Font("Lato", Font.PLAIN, 18));
+		lblSemestre_5.setBounds(250, 262, 155, 28);
+		panel_3.add(lblSemestre_5);
+
+		lblSemestre_4 = new JLabel("Turma");
+		lblSemestre_4.setFont(new Font("Lato", Font.PLAIN, 18));
+		lblSemestre_4.setBounds(470, 261, 155, 28);
+		panel_3.add(lblSemestre_4);
+
+		comboBox_Periodo = new JComboBox();
+		comboBox_Periodo.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Matutino", "Diurno", "Noturno"}));
+		comboBox_Periodo.setFont(new Font("Lato", Font.PLAIN, 18));
+		comboBox_Periodo.setBounds(30, 289, 210, 40);
+		panel_3.add(comboBox_Periodo);
+
+		label = new JLabel("New label");
+		label.setBounds(548, 366, -227, -36);
+		panel_3.add(label);
+
+		comboBox_Semestre = new JComboBox();
+		comboBox_Semestre.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "1°", "2°", "3°", "4°", "5°", "6°", "7°", "8°", "9°", "10°"}));
+		comboBox_Semestre.setFont(new Font("Lato", Font.PLAIN, 18));
+		comboBox_Semestre.setBounds(250, 290, 210, 40);
+		panel_3.add(comboBox_Semestre);
+
+		comboBox_Turma = new JComboBox();
+		comboBox_Turma.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "A", "B", "C", "D", "E"}));
+		comboBox_Turma.setFont(new Font("Lato", Font.PLAIN, 18));
+		comboBox_Turma.setBounds(470, 289, 210, 40);
+		panel_3.add(comboBox_Turma);
+		
+		panel_5 = new JPanel();
+		panel_5.setLayout(null);
+		panel_5.setBounds(0, 0, 920, 93);
+		panel_3.add(panel_5);
+		
+		lblNewLabel_5 = new JLabel("RGM");
+		lblNewLabel_5.setFont(new Font("Lato", Font.PLAIN, 16));
+		lblNewLabel_5.setBounds(23, 0, 66, 40);
+		panel_5.add(lblNewLabel_5);
+		
+		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Dialog", Font.PLAIN, 19));
+		textField_1.setColumns(10);
+		textField_1.setBounds(23, 39, 180, 40);
+		panel_5.add(textField_1);
+		
+		lblNomeDoAluno_2 = new JLabel("Nome do Aluno");
+		lblNomeDoAluno_2.setFont(new Font("Lato", Font.PLAIN, 16));
+		lblNomeDoAluno_2.setBounds(276, 0, 145, 40);
+		panel_5.add(lblNomeDoAluno_2);
+		
+		textField_2 = new JTextField();
+		textField_2.setFont(new Font("Lato", Font.PLAIN, 18));
+		textField_2.setColumns(10);
+		textField_2.setBounds(276, 39, 372, 40);
+		panel_5.add(textField_2);
+
+		panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		tabbedPane.addTab("Notas e faltas", null, panel, null);
+		panel.setLayout(null);
+
+		lblCurso = new JLabel("Curso");
+		lblCurso.setFont(new Font("Lato", Font.PLAIN, 18));
+		lblCurso.setBounds(28, 104, 66, 28);
+		panel.add(lblCurso);
+
+		lblDisciplina = new JLabel("Disciplina");
+		lblDisciplina.setFont(new Font("Lato", Font.PLAIN, 18));
+		lblDisciplina.setBounds(28, 183, 155, 28);
+		panel.add(lblDisciplina);
+
+		lblSemestre = new JLabel("Semestre");
+		lblSemestre.setFont(new Font("Lato", Font.PLAIN, 18));
+		lblSemestre.setBounds(414, 183, 155, 28);
+		panel.add(lblSemestre);
+
+		lblDisciplina_1 = new JLabel("Notas");
+		lblDisciplina_1.setFont(new Font("Lato", Font.PLAIN, 18));
+		lblDisciplina_1.setBounds(28, 279, 155, 28);
+		panel.add(lblDisciplina_1);
+
+		comboBox = new JComboBox();
+		comboBox.setFont(new Font("Lato", Font.PLAIN, 18));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Programação orientada a objetos", "Matemática discrete"}));
+		comboBox.setBounds(28, 210, 350, 40);
+		panel.add(comboBox);
+
+		lblDisciplina_4 = new JLabel("Lista de presença");
+		lblDisciplina_4.setFont(new Font("Lato", Font.PLAIN, 18));
+		lblDisciplina_4.setBounds(414, 279, 155, 28);
+		panel.add(lblDisciplina_4);
+
+		comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Analise e desenvolvimento de sistemas", "Ciência da computação", "Engenharia de software"}));
+		comboBox_2.setFont(new Font("Lato", Font.PLAIN, 18));
+		comboBox_2.setBounds(28, 132, 350, 40);
+		panel.add(comboBox_2);
+
+		comboBox_6 = new JComboBox();
+		comboBox_6.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "2019-6", "2019-2", "2019-8", "2020-3", "2021-2", "2022-9", "2022-8", "2023-3"}));
+		comboBox_6.setFont(new Font("Lato", Font.PLAIN, 18));
+		comboBox_6.setBounds(414, 211, 239, 40);
+		panel.add(comboBox_6);
+
+		btnNewButton = new JButton("");
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//===================== Informando que foi excluido
+				 int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?");
+			        if (resposta == JOptionPane.YES_OPTION) {
+			            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+			        } else if (resposta == JOptionPane.NO_OPTION) {
+			            JOptionPane.showMessageDialog(null, "Dados não excluídos!");
+			        }
+			      //==========================================
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\delete.png"));
+		btnNewButton.setBounds(780, 116, 105, 45);
+		panel.add(btnNewButton);
+
+		btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\editing.png"));
+		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton_1.setBounds(780, 210, 105, 45);
+		panel.add(btnNewButton_1);
+
+		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\FACULDADE\\3 Semestre\\Programação voltada a obejeto\\22k\\image\\exchange.png"));
+		btnNewButton_2.setBackground(Color.WHITE);
+		btnNewButton_2.setBounds(780, 304, 105, 45);
+		panel.add(btnNewButton_2);
+
+		btnNewButton_3 = new JButton("");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//==================== Informando que foi salva
+				 int resposta = JOptionPane.showConfirmDialog(null, "Deseja Salvar?");
+			        if (resposta == JOptionPane.YES_OPTION) {
+			            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+			        } else if (resposta == JOptionPane.NO_OPTION) {
+			            JOptionPane.showMessageDialog(null, "Fechar");
+			        }
+			      //==========================================
+			}
+		});
+		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\save.png"));
+		btnNewButton_3.setBackground(Color.WHITE);
+		btnNewButton_3.setBounds(780, 395, 105, 45);
+		panel.add(btnNewButton_3);
+		
+		panel_2 = new JPanel();
+		panel_2.setBounds(0, 0, 920, 93);
+		panel.add(panel_2);
+		panel_2.setLayout(null);
+		
+				lblNewLabel = new JLabel("RGM");
+				lblNewLabel.setBounds(23, 0, 66, 40);
+				panel_2.add(lblNewLabel);
+				lblNewLabel.setFont(new Font("Lato", Font.PLAIN, 16));
+				
+						txrRgm = new JTextField();
+						txrRgm.setBounds(23, 39, 180, 40);
+						panel_2.add(txrRgm);
+						txrRgm.setFont(new Font("Dialog", Font.PLAIN, 19));
+						txrRgm.setColumns(10);
+						
+								lblNomeDoAluno = new JLabel("Nome do Aluno");
+								lblNomeDoAluno.setBounds(276, 0, 145, 40);
+								panel_2.add(lblNomeDoAluno);
+								lblNomeDoAluno.setFont(new Font("Lato", Font.PLAIN, 16));
+								
+										txtPauloCorazimDa = new JTextField();
+										txtPauloCorazimDa.setBounds(276, 39, 372, 40);
+										panel_2.add(txtPauloCorazimDa);
+										txtPauloCorazimDa.setFont(new Font("Lato", Font.PLAIN, 18));
+										txtPauloCorazimDa.setColumns(10);
+										
+										scrollPane_1 = new JScrollPane();
+										scrollPane_1.setBounds(414, 318, 174, 153);
+										panel.add(scrollPane_1);
+										
+										table_1 = new JTable();
+										scrollPane_1.setViewportView(table_1);
+										
+										table_1.setModel(new DefaultTableModel(
+											new Object[][] {
+												{"01/01/2001", "3"},
+												{"01/01/2002", "3"},
+												{"01/01/2003", "1"},
+												{"01/01/2003", "0"},
+												{"01/01/2004", "3"},
+												{null, null},
+												{"01/01/2006", "3"},
+												{null, null},
+												{null, null},
+												{null, null},
+												{null, null},
+												{null, null},
+												{null, null},
+											},
+											new String[] {
+												"Data", "Presen\u00E7a"
+											}
+										));
+										table_1.setRowHeight(30);
+										table_1.setFont(new Font("Lato", Font.PLAIN, 12));
+										table_1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+										
+										panel_6 = new JPanel();
+										panel_6.setBounds(28, 318, 350, 153);
+										panel.add(panel_6);
+										panel_6.setLayout(null);
+										
+												lblDisciplina_7 = new JLabel("A1");
+												lblDisciplina_7.setBounds(10, 21, 155, 28);
+												panel_6.add(lblDisciplina_7);
+												lblDisciplina_7.setFont(new Font("Lato", Font.PLAIN, 18));
+												
+														lblDisciplina_8 = new JLabel("A2");
+														lblDisciplina_8.setBounds(10, 60, 155, 28);
+														panel_6.add(lblDisciplina_8);
+														lblDisciplina_8.setFont(new Font("Lato", Font.PLAIN, 18));
+														
+																lblDisciplina_9 = new JLabel("AF");
+																lblDisciplina_9.setBounds(10, 103, 155, 28);
+																panel_6.add(lblDisciplina_9);
+																lblDisciplina_9.setFont(new Font("Lato", Font.PLAIN, 18));
+																
+																lblDisciplina_10 = new JLabel("4,75");
+																lblDisciplina_10.setFont(new Font("Lato", Font.PLAIN, 18));
+																lblDisciplina_10.setBounds(168, 21, 155, 28);
+																panel_6.add(lblDisciplina_10);
+																
+																lblDisciplina_11 = new JLabel("3,8");
+																lblDisciplina_11.setFont(new Font("Lato", Font.PLAIN, 18));
+																lblDisciplina_11.setBounds(168, 60, 155, 28);
+																panel_6.add(lblDisciplina_11);
+																
+																lblDisciplina_12 = new JLabel("0");
+																lblDisciplina_12.setFont(new Font("Lato", Font.PLAIN, 18));
+																lblDisciplina_12.setBounds(168, 103, 155, 28);
+																panel_6.add(lblDisciplina_12);
+
+		boletimPanel = new JPanel();
+		boletimPanel.setBackground(Color.WHITE);
+		tabbedPane.addTab("Boletim", null, boletimPanel, null);
+		boletimPanel.setLayout(null);
+
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(22, 23, 841, 62);
+		boletimPanel.add(scrollPane);
+
+		table = new JTable();
+		table.setRowHeight(30);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
+		table.setFont(new Font("Lato", Font.PLAIN, 12));
+		scrollPane.setViewportView(table);
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"123456789", "Paulo Corazim da Joanes Maria Pinto", "Ciencia da computacao", "analise de desenvolvimento de sistemas", "1,75", "4", "N", "5,75", "5"},
+			},
+			new String[] {
+				"RGM", "Aluninhos", "Curso", "Disciplinas", "A1", "A2", "AF", "M\u00E9dia Final", "Faltas"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, Object.class, Object.class, Object.class, Object.class, Object.class, Object.class, Object.class, Object.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
 		table.getColumnModel().getColumn(0).setPreferredWidth(69);
-		table.getColumnModel().getColumn(1).setPreferredWidth(200);
-		table.getColumnModel().getColumn(3).setPreferredWidth(97);
+		table.getColumnModel().getColumn(1).setPreferredWidth(133);
+		table.getColumnModel().getColumn(2).setPreferredWidth(100);
+		table.getColumnModel().getColumn(3).setPreferredWidth(146);
+		table.getColumnModel().getColumn(4).setPreferredWidth(40);
+		table.getColumnModel().getColumn(5).setPreferredWidth(28);
+		table.getColumnModel().getColumn(6).setPreferredWidth(29);
+		table.getColumnModel().getColumn(7).setPreferredWidth(35);
 	}
 }
