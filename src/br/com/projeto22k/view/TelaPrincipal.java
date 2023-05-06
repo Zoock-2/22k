@@ -115,10 +115,10 @@ public class TelaPrincipal extends JFrame {
 	private JMenuItem mntmNewMenuItem_8;
 	private JMenu mnNewMenu_2;
 	private JMenuItem mntmNewMenuItem_9;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
-	private JButton btnNewButton_2;
-	private JButton btnNewButton_3;
+	private JButton btnDelete1;
+	private JButton btnAlterar1;
+	private JButton btnConsultar1;
+	private JButton btnSalvar1;
 	private JPanel panel_2;
 	private JPanel panel_5;
 	private JLabel lblNewLabel_5;
@@ -405,29 +405,33 @@ public class TelaPrincipal extends JFrame {
 																																												txtCep.setBounds(28, 211, 180, 40);
 																																												panel_4.add(txtCep);
 																																												
-																																												JButton btnNewButton_4 = new JButton("");
-																																												btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\delete.png"));
-																																												btnNewButton_4.setBackground(Color.WHITE);
-																																												btnNewButton_4.setBounds(28, 401, 105, 45);
-																																												panel_4.add(btnNewButton_4);
+																																												JButton btnDelete = new JButton("");
+																																												btnDelete.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\delete.png"));
+																																												btnDelete.setBackground(Color.WHITE);
+																																												btnDelete.setBounds(28, 401, 105, 45);
+																																												panel_4.add(btnDelete);
 																																												
-																																												JButton btnNewButton_1_1 = new JButton("");
-																																												btnNewButton_1_1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\editing.png"));
-																																												btnNewButton_1_1.setBackground(Color.WHITE);
-																																												btnNewButton_1_1.setBounds(180, 401, 105, 45);
-																																												panel_4.add(btnNewButton_1_1);
+																																												JButton btnAlterar = new JButton("");
+																																												btnAlterar.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\editing.png"));
+																																												btnAlterar.setBackground(Color.WHITE);
+																																												btnAlterar.setBounds(180, 401, 105, 45);
+																																												panel_4.add(btnAlterar);
 																																												
-																																												JButton btnNewButton_2_1 = new JButton("");
-																																												btnNewButton_2_1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\exchange.png"));
-																																												btnNewButton_2_1.setBackground(Color.WHITE);
-																																												btnNewButton_2_1.setBounds(340, 401, 105, 45);
-																																												panel_4.add(btnNewButton_2_1);
+																																												JButton btnConsultar = new JButton("");
+																																												btnConsultar.addActionListener(new ActionListener() {
+																																													public void actionPerformed(ActionEvent e) {
+																																													}
+																																												});
+																																												btnConsultar.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\exchange.png"));
+																																												btnConsultar.setBackground(Color.WHITE);
+																																												btnConsultar.setBounds(340, 401, 105, 45);
+																																												panel_4.add(btnConsultar);
 																																												
-																																												JButton btnNewButton_3_1 = new JButton("");
-																																												btnNewButton_3_1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\save.png"));
-																																												btnNewButton_3_1.setBackground(Color.WHITE);
-																																												btnNewButton_3_1.setBounds(733, 401, 105, 45);
-																																												panel_4.add(btnNewButton_3_1);
+																																												JButton btnSalvar = new JButton("");
+																																												btnSalvar.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\save.png"));
+																																												btnSalvar.setBackground(Color.WHITE);
+																																												btnSalvar.setBounds(733, 401, 105, 45);
+																																												panel_4.add(btnSalvar);
 
 		panel_3 = new JPanel();
 		panel_3.setBackground(new Color(255, 255, 255));
@@ -568,9 +572,9 @@ public class TelaPrincipal extends JFrame {
 		comboBox_6.setBounds(414, 211, 239, 40);
 		panel.add(comboBox_6);
 
-		btnNewButton = new JButton("");
-		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.addActionListener(new ActionListener() {
+		btnDelete1 = new JButton("");
+		btnDelete1.setBackground(Color.WHITE);
+		btnDelete1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//===================== Informando que foi excluido
 				 int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?");
@@ -582,32 +586,32 @@ public class TelaPrincipal extends JFrame {
 			      //==========================================
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\delete.png"));
-		btnNewButton.setBounds(780, 116, 105, 45);
-		panel.add(btnNewButton);
+		btnDelete1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\delete.png"));
+		btnDelete1.setBounds(780, 116, 105, 45);
+		panel.add(btnDelete1);
 
-		btnNewButton_1 = new JButton("");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnAlterar1 = new JButton("");
+		btnAlterar1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\editing.png"));
-		btnNewButton_1.setBackground(Color.WHITE);
-		btnNewButton_1.setBounds(780, 210, 105, 45);
-		panel.add(btnNewButton_1);
+		btnAlterar1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\editing.png"));
+		btnAlterar1.setBackground(Color.WHITE);
+		btnAlterar1.setBounds(780, 210, 105, 45);
+		panel.add(btnAlterar1);
 
-		btnNewButton_2 = new JButton("");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		btnConsultar1 = new JButton("");
+		btnConsultar1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\FACULDADE\\3 Semestre\\Programação voltada a obejeto\\22k\\image\\exchange.png"));
-		btnNewButton_2.setBackground(Color.WHITE);
-		btnNewButton_2.setBounds(780, 304, 105, 45);
-		panel.add(btnNewButton_2);
+		btnConsultar1.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\FACULDADE\\3 Semestre\\Programação voltada a obejeto\\22k\\image\\exchange.png"));
+		btnConsultar1.setBackground(Color.WHITE);
+		btnConsultar1.setBounds(780, 304, 105, 45);
+		panel.add(btnConsultar1);
 
-		btnNewButton_3 = new JButton("");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		btnSalvar1 = new JButton("");
+		btnSalvar1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//==================== Informando que foi salva
 				 int resposta = JOptionPane.showConfirmDialog(null, "Deseja Salvar?");
@@ -619,10 +623,10 @@ public class TelaPrincipal extends JFrame {
 			      //==========================================
 			}
 		});
-		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\save.png"));
-		btnNewButton_3.setBackground(Color.WHITE);
-		btnNewButton_3.setBounds(780, 395, 105, 45);
-		panel.add(btnNewButton_3);
+		btnSalvar1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\save.png"));
+		btnSalvar1.setBackground(Color.WHITE);
+		btnSalvar1.setBounds(780, 395, 105, 45);
+		panel.add(btnSalvar1);
 		
 		panel_2 = new JPanel();
 		panel_2.setBounds(0, 0, 920, 93);
