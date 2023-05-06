@@ -406,6 +406,18 @@ public class TelaPrincipal extends JFrame {
 																																												panel_4.add(txtCep);
 																																												
 																																												JButton btnDelete = new JButton("");
+																																												btnDelete.addActionListener(new ActionListener() {
+																																													public void actionPerformed(ActionEvent e) {
+																																														//===================== Informando que foi excluido
+																																														 int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?");
+																																													        if (resposta == JOptionPane.YES_OPTION) {
+																																													            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+																																													        } else if (resposta == JOptionPane.NO_OPTION) {
+																																													            JOptionPane.showMessageDialog(null, "Dados não excluídos!");
+																																													        }
+																																													      //==========================================
+																																													}
+																																												});
 																																												btnDelete.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\delete.png"));
 																																												btnDelete.setBackground(Color.WHITE);
 																																												btnDelete.setBounds(28, 401, 105, 45);
@@ -428,6 +440,19 @@ public class TelaPrincipal extends JFrame {
 																																												panel_4.add(btnConsultar);
 																																												
 																																												JButton btnSalvar = new JButton("");
+																																												btnSalvar.addActionListener(new ActionListener() {
+																																													public void actionPerformed(ActionEvent e) {
+																																														//==================== Informando que foi salva
+																																														 int resposta = JOptionPane.showConfirmDialog(null, "Deseja Salvar?");
+																																													        if (resposta == JOptionPane.YES_OPTION) {
+																																													            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+																																													        } else if (resposta == JOptionPane.NO_OPTION) {
+																																													            JOptionPane.showMessageDialog(null, "Fechar");
+																																													        }
+																																													      //==========================================
+																																													
+																																													}
+																																												});
 																																												btnSalvar.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\save.png"));
 																																												btnSalvar.setBackground(Color.WHITE);
 																																												btnSalvar.setBounds(733, 401, 105, 45);
