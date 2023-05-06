@@ -32,15 +32,30 @@ public class AlunoDAO {
 					+ "Cadaluno (RGM, "
 					+ "Nome, eMail, "
 					+ "DataNascimento, "
-					+ "Idade,Endereco) "
-					+ "values (?, ?, ?, ?, ?, ?)";
+					+ "Rua,Uf,"
+					+ "Municipio, telefone,"
+					+ "Cpf, Curso,"
+					+ "Periodo, Turma,"
+					+ "Campus, cep,"
+					+ "Num, Complemento) "
+					+ "values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			ps = conn.prepareStatement(SQL);
 			ps.setInt(1, aluno.getRgm());
 			ps.setString(2, aluno.getNome());
 			ps.setString(3, aluno.getEmail());
 			ps.setString(4, aluno.getDtaNascimento());
-			ps.setInt(5, aluno.getIdade());
-			ps.setString(6, aluno.getEndereco());
+			ps.setString(5, aluno.getRua());
+			ps.setInt(6, aluno.getUf());
+			ps.setInt(7, aluno.getMunicipio());
+			ps.setString(8, aluno.getTelefone());
+			ps.setString(9, aluno.getCpf());
+			ps.setInt(10,aluno.getCurso());
+			ps.setInt(11, aluno.getPeriodo());
+			ps.setInt(12, aluno.getTurma());
+			ps.setInt(13, aluno.getCampus());
+			ps.setString(14, aluno.getCep());
+			ps.setString(15, aluno.getNumero());
+			ps.setString(16, aluno.getComplemento());
 			ps.executeUpdate();
 		} catch (SQLException sqle) {
 			throw new Exception("Erro ao inserir dados " + sqle);
@@ -57,7 +72,7 @@ public class AlunoDAO {
 		try {
 			String SQL = "UPDATE Cadaluno set  Nome=?, "
 					+ "eMail=?, DataNascimento=?, "
-					+ "Idade=?, Endereco=? "
+					+ "Rua=?, cep=? "
 					+ "Uf=?"
 					+ "Municipio=?,"
 					+"telefone=?,"
@@ -65,23 +80,29 @@ public class AlunoDAO {
 					+ "Curso=?,"
 					+ "Periodo=?,"
 					+ "Campus=?,"
+					+ "Turma=?"
+					+ "Num=?"
+					+ "Complemento=?,"
 					+ "WHERE rgm = ?,";
 					
 					
 			ps = conn.prepareStatement(SQL);
-			ps.setString(1, aluno.getNome());
-			ps.setString(2, aluno.getEmail());
-			ps.setString(3, aluno.getDtaNascimento());
-			ps.setInt(4, aluno.getIdade());
-			ps.setString(5, aluno.getEndereco());
+			ps.setInt(1, aluno.getRgm());
+			ps.setString(2, aluno.getNome());
+			ps.setString(3, aluno.getEmail());
+			ps.setString(4, aluno.getDtaNascimento());
+			ps.setString(5, aluno.getRua());
 			ps.setInt(6, aluno.getUf());
 			ps.setInt(7, aluno.getMunicipio());
 			ps.setString(8, aluno.getTelefone());
-			ps.setString(9,  aluno.getCpf());
-			ps.setInt(10, aluno.getCurso());
+			ps.setString(9, aluno.getCpf());
+			ps.setInt(10,aluno.getCurso());
 			ps.setInt(11, aluno.getPeriodo());
-			ps.setInt(12, aluno.getCampus());
-			ps.setInt(13, aluno.getRgm());
+			ps.setInt(12, aluno.getTurma());
+			ps.setInt(13, aluno.getCampus());
+			ps.setString(14, aluno.getCep());
+			ps.setString(15, aluno.getNumero());
+			ps.setString(16, aluno.getComplemento());
 			
 			ps.executeUpdate();
 		} catch (SQLException sqle) {
@@ -121,13 +142,23 @@ public class AlunoDAO {
 			ps.setInt(1, rgm);			
 			rs = ps.executeQuery();
 			if (rs.next()) {
-				int ca = rs.getInt(1);
 				String nome = rs.getString(2);
 				String email = rs.getString(3);
-				String nascimento = rs.getString(4);
-				int idade = rs.getInt(5);
-				String endereco = rs.getString(6);
-				aluno = new Aluno(ca, nome, email, nascimento, idade, endereco);
+				String dtaNascimento = rs.getString(4);
+				String endereco = rs.getString(5);
+				int Uf = rs.getInt(6);
+				int Municipio = rs.getInt(7);
+				String telefone = rs.getString(8);
+				String cpf = rs.getString(9);
+				int curso = rs.getInt(10);
+				int campus = rs.getInt(11);
+				int periodo = rs.getInt(12);
+				String rua = rs.getString(13);
+				String cep = rs.getString(14);
+				String complemento = rs.getString(15);
+				String numero = rs.getString(16);
+				int Turma = rs.getInt(17);
+				aluno = new Aluno(rgm,nome, email, dtaNascimento,endereco, Uf, Municipio,Telefone, cpf, curso, campus, periodo, rua, cep, complemento, numero, Turma);
 			}
 			return aluno;
 		} catch (SQLException sqle) {
@@ -145,13 +176,24 @@ public class AlunoDAO {
 			rs = ps.executeQuery();
 			List<Aluno> list = new ArrayList<Aluno>();
 			while (rs.next()) {
-				int ca = rs.getInt(1);
+				int rgm = rs.getInt(1);
 				String nome = rs.getString(2);
 				String email = rs.getString(3);
-				String nascimento = rs.getString(4);
-				int idade = rs.getInt(5);
-				String endereco = rs.getString(6);
-				list.add(new Aluno(ca, nome, email, nascimento, idade, endereco));
+				String dtaNascimento = rs.getString(4);
+				String endereco = rs.getString(5);
+				int Uf = rs.getInt(6);
+				int Municipio = rs.getInt(7);
+				String Telefone = rs.getString(8);
+				String cpf = rs.getString(9);
+				int curso = rs.getInt(10);
+				int campus = rs.getInt(11);
+				int periodo = rs.getInt(12);
+				String rua = rs.getString(13);
+				String cep = rs.getString(14);
+				String complemento = rs.getString(15);
+				String numero = rs.getString(16);
+				int Turma = rs.getInt(17);
+				aluno = new Aluno(rgm,nome, email, dtaNascimento,endereco, Uf, Municipio,Telefone, cpf, curso, campus, periodo, rua, cep, complemento, numero, Turma);
 			}
 			return list;
 		} catch (SQLException sqle) {

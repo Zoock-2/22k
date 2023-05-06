@@ -5,15 +5,20 @@ public class Aluno {
 	private String nome;
 	private String email;
 	private String dtaNascimento;
-	private int idade ;
 	private String endereco;
-	private int Uf;
-	private int Municipio;
+	private int uf;
+	private int municipio;
 	private String Telefone;
 	private String cpf;
 	private  int curso;
 	private int campus;
 	private int periodo;
+	private String rua;
+	private String cep;
+	private String complemento;
+	private String numero;
+	private int Turma;
+	
 	
 
 	// construtor vazio
@@ -23,28 +28,30 @@ public class Aluno {
 	// construtor com campos
 
 
-	public Aluno(int rgm, String nome, String email, String dtaNascimento, int idade, String endereco, int uf,
-			int municipio, String telefone, String cpf, int curso, int campus, int periodo) {
+
+	public Aluno(int rgm, String nome, String email, String dtaNascimento, String endereco, int uf, int municipio,
+			String telefone, String cpf, int curso, int campus, int periodo, String rua, String cep, String complemento,
+			String numero, int turma) {
 		super();
 		this.rgm = rgm;
 		this.nome = nome;
 		this.email = email;
 		this.dtaNascimento = dtaNascimento;
-		this.idade = idade;
 		this.endereco = endereco;
-		Uf = uf;
-		Municipio = municipio;
+		this.uf = uf;
+		this.municipio = municipio;
 		Telefone = telefone;
 		this.cpf = cpf;
 		this.curso = curso;
 		this.campus = campus;
 		this.periodo = periodo;
+		this.rua = rua;
+		this.cep = cep;
+		this.complemento = complemento;
+		this.numero = numero;
+		Turma = turma;
 	}
 
-
-	public Aluno(int ca, String nome2, String email2, String nascimento, int idade2, String endereco2) {
-		// TODO Auto-generated constructor stub
-	}
 
 
 	public int getRgm() {
@@ -52,9 +59,11 @@ public class Aluno {
 	}
 
 
+
 	public void setRgm(int rgm) {
 		this.rgm = rgm;
 	}
+
 
 
 	public String getNome() {
@@ -62,9 +71,11 @@ public class Aluno {
 	}
 
 
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 
 
 	public String getEmail() {
@@ -72,9 +83,11 @@ public class Aluno {
 	}
 
 
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 
 
 	public String getDtaNascimento() {
@@ -82,19 +95,11 @@ public class Aluno {
 	}
 
 
+
 	public void setDtaNascimento(String dtaNascimento) {
 		this.dtaNascimento = dtaNascimento;
 	}
 
-
-	public int getIdade() {
-		return idade;
-	}
-
-
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
 
 
 	public String getEndereco() {
@@ -102,29 +107,35 @@ public class Aluno {
 	}
 
 
+
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
 
 
+
 	public int getUf() {
-		return Uf;
+		return uf;
 	}
+
 
 
 	public void setUf(int uf) {
-		Uf = uf;
+		this.uf = uf;
 	}
+
 
 
 	public int getMunicipio() {
-		return Municipio;
+		return municipio;
 	}
+
 
 
 	public void setMunicipio(int municipio) {
-		Municipio = municipio;
+		this.municipio = municipio;
 	}
+
 
 
 	public String getTelefone() {
@@ -132,9 +143,11 @@ public class Aluno {
 	}
 
 
+
 	public void setTelefone(String telefone) {
 		Telefone = telefone;
 	}
+
 
 
 	public String getCpf() {
@@ -142,9 +155,11 @@ public class Aluno {
 	}
 
 
+
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
 
 
 	public int getCurso() {
@@ -152,9 +167,11 @@ public class Aluno {
 	}
 
 
+
 	public void setCurso(int curso) {
 		this.curso = curso;
 	}
+
 
 
 	public int getCampus() {
@@ -162,9 +179,11 @@ public class Aluno {
 	}
 
 
+
 	public void setCampus(int campus) {
 		this.campus = campus;
 	}
+
 
 
 	public int getPeriodo() {
@@ -172,10 +191,74 @@ public class Aluno {
 	}
 
 
+
 	public void setPeriodo(int periodo) {
 		this.periodo = periodo;
 	}
-	
-	
-	
-}
+
+
+
+	public String getRua() {
+		return rua;
+	}
+
+
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+
+
+	public String getCep() {
+		return cep;
+	}
+
+
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+
+
+	public String getNumero() {
+		return numero;
+	}
+
+
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+
+
+	public int getTurma() {
+		return Turma;
+	}
+
+
+
+	public void setTurma(int turma) {
+		Turma = turma;
+	}
+
+
+
+
+
+
+}	
