@@ -404,6 +404,30 @@ public class TelaPrincipal extends JFrame {
 																																												txtCep.setFont(new Font("Dialog", Font.PLAIN, 18));
 																																												txtCep.setBounds(28, 211, 180, 40);
 																																												panel_4.add(txtCep);
+																																												
+																																												JButton btnNewButton_4 = new JButton("");
+																																												btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\delete.png"));
+																																												btnNewButton_4.setBackground(Color.WHITE);
+																																												btnNewButton_4.setBounds(28, 401, 105, 45);
+																																												panel_4.add(btnNewButton_4);
+																																												
+																																												JButton btnNewButton_1_1 = new JButton("");
+																																												btnNewButton_1_1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\editing.png"));
+																																												btnNewButton_1_1.setBackground(Color.WHITE);
+																																												btnNewButton_1_1.setBounds(180, 401, 105, 45);
+																																												panel_4.add(btnNewButton_1_1);
+																																												
+																																												JButton btnNewButton_2_1 = new JButton("");
+																																												btnNewButton_2_1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\exchange.png"));
+																																												btnNewButton_2_1.setBackground(Color.WHITE);
+																																												btnNewButton_2_1.setBounds(340, 401, 105, 45);
+																																												panel_4.add(btnNewButton_2_1);
+																																												
+																																												JButton btnNewButton_3_1 = new JButton("");
+																																												btnNewButton_3_1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\save.png"));
+																																												btnNewButton_3_1.setBackground(Color.WHITE);
+																																												btnNewButton_3_1.setBounds(733, 401, 105, 45);
+																																												panel_4.add(btnNewButton_3_1);
 
 		panel_3 = new JPanel();
 		panel_3.setBackground(new Color(255, 255, 255));
@@ -563,12 +587,20 @@ public class TelaPrincipal extends JFrame {
 		panel.add(btnNewButton);
 
 		btnNewButton_1 = new JButton("");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\editing.png"));
 		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.setBounds(780, 210, 105, 45);
 		panel.add(btnNewButton_1);
 
 		btnNewButton_2 = new JButton("");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\FACULDADE\\3 Semestre\\Programação voltada a obejeto\\22k\\image\\exchange.png"));
 		btnNewButton_2.setBackground(Color.WHITE);
 		btnNewButton_2.setBounds(780, 304, 105, 45);
