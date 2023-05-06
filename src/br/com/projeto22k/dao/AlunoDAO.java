@@ -158,7 +158,7 @@ public class AlunoDAO {
 				String complemento = rs.getString(15);
 				String numero = rs.getString(16);
 				int Turma = rs.getInt(17);
-				aluno = new Aluno(rgm,nome, email, dtaNascimento,endereco, Uf, Municipio,Telefone, cpf, curso, campus, periodo, rua, cep, complemento, numero, Turma);
+				aluno = new Aluno(rgm,nome, email, dtaNascimento,endereco, Uf, Municipio,telefone, cpf, curso, campus, periodo, rua, cep, complemento, numero, Turma);
 			}
 			return aluno;
 		} catch (SQLException sqle) {

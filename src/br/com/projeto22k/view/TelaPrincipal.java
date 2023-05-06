@@ -1,49 +1,38 @@
 package br.com.projeto22k.view;
-
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JTabbedPane;
-import javax.swing.JDesktopPane;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
 import java.awt.ComponentOrientation;
 import java.awt.Cursor;
-import java.awt.Component;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+
 import javax.swing.DefaultComboBoxModel;
-import java.awt.List;
-import javax.swing.JList;
-import java.awt.Panel;
-import javax.swing.BoxLayout;
-import javax.swing.SpringLayout;
-import java.awt.FlowLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.text.MaskFormatter;
-import javax.swing.JScrollPane;
-import javax.swing.JMenuBar;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.KeyStroke;
-import java.awt.event.KeyEvent;
-import java.text.ParseException;
-import java.awt.event.InputEvent;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.border.LineBorder;
-import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
+
+import br.com.projeto22k.dao.AlunoDAO;
+import br.com.projeto22k.model.Aluno;
 
 public class TelaPrincipal extends JFrame {
 
@@ -395,7 +384,7 @@ public class TelaPrincipal extends JFrame {
 																																												txtTelefone.setBounds(399, 132, 180, 40);
 																																												panel_4.add(txtTelefone);
 																																												
-																																												JFormattedTextField txtData = new JFormattedTextField(new MaskFormatter("##/##/####"));
+																																												JFormattedTextField txtData = new JFormattedTextField(new MaskFormatter("####-##-##"));
 																																												txtData.setFont(new Font("Dialog", Font.PLAIN, 18));
 																																												txtData.setBounds(658, 132, 180, 40);
 																																												panel_4.add(txtData);
@@ -408,10 +397,16 @@ public class TelaPrincipal extends JFrame {
 																																												JButton btnDelete = new JButton("");
 																																												btnDelete.addActionListener(new ActionListener() {
 																																													public void actionPerformed(ActionEvent e) {
+																																														Aluno aluno = new Aluno();
+																																														
 																																														//===================== Informando que foi excluido
 																																														 int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?");
 																																													        if (resposta == JOptionPane.YES_OPTION) {
-																																													            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+																																													        	
+																																	
+																																													        	
+																																													            
+																																													        	JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
 																																													        } else if (resposta == JOptionPane.NO_OPTION) {
 																																													            JOptionPane.showMessageDialog(null, "Dados não excluídos!");
 																																													        }
@@ -442,9 +437,66 @@ public class TelaPrincipal extends JFrame {
 																																												JButton btnSalvar = new JButton("");
 																																												btnSalvar.addActionListener(new ActionListener() {
 																																													public void actionPerformed(ActionEvent e) {
+																																														
 																																														//==================== Informando que foi salva
 																																														 int resposta = JOptionPane.showConfirmDialog(null, "Deseja Salvar?");
 																																													        if (resposta == JOptionPane.YES_OPTION) {
+																																													        	Aluno aluno = new Aluno();
+																																													        	aluno.setRgm(Integer.parseInt(txtRgm.getText()));
+																																													        	aluno.setNome(txtNome.getText());
+																																													        	aluno.setEmail(txtEmail.getText());
+																																													        	aluno.setDtaNascimento(txtData.getText());
+																																													        	aluno.setRua(txtRua.getText());
+																																													        	
+																																													        	String opt = txtUf.getText();
+																																													        	
+																																													        	switch (opt) {
+																																													        	case "sp":
+																																													        		aluno.setUf(1);
+																																													        		break;
+																																													        	}
+																																													        	
+																																													        	aluno.setMunicipio(Integer.parseInt(txtMunicipio.getText()));
+																																													        	aluno.setTelefone(txtTelefone.getText());
+																																													        	aluno.setCpf(txtCpf.getText());
+																																													        	
+																																													        	/*String opt2 = comboBox_Curso.get();
+																																													        	switch (opt2) {
+																																													        	case "Ciência da computação" : 
+																																													        		aluno.setCurso(1);
+																																													        		break;
+																																													        	}*/
+																																													        	aluno.setCurso(1);
+																																													        	/*aluno.setCurso(Integer.parseUnsignedInt(comboBox_Curso.getToolTipText()));*/
+																																													        	/*String opt3 = comboBox_Periodo.getToolTipText();
+																																													        	switch (opt3) {
+																																													        	case "Noturno" : aluno.setPeriodo(1);
+																																													        	}*/
+																																													        	aluno.setPeriodo(1);
+																																													        	/*String opt4 = comboBox_Turma.getToolTipText();
+																																													        	switch (opt4) {
+																																													        	case "A" : aluno.setTurma(1);
+																																													        	}*/
+																																													        	aluno.setTurma(1);
+																																													        	/*
+																																													        	String opt5 = comboBox_Campus.getToolTipText();
+																																													        	switch (opt5) {
+																																													        	case "Universidade Cidade de São Paulo - Tatuapé" : aluno.setCampus(1);
+																																													        	}*/
+																																													        	aluno.setCampus(1);
+																																													        	
+																																													        	aluno.setCep(txtCep.getText());
+																																													        	aluno.setNumero(txtNumero.getText());
+																																													        	try {
+																																																	AlunoDAO dao = new AlunoDAO();
+																																																	// salvar
+																																																	dao.salvar(aluno);
+																																																	JOptionPane.showMessageDialog(null, "Salvo com Sucesso");				
+																																																} catch(Exception e1) {
+																																																	JOptionPane.showMessageDialog(null, e1.getMessage());
+																																																}
+																																													        	
+																																													        
 																																													            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
 																																													        } else if (resposta == JOptionPane.NO_OPTION) {
 																																													            JOptionPane.showMessageDialog(null, "Fechar");
