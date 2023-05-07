@@ -18,6 +18,7 @@ public class Aluno {
 	private String numero;
 	private String complemento;
 	private int semestre;
+	private int disciplina;
 	
 	
 
@@ -25,9 +26,12 @@ public class Aluno {
 	public Aluno() {
 		// TODO Auto-generated constructor stub
 	}
+
+
+
 	public Aluno(int rgm, String nome, String email, String dtaNascimento, String rua, String uf, String municipio,
 			String telefone, String cpf, int curso, int periodo, int turma, int campus, String cep, String numero,
-			String complemento, int semestre) {
+			String complemento, int semestre, int disciplina) {
 		super();
 		this.rgm = rgm;
 		this.nome = nome;
@@ -46,7 +50,9 @@ public class Aluno {
 		this.numero = numero;
 		this.complemento = complemento;
 		this.semestre = semestre;
+		this.disciplina = disciplina;
 	}
+
 
 
 	public int getRgm() {
@@ -127,8 +133,8 @@ public class Aluno {
 
 
 
-	public void setMunicipio(String string) {
-		this.municipio = string;
+	public void setMunicipio(String municipio) {
+		this.municipio = municipio;
 	}
 
 
@@ -249,11 +255,20 @@ public class Aluno {
 
 	public void setSemestre(int semestre) {
 		this.semestre = semestre;
+	}
+
+
+
+	public int getDisciplina() {
+		return disciplina;
+	}
+
+
+
+	public void setDisciplina(int disciplina) {
+		this.disciplina = disciplina;
 	}}
-
-
-
-
+	
 
 
 

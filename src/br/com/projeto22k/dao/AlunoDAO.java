@@ -23,7 +23,7 @@ public class AlunoDAO {
 	}
 
 	// método de salvar
-
+	
 	public void salvar(Aluno aluno) throws Exception {
 		if (aluno == null)
 			throw new Exception("O valor passado nao pode ser nulo");
@@ -38,8 +38,9 @@ public class AlunoDAO {
 					+ "Periodo, Turma,"
 					+ "Campus, cep,"
 					+ "Num, Complemento,"
-					+ "Semestre) "
-					+ "values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+					+ "Semestre,"
+					+ "disp) "
+					+ "values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
 			ps = conn.prepareStatement(SQL);
 			ps.setInt(1, aluno.getRgm());
 			ps.setString(2, aluno.getNome());
@@ -58,6 +59,7 @@ public class AlunoDAO {
 			ps.setString(15, aluno.getNumero());
 			ps.setString(16, aluno.getComplemento());
 			ps.setInt(17, aluno.getSemestre());
+			ps.setInt(18, aluno.getDisciplina());
 			ps.executeUpdate();
 		} catch (SQLException sqle) {
 			throw new Exception("Erro ao inserir dados " + sqle);
@@ -85,7 +87,8 @@ public class AlunoDAO {
 					+ "Turma=?"
 					+ "Num=?"
 					+ "Complemento=?,"
-					+ "Semestre=?"
+					+ "Semestre=?,"
+					+ "disp=?"
 					+ "WHERE rgm = ?,";
 					
 					
@@ -107,6 +110,7 @@ public class AlunoDAO {
 			ps.setString(15, aluno.getNumero());
 			ps.setString(16, aluno.getComplemento());
 			ps.setInt(17, aluno.getSemestre());
+			ps.setInt(18, aluno.getDisciplina());
 			
 			ps.executeUpdate();
 		} catch (SQLException sqle) {
@@ -162,7 +166,8 @@ public class AlunoDAO {
 				String numero = rs.getString(16);
 				String complemento = rs.getString(15);
 				int semestre = rs.getInt(17);
-				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre);
+				int disciplina =rs.getInt(18);
+				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre,disciplina);
 			}
 			return aluno;
 		} catch (SQLException sqle) {
@@ -197,7 +202,8 @@ public class AlunoDAO {
 				String numero = rs.getString(16);
 				String complemento = rs.getString(15);
 				int semestre = rs.getInt(17);
-				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre);
+				int disciplina = rs.getInt(18);
+				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre,disciplina);
 			}
 			return list;
 		} catch (SQLException sqle) {
@@ -205,7 +211,19 @@ public class AlunoDAO {
 		} finally {
 			ConnectionFactory.closeConnection(conn, ps, rs);
 		}
+		
 	}
+	//metodo presença
+		public void presenca(int rgm, int curso, int disciplina)throws Exception{
+			String SQL = "SELECT `presenca`, `data`FROM Presença WHERE RGM=? AND curso=? AND disciplina=?";
+			ps.setInt(1, rgm);
+			ps.setInt(2, curso);
+			ps.setInt(3, disciplina);
+			conn = this.conn;
+			ps = conn.prepareStatement(SQL);		
+			rs = ps.executeQuery();
+		}
+
 }
 
 

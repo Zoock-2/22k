@@ -250,7 +250,7 @@ public class TelaPrincipal extends JFrame {
 														lblSemestre_1.setBounds(275, 182, 372, 28);
 														panel_4.add(lblSemestre_1);
 														
-																txtRgm = new JTextField();
+																txtRgm = new JTextField();																
 																txtRgm.setFont(new Font("Lato", Font.PLAIN, 18));
 																txtRgm.setColumns(10);
 																txtRgm.setBounds(25, 52, 180, 40);
@@ -636,7 +636,38 @@ public class TelaPrincipal extends JFrame {
 		txtBuscar1 = new JButton("");
 		txtBuscar1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					AlunoDAO alunoproc = new AlunoDAO();
+
+					Aluno alun = alunoproc.procurarAluno(Integer.parseInt(txtRgm1.getText()));
+					txtNome1.setText(alun.getNome());
+					txtRgm.setText(String.format("%d",alun.getRgm()));
+					txtNome.setText(alun.getNome());
+					txtCpf.setText(alun.getCpf());
+					txtEmail.setText(alun.getEmail());
+					txtTelefone.setText(alun.getTelefone());
+					txtData.setText(alun.getDtaNascimento());
+					txtCep.setText(alun.getCep());
+					txtRua.setText(alun.getRua());
+					txtNumero.setText(alun.getNumero());
+					txtComplemento.setText(alun.getComplemento());
+					txtMunicipio.setText(alun.getMunicipio());
+					txtUf.setText(alun.getUf());
+					comboBox_Campus.setSelectedIndex(alun.getCampus());
+					comboBox_Curso.setSelectedIndex(alun.getCurso());
+					comboBoxDisciplina1.setSelectedIndex(alun.getDisciplina());
+					comboBox_Periodo.setSelectedIndex(alun.getPeriodo());
+					comboBox_Semestre.setSelectedIndex(alun.getSemestre());
+					comboBox_Turma.setSelectedIndex(alun.getTurma());
+					comboBox_2.setSelectedIndex(alun.getCurso());
+					comboBox.setSelectedIndex(alun.getDisciplina());
+					
+					
+					
+				}catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
 			}
+				}
 		});
 		txtBuscar1.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\22k\\22k\\image\\search.png"));
 		txtBuscar1.setBackground(Color.WHITE);
