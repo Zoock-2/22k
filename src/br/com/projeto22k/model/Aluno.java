@@ -5,19 +5,19 @@ public class Aluno {
 	private String nome;
 	private String email;
 	private String dtaNascimento;
-	private String endereco;
+	private String rua;
 	private int uf;
-	private int municipio;
+	private String municipio;
 	private String Telefone;
 	private String cpf;
 	private  int curso;
-	private int campus;
 	private int periodo;
-	private String rua;
-	private String cep;
-	private String complemento;
-	private String numero;
 	private int Turma;
+	private int campus;
+	private String cep;
+	private String numero;
+	private String complemento;
+	private int semestre;
 	
 	
 
@@ -25,33 +25,28 @@ public class Aluno {
 	public Aluno() {
 		// TODO Auto-generated constructor stub
 	}
-	// construtor com campos
-
-
-
-	public Aluno(int rgm, String nome, String email, String dtaNascimento, String endereco, int uf, int municipio,
-			String telefone, String cpf, int curso, int campus, int periodo, String rua, String cep, String complemento,
-			String numero, int turma) {
+	public Aluno(int rgm, String nome, String email, String dtaNascimento, String rua, int uf, String municipio,
+			String telefone, String cpf, int curso, int periodo, int turma, int campus, String cep, String numero,
+			String complemento, int semestre) {
 		super();
 		this.rgm = rgm;
 		this.nome = nome;
 		this.email = email;
 		this.dtaNascimento = dtaNascimento;
-		this.endereco = endereco;
+		this.rua = rua;
 		this.uf = uf;
 		this.municipio = municipio;
 		this.Telefone = telefone;
 		this.cpf = cpf;
 		this.curso = curso;
-		this.campus = campus;
 		this.periodo = periodo;
-		this.rua = rua;
-		this.cep = cep;
-		this.complemento = complemento;
-		this.numero = numero;
 		this.Turma = turma;
+		this.campus = campus;
+		this.cep = cep;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.semestre = semestre;
 	}
-
 
 
 	public int getRgm() {
@@ -102,14 +97,14 @@ public class Aluno {
 
 
 
-	public String getEndereco() {
-		return endereco;
+	public String getRua() {
+		return rua;
 	}
 
 
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setRua(String rua) {
+		this.rua = rua;
 	}
 
 
@@ -126,14 +121,14 @@ public class Aluno {
 
 
 
-	public int getMunicipio() {
+	public String getMunicipio() {
 		return municipio;
 	}
 
 
 
-	public void setMunicipio(int municipio) {
-		this.municipio = municipio;
+	public void setMunicipio(String string) {
+		this.municipio = string;
 	}
 
 
@@ -174,18 +169,6 @@ public class Aluno {
 
 
 
-	public int getCampus() {
-		return campus;
-	}
-
-
-
-	public void setCampus(int campus) {
-		this.campus = campus;
-	}
-
-
-
 	public int getPeriodo() {
 		return periodo;
 	}
@@ -194,54 +177,6 @@ public class Aluno {
 
 	public void setPeriodo(int periodo) {
 		this.periodo = periodo;
-	}
-
-
-
-	public String getRua() {
-		return rua;
-	}
-
-
-
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-
-
-
-	public String getCep() {
-		return cep;
-	}
-
-
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
-
-
-	public String getComplemento() {
-		return complemento;
-	}
-
-
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-
-
-
-	public String getNumero() {
-		return numero;
-	}
-
-
-
-	public void setNumero(String numero) {
-		this.numero = numero;
 	}
 
 
@@ -258,7 +193,69 @@ public class Aluno {
 
 
 
+	public int getCampus() {
+		return campus;
+	}
 
 
 
-}	
+	public void setCampus(int campus) {
+		this.campus = campus;
+	}
+
+
+
+	public String getCep() {
+		return cep;
+	}
+
+
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+
+
+	public String getNumero() {
+		return numero;
+	}
+
+
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+
+
+	public int getSemestre() {
+		return semestre;
+	}
+
+
+
+	public void setSemestre(int semestre) {
+		this.semestre = semestre;
+	}}
+
+
+
+
+
+
+
+
+

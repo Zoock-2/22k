@@ -37,8 +37,9 @@ public class AlunoDAO {
 					+ "Cpf, Curso,"
 					+ "Periodo, Turma,"
 					+ "Campus, cep,"
-					+ "Num, Complemento) "
-					+ "values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					+ "Num, Complemento,"
+					+ "Semestre) "
+					+ "values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 			ps = conn.prepareStatement(SQL);
 			ps.setInt(1, aluno.getRgm());
 			ps.setString(2, aluno.getNome());
@@ -46,7 +47,7 @@ public class AlunoDAO {
 			ps.setString(4, aluno.getDtaNascimento());
 			ps.setString(5, aluno.getRua());
 			ps.setInt(6, aluno.getUf());
-			ps.setInt(7, aluno.getMunicipio());
+			ps.setString(7, aluno.getMunicipio());
 			ps.setString(8, aluno.getTelefone());
 			ps.setString(9, aluno.getCpf());
 			ps.setInt(10,aluno.getCurso());
@@ -56,6 +57,7 @@ public class AlunoDAO {
 			ps.setString(14, aluno.getCep());
 			ps.setString(15, aluno.getNumero());
 			ps.setString(16, aluno.getComplemento());
+			ps.setInt(17, aluno.getSemestre());
 			ps.executeUpdate();
 		} catch (SQLException sqle) {
 			throw new Exception("Erro ao inserir dados " + sqle);
@@ -83,6 +85,7 @@ public class AlunoDAO {
 					+ "Turma=?"
 					+ "Num=?"
 					+ "Complemento=?,"
+					+ "Semestre=?"
 					+ "WHERE rgm = ?,";
 					
 					
@@ -93,7 +96,7 @@ public class AlunoDAO {
 			ps.setString(4, aluno.getDtaNascimento());
 			ps.setString(5, aluno.getRua());
 			ps.setInt(6, aluno.getUf());
-			ps.setInt(7, aluno.getMunicipio());
+			ps.setString(7, aluno.getMunicipio());
 			ps.setString(8, aluno.getTelefone());
 			ps.setString(9, aluno.getCpf());
 			ps.setInt(10,aluno.getCurso());
@@ -103,6 +106,7 @@ public class AlunoDAO {
 			ps.setString(14, aluno.getCep());
 			ps.setString(15, aluno.getNumero());
 			ps.setString(16, aluno.getComplemento());
+			ps.setInt(17, aluno.getSemestre());
 			
 			ps.executeUpdate();
 		} catch (SQLException sqle) {
@@ -145,20 +149,20 @@ public class AlunoDAO {
 				String nome = rs.getString(2);
 				String email = rs.getString(3);
 				String dtaNascimento = rs.getString(4);
-				String endereco = rs.getString(5);
-				int Uf = rs.getInt(6);
-				int Municipio = rs.getInt(7);
+				String rua = rs.getString(5);
+				int uf = rs.getInt(6);
+				String municipio = rs.getString(7);
 				String telefone = rs.getString(8);
 				String cpf = rs.getString(9);
 				int curso = rs.getInt(10);
-				int campus = rs.getInt(11);
-				int periodo = rs.getInt(12);
-				String rua = rs.getString(13);
+				int periodo = rs.getInt(11);
+				int turma = rs.getInt(12);
+				int campus = rs.getInt(13);
 				String cep = rs.getString(14);
-				String complemento = rs.getString(15);
 				String numero = rs.getString(16);
-				int Turma = rs.getInt(17);
-				aluno = new Aluno(rgm,nome, email, dtaNascimento,endereco, Uf, Municipio,telefone, cpf, curso, campus, periodo, rua, cep, complemento, numero, Turma);
+				String complemento = rs.getString(15);
+				int semestre = rs.getInt(17);
+				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre);
 			}
 			return aluno;
 		} catch (SQLException sqle) {
@@ -180,20 +184,20 @@ public class AlunoDAO {
 				String nome = rs.getString(2);
 				String email = rs.getString(3);
 				String dtaNascimento = rs.getString(4);
-				String endereco = rs.getString(5);
-				int Uf = rs.getInt(6);
-				int Municipio = rs.getInt(7);
-				String Telefone = rs.getString(8);
+				String rua = rs.getString(5);
+				int uf = rs.getInt(6);
+				String municipio = rs.getString(7);
+				String telefone = rs.getString(8);
 				String cpf = rs.getString(9);
 				int curso = rs.getInt(10);
-				int campus = rs.getInt(11);
-				int periodo = rs.getInt(12);
-				String rua = rs.getString(13);
+				int periodo = rs.getInt(11);
+				int turma = rs.getInt(12);
+				int campus = rs.getInt(13);
 				String cep = rs.getString(14);
-				String complemento = rs.getString(15);
 				String numero = rs.getString(16);
-				int Turma = rs.getInt(17);
-				aluno = new Aluno(rgm,nome, email, dtaNascimento,endereco, Uf, Municipio,Telefone, cpf, curso, campus, periodo, rua, cep, complemento, numero, Turma);
+				String complemento = rs.getString(15);
+				int semestre = rs.getInt(17);
+				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre);
 			}
 			return list;
 		} catch (SQLException sqle) {

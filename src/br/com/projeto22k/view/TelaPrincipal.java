@@ -457,31 +457,20 @@ public class TelaPrincipal extends JFrame {
 																																													        		break;
 																																													        	}
 																																													        	
-																																													        	aluno.setMunicipio(Integer.parseInt(txtMunicipio.getText()));
+																																													        	aluno.setMunicipio(txtMunicipio.getText());
 																																													        	aluno.setTelefone(txtTelefone.getText());
 																																													        	aluno.setCpf(txtCpf.getText());
-																																													        	
+																																													        	aluno.setComplemento(txtComplemento.getText());
 																																													        	aluno.setCurso((Integer)comboBox_Curso.getSelectedIndex());
+																																											        	
+																																													   
 																																													        	
-																																													       
-																																													        	/*aluno.setCurso(1);*/
-																																													        	/*aluno.setCurso(Integer.parseUnsignedInt(comboBox_Curso.getToolTipText()));*/
-																																													        	/*String opt3 = comboBox_Periodo.getToolTipText();
-																																													        	switch (opt3) {
-																																													        	case "Noturno" : aluno.setPeriodo(1);
-																																													        	}*/
-																																													        	aluno.setPeriodo(1);
-																																													        	/*String opt4 = comboBox_Turma.getToolTipText();
-																																													        	switch (opt4) {
-																																													        	case "A" : aluno.setTurma(1);
-																																													        	}*/
-																																													        	aluno.setTurma(1);
-																																													        	/*
-																																													        	String opt5 = comboBox_Campus.getToolTipText();
-																																													        	switch (opt5) {
-																																													        	case "Universidade Cidade de São Paulo - Tatuapé" : aluno.setCampus(1);
-																																													        	}*/
-																																													        	aluno.setCampus(1);
+																																													        	aluno.setPeriodo(comboBox_Periodo.getSelectedIndex());
+																																													        	
+																																													        	
+																																													        	aluno.setTurma(comboBox_Turma.getSelectedIndex());
+																																													        	
+																																													        	aluno.setCampus(comboBox_Campus.getSelectedIndex());
 																																													        	
 																																													        	aluno.setCep(txtCep.getText());
 																																													        	aluno.setNumero(txtNumero.getText());
