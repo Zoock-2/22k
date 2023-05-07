@@ -94,11 +94,6 @@ public class TelaPrincipal extends JFrame {
 	private JMenuItem mntmNewMenuItem_2;
 	private JMenuItem mntmNewMenuItem_3;
 	private JMenuItem mntmNewMenuItem_4;
-	private JMenu mnNewMenu_1;
-	private JMenuItem mntmNewMenuItem_5;
-	private JMenuItem mntmNewMenuItem_6;
-	private JMenuItem mntmNewMenuItem_7;
-	private JMenuItem mntmNewMenuItem_8;
 	private JMenu mnNewMenu_2;
 	private JMenuItem mntmNewMenuItem_9;
 	private JButton btnDelete1;
@@ -148,7 +143,7 @@ public class TelaPrincipal extends JFrame {
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
-		mnNewMenu = new JMenu("Aluno");
+		mnNewMenu = new JMenu("Notas e Faltas");
 		menuBar.add(mnNewMenu);
 
 		mntmNewMenuItem = new JMenuItem("Salvar");
@@ -197,43 +192,6 @@ public class TelaPrincipal extends JFrame {
 		});
 		mntmNewMenuItem_4.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK));
 		mnNewMenu.add(mntmNewMenuItem_4);
-
-		mnNewMenu_1 = new JMenu("Notas e faltas");
-		menuBar.add(mnNewMenu_1);
-
-		mntmNewMenuItem_5 = new JMenuItem("Salvar");
-		mntmNewMenuItem_5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 int resposta = JOptionPane.showConfirmDialog(null, "Deseja Salvar?");
-			        if (resposta == JOptionPane.YES_OPTION) {
-			            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
-			        } else if (resposta == JOptionPane.NO_OPTION) {
-			            JOptionPane.showMessageDialog(null, "Fechar");
-			        }
-			}
-		});
-		mnNewMenu_1.add(mntmNewMenuItem_5);
-
-		mntmNewMenuItem_6 = new JMenuItem("Alterar");
-		mnNewMenu_1.add(mntmNewMenuItem_6);
-
-		mntmNewMenuItem_8 = new JMenuItem("Editar");
-		mnNewMenu_1.add(mntmNewMenuItem_8);
-		
-				mntmNewMenuItem_7 = new JMenuItem("Excluir");
-				mntmNewMenuItem_7.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						//==========================================
-						int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?");
-				        if (resposta == JOptionPane.YES_OPTION) {
-				            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
-				        } else if (resposta == JOptionPane.NO_OPTION) {
-				            JOptionPane.showMessageDialog(null, "Dados não excluídos!");
-				        }
-				      //==========================================
-					}
-				});
-				mnNewMenu_1.add(mntmNewMenuItem_7);
 
 		mnNewMenu_2 = new JMenu("Ajuda");
 		menuBar.add(mnNewMenu_2);
