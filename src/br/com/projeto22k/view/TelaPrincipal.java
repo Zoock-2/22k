@@ -49,8 +49,8 @@ public class TelaPrincipal extends JFrame {
 	private JLabel lblDisciplina_1;
 	private JPanel panel_1;
 	private JPanel boletimPanel;
-	private JTextField txrRgm;
-	private JTextField txtPauloCorazimDa;
+	private JTextField txtRgm3;
+	private JTextField txtNome3;
 	private JTextField txtCinciaDaComputao;
 	private JComboBox comboBox;
 	private JComboBox comboBox_Campus;
@@ -107,20 +107,37 @@ public class TelaPrincipal extends JFrame {
 	private JMenuItem mntmNewMenuItem_9;
 	private JButton btnDelete1;
 	private JButton btnAlterar1;
-	private JButton btnConsultar1;
 	private JButton btnSalvar1;
 	private JPanel panel_2;
-	private JPanel panel_5;
-	private JLabel lblNewLabel_5;
-	private JTextField textField_1;
-	private JLabel lblNomeDoAluno_2;
-	private JTextField textField_2;
 	private JTable table_1;
 	private JPanel panel_6;
 	private JLabel lblDisciplina_10;
 	private JLabel lblDisciplina_11;
 	private JLabel lblDisciplina_12;
 	private JScrollPane scrollPane_1;
+	private JButton txtBuscar3;
+	private JTextField txtError1;
+	private JTextField txtError3;
+	private JPanel panel_5;
+	private JLabel lblNewLabel_5;
+	private JTextField txtRgm2;
+	private JLabel lblNomeDoAluno_2;
+	private JTextField txtNome2;
+	private JButton txtBuscar2;
+	private JPanel panel_8;
+	private JLabel lblNewLabel_7;
+	private JTextField txtRgm4;
+	private JLabel lblNomeDoAluno_4;
+	private JTextField txtNome4;
+	private JButton txtBuscar4;
+	private JTextField txtError4;
+	private JTextField txtError2;
+	private JPanel panel_7;
+	private JLabel lblNewLabel_6;
+	private JTextField txtRgm1;
+	private JLabel lblNomeDoAluno_3;
+	private JTextField txtNome1;
+	private JButton txtBuscar1;
 
 	/**
 	 * Launch the application.
@@ -263,236 +280,179 @@ public class TelaPrincipal extends JFrame {
 		contentPane.add(tabbedPane);
 		
 				panel_4 = new JPanel();
+				panel_4.setForeground(Color.WHITE);
 				panel_4.setLayout(null);
 				panel_4.setBackground(Color.WHITE);
 				tabbedPane.addTab("Dados pessoais", null, panel_4, null);
 				
 						lblNewLabel_1 = new JLabel("RGM");
-						lblNewLabel_1.setFont(new Font("Lato", Font.PLAIN, 16));
-						lblNewLabel_1.setBounds(28, 27, 66, 20);
+						lblNewLabel_1.setFont(new Font("Dialog", Font.PLAIN, 18));
+						lblNewLabel_1.setBounds(28, 118, 66, 20);
 						panel_4.add(lblNewLabel_1);
 						
 								lblNomeDoAluno_1 = new JLabel("Nome do Aluno");
 								lblNomeDoAluno_1.setFont(new Font("Lato", Font.PLAIN, 18));
-								lblNomeDoAluno_1.setBounds(248, 22, 145, 28);
+								lblNomeDoAluno_1.setBounds(278, 114, 145, 28);
 								panel_4.add(lblNomeDoAluno_1);
 								
 										lblCurso_1 = new JLabel("E-mail");
-										lblCurso_1.setFont(new Font("Lato", Font.PLAIN, 18));
-										lblCurso_1.setBounds(28, 104, 66, 28);
+										lblCurso_1.setFont(new Font("Dialog", Font.PLAIN, 18));
+										lblCurso_1.setBounds(28, 196, 66, 28);
 										panel_4.add(lblCurso_1);
 										
 												lblDisciplina_2 = new JLabel("CEP");
 												lblDisciplina_2.setFont(new Font("Lato", Font.PLAIN, 18));
-												lblDisciplina_2.setBounds(28, 183, 155, 28);
+												lblDisciplina_2.setBounds(28, 275, 155, 28);
 												panel_4.add(lblDisciplina_2);
 												
 														lblSemestre_1 = new JLabel("Rua");
 														lblSemestre_1.setFont(new Font("Lato", Font.PLAIN, 18));
-														lblSemestre_1.setBounds(248, 183, 155, 28);
+														lblSemestre_1.setBounds(278, 275, 372, 28);
 														panel_4.add(lblSemestre_1);
 														
 																txtRgm = new JTextField();
 																txtRgm.setFont(new Font("Lato", Font.PLAIN, 18));
 																txtRgm.setColumns(10);
-																txtRgm.setBounds(28, 53, 180, 40);
+																txtRgm.setBounds(28, 145, 180, 40);
 																panel_4.add(txtRgm);
 																
 																		txtNome = new JTextField();
 																		txtNome.setFont(new Font("Lato", Font.PLAIN, 18));
 																		txtNome.setColumns(10);
-																		txtNome.setBounds(248, 53, 372, 40);
+																		txtNome.setBounds(278, 145, 372, 40);
 																		panel_4.add(txtNome);
 																		
 																				txtEmail = new JTextField();
 																				txtEmail.setFont(new Font("Lato", Font.PLAIN, 18));
 																				txtEmail.setColumns(10);
-																				txtEmail.setBounds(28, 132, 316, 40);
+																				txtEmail.setBounds(28, 224, 316, 40);
 																				panel_4.add(txtEmail);
 																				
 																						txtRua = new JTextField();
 																						txtRua.setFont(new Font("Lato", Font.PLAIN, 18));
 																						txtRua.setColumns(10);
-																						txtRua.setBounds(248, 211, 372, 40);
+																						txtRua.setBounds(278, 303, 372, 40);
 																						panel_4.add(txtRua);
 																						
 																								lblNewLabel_2 = new JLabel("CPF");
-																								lblNewLabel_2.setFont(new Font("Lato", Font.PLAIN, 16));
-																								lblNewLabel_2.setBounds(658, 27, 66, 20);
+																								lblNewLabel_2.setFont(new Font("Dialog", Font.PLAIN, 18));
+																								lblNewLabel_2.setBounds(705, 119, 66, 20);
 																								panel_4.add(lblNewLabel_2);
 																								
 																										lblNewLabel_3 = new JLabel("Data de nascimento");
 																										lblNewLabel_3.setFont(new Font("Lato", Font.PLAIN, 16));
-																										lblNewLabel_3.setBounds(658, 104, 180, 20);
+																										lblNewLabel_3.setBounds(705, 196, 180, 20);
 																										panel_4.add(lblNewLabel_3);
 																										
 																												lblNewLabel_4 = new JLabel("Telefone");
-																												lblNewLabel_4.setFont(new Font("Lato", Font.PLAIN, 16));
-																												lblNewLabel_4.setBounds(399, 104, 180, 20);
+																												lblNewLabel_4.setFont(new Font("Dialog", Font.PLAIN, 18));
+																												lblNewLabel_4.setBounds(375, 196, 275, 20);
 																												panel_4.add(lblNewLabel_4);
 																												
 																														lblSemestre_2 = new JLabel("Número");
 																														lblSemestre_2.setFont(new Font("Lato", Font.PLAIN, 18));
-																														lblSemestre_2.setBounds(658, 183, 180, 28);
+																														lblSemestre_2.setBounds(705, 275, 180, 28);
 																														panel_4.add(lblSemestre_2);
 																														
 																																txtNumero = new JTextField();
 																																txtNumero.setFont(new Font("Lato", Font.PLAIN, 18));
 																																txtNumero.setColumns(10);
-																																txtNumero.setBounds(658, 211, 180, 40);
+																																txtNumero.setBounds(705, 303, 180, 40);
 																																panel_4.add(txtNumero);
 																																
 																																		lblDisciplina_3 = new JLabel("Complemento");
 																																		lblDisciplina_3.setFont(new Font("Lato", Font.PLAIN, 18));
-																																		lblDisciplina_3.setBounds(28, 273, 155, 28);
+																																		lblDisciplina_3.setBounds(28, 354, 155, 28);
 																																		panel_4.add(lblDisciplina_3);
 																																		
 																																				txtComplemento = new JTextField();
 																																				txtComplemento.setFont(new Font("Lato", Font.PLAIN, 18));
 																																				txtComplemento.setColumns(10);
-																																				txtComplemento.setBounds(28, 301, 316, 40);
+																																				txtComplemento.setBounds(28, 382, 316, 40);
 																																				panel_4.add(txtComplemento);
 																																				
 																																						txtMunicipio = new JTextField();
 																																						txtMunicipio.setFont(new Font("Lato", Font.PLAIN, 18));
 																																						txtMunicipio.setColumns(10);
-																																						txtMunicipio.setBounds(399, 301, 221, 40);
+																																						txtMunicipio.setBounds(375, 382, 275, 40);
 																																						panel_4.add(txtMunicipio);
 																																						
 																																								lblDisciplina_5 = new JLabel("Município");
 																																								lblDisciplina_5.setFont(new Font("Lato", Font.PLAIN, 18));
-																																								lblDisciplina_5.setBounds(399, 273, 155, 28);
+																																								lblDisciplina_5.setBounds(375, 354, 275, 28);
 																																								panel_4.add(lblDisciplina_5);
 																																								
 																																										txtUf = new JTextField();
 																																										txtUf.setFont(new Font("Lato", Font.PLAIN, 18));
 																																										txtUf.setColumns(10);
-																																										txtUf.setBounds(658, 301, 180, 40);
+																																										txtUf.setBounds(705, 382, 180, 40);
 																																										panel_4.add(txtUf);
 																																										
 																																												lblDisciplina_6 = new JLabel("UF");
 																																												lblDisciplina_6.setFont(new Font("Lato", Font.PLAIN, 18));
-																																												lblDisciplina_6.setBounds(658, 273, 155, 28);
+																																												lblDisciplina_6.setBounds(705, 354, 155, 28);
 																																												panel_4.add(lblDisciplina_6);
 																																												
 																																												JFormattedTextField txtCpf = new JFormattedTextField(new MaskFormatter("###.###.###-##"));
 																																												txtCpf.setFont(new Font("Dialog", Font.PLAIN, 18));
-																																												txtCpf.setBounds(658, 53, 180, 40);
+																																												txtCpf.setBounds(705, 145, 180, 40);
 																																												panel_4.add(txtCpf);
 																																												
 																																												JFormattedTextField txtTelefone = new JFormattedTextField(new MaskFormatter("(##) #####-####"));
 																																												txtTelefone.setFont(new Font("Dialog", Font.PLAIN, 18));
-																																												txtTelefone.setBounds(399, 132, 180, 40);
+																																												txtTelefone.setBounds(375, 224, 275, 40);
 																																												panel_4.add(txtTelefone);
 																																												
 																																												JFormattedTextField txtData = new JFormattedTextField(new MaskFormatter("####-##-##"));
 																																												txtData.setFont(new Font("Dialog", Font.PLAIN, 18));
-																																												txtData.setBounds(658, 132, 180, 40);
+																																												txtData.setBounds(705, 224, 180, 40);
 																																												panel_4.add(txtData);
 																																												
 																																												JFormattedTextField txtCep = new JFormattedTextField(new MaskFormatter("#####-###"));
 																																												txtCep.setFont(new Font("Dialog", Font.PLAIN, 18));
-																																												txtCep.setBounds(28, 211, 180, 40);
+																																												txtCep.setBounds(28, 303, 180, 40);
 																																												panel_4.add(txtCep);
 																																												
-																																												JButton btnDelete = new JButton("");
-																																												btnDelete.addActionListener(new ActionListener() {
-																																													public void actionPerformed(ActionEvent e) {
-																																														Aluno aluno = new Aluno();
-																																														
-																																														//===================== Informando que foi excluido
-																																														 int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?");
-																																													        if (resposta == JOptionPane.YES_OPTION) {
-																																													        	
-																																	
-																																													        	
-																																													            
-																																													        	JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
-																																													        } else if (resposta == JOptionPane.NO_OPTION) {
-																																													            JOptionPane.showMessageDialog(null, "Dados não excluídos!");
-																																													        }
-																																													      //==========================================
-																																													}
-																																												});
-																																												btnDelete.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\delete.png"));
-																																												btnDelete.setBackground(Color.WHITE);
-																																												btnDelete.setBounds(28, 401, 105, 45);
-																																												panel_4.add(btnDelete);
+																																												txtError1 = new JTextField();
+																																												txtError1.setForeground(Color.BLACK);
+																																												txtError1.setFont(new Font("Dialog", Font.PLAIN, 18));
+																																												txtError1.setText("Aluno não localizado...");
+																																												txtError1.setBounds(28, 476, 210, 20);
+																																												panel_4.add(txtError1);
+																																												txtError1.setColumns(10);
 																																												
-																																												JButton btnAlterar = new JButton("");
-																																												btnAlterar.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\editing.png"));
-																																												btnAlterar.setBackground(Color.WHITE);
-																																												btnAlterar.setBounds(180, 401, 105, 45);
-																																												panel_4.add(btnAlterar);
+																																												panel_7 = new JPanel();
+																																												panel_7.setLayout(null);
+																																												panel_7.setBounds(0, 0, 915, 93);
+																																												panel_4.add(panel_7);
 																																												
-																																												JButton btnConsultar = new JButton("");
-																																												btnConsultar.addActionListener(new ActionListener() {
-																																													public void actionPerformed(ActionEvent e) {
-																																													}
-																																												});
-																																												btnConsultar.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\exchange.png"));
-																																												btnConsultar.setBackground(Color.WHITE);
-																																												btnConsultar.setBounds(340, 401, 105, 45);
-																																												panel_4.add(btnConsultar);
+																																												lblNewLabel_6 = new JLabel("RGM");
+																																												lblNewLabel_6.setFont(new Font("Dialog", Font.PLAIN, 16));
+																																												lblNewLabel_6.setBounds(23, 0, 66, 40);
+																																												panel_7.add(lblNewLabel_6);
 																																												
-																																												JButton btnSalvar = new JButton("");
-																																												btnSalvar.addActionListener(new ActionListener() {
-																																													public void actionPerformed(ActionEvent e) {
-																																														
-																																														//==================== Informando que foi salva
-																																														 int resposta = JOptionPane.showConfirmDialog(null, "Deseja Salvar?");
-																																													        if (resposta == JOptionPane.YES_OPTION) {
-																																													        	Aluno aluno = new Aluno();
-																																													        	aluno.setRgm(Integer.parseInt(txtRgm.getText()));
-																																													        	aluno.setNome(txtNome.getText());
-																																													        	aluno.setEmail(txtEmail.getText());
-																																													        	aluno.setDtaNascimento(txtData.getText());
-																																													        	aluno.setRua(txtRua.getText());
-																																													        	
-																																													        	
-																																													        	aluno.setUf(txtUf.getText());
-																																													        		
-																																													        	
-																																													        	
-																																													        	aluno.setMunicipio(txtMunicipio.getText());
-																																													        	aluno.setTelefone(txtTelefone.getText());
-																																													        	aluno.setCpf(txtCpf.getText());
-																																													        	aluno.setComplemento(txtComplemento.getText());
-																																													        	aluno.setCurso((Integer)comboBox_Curso.getSelectedIndex());
-																																											        	
-																																													   
-																																													        	
-																																													        	aluno.setPeriodo(comboBox_Periodo.getSelectedIndex());
-																																													        	
-																																													        	
-																																													        	aluno.setTurma(comboBox_Turma.getSelectedIndex());
-																																													        	
-																																													        	aluno.setCampus(comboBox_Campus.getSelectedIndex());
-																																													        	
-																																													        	aluno.setCep(txtCep.getText());
-																																													        	aluno.setNumero(txtNumero.getText());
-																																													        	try {
-																																																	AlunoDAO dao = new AlunoDAO();
-																																																	// salvar
-																																																	dao.salvar(aluno);
-																																																	JOptionPane.showMessageDialog(null, "Salvo com Sucesso");				
-																																																} catch(Exception e1) {
-																																																	JOptionPane.showMessageDialog(null, e1.getMessage());
-																																																}
-																																													        	
-																																													        
-																																													            
-																																													        } else if (resposta == JOptionPane.NO_OPTION) {
-																																													            JOptionPane.showMessageDialog(null, "Fechar");
-																																													        }
-																																													      //==========================================
-																																													
-																																													}
-																																												});
-																																												btnSalvar.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\save.png"));
-																																												btnSalvar.setBackground(Color.WHITE);
-																																												btnSalvar.setBounds(733, 401, 105, 45);
-																																												panel_4.add(btnSalvar);
+																																												txtRgm1 = new JTextField();
+																																												txtRgm1.setFont(new Font("Dialog", Font.PLAIN, 19));
+																																												txtRgm1.setColumns(10);
+																																												txtRgm1.setBounds(23, 39, 180, 40);
+																																												panel_7.add(txtRgm1);
+																																												
+																																												lblNomeDoAluno_3 = new JLabel("Nome do Aluno");
+																																												lblNomeDoAluno_3.setFont(new Font("Dialog", Font.PLAIN, 16));
+																																												lblNomeDoAluno_3.setBounds(276, 0, 145, 40);
+																																												panel_7.add(lblNomeDoAluno_3);
+																																												
+																																												txtNome1 = new JTextField();
+																																												txtNome1.setFont(new Font("Dialog", Font.PLAIN, 18));
+																																												txtNome1.setColumns(10);
+																																												txtNome1.setBounds(276, 39, 372, 40);
+																																												panel_7.add(txtNome1);
+																																												
+																																												txtBuscar1 = new JButton("");
+																																												txtBuscar1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Documentos\\22k\\image\\search.png"));
+																																												txtBuscar1.setBackground(Color.WHITE);
+																																												txtBuscar1.setBounds(778, 34, 105, 45);
+																																												panel_7.add(txtBuscar1);
 
 		panel_3 = new JPanel();
 		panel_3.setBackground(new Color(255, 255, 255));
@@ -506,7 +466,7 @@ public class TelaPrincipal extends JFrame {
 
 		lblSemestre = new JLabel("Período");
 		lblSemestre.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblSemestre.setBounds(30, 262, 155, 28);
+		lblSemestre.setBounds(30, 340, 155, 28);
 		panel_3.add(lblSemestre);
 
 		comboBox_Campus = new JComboBox();
@@ -528,18 +488,18 @@ public class TelaPrincipal extends JFrame {
 
 		lblSemestre_5 = new JLabel("Semestre");
 		lblSemestre_5.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblSemestre_5.setBounds(250, 262, 155, 28);
+		lblSemestre_5.setBounds(250, 340, 155, 28);
 		panel_3.add(lblSemestre_5);
 
 		lblSemestre_4 = new JLabel("Turma");
 		lblSemestre_4.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblSemestre_4.setBounds(470, 261, 155, 28);
+		lblSemestre_4.setBounds(470, 339, 155, 28);
 		panel_3.add(lblSemestre_4);
 
 		comboBox_Periodo = new JComboBox();
 		comboBox_Periodo.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Matutino", "Diurno", "Noturno"}));
 		comboBox_Periodo.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Periodo.setBounds(30, 289, 210, 40);
+		comboBox_Periodo.setBounds(30, 367, 210, 40);
 		panel_3.add(comboBox_Periodo);
 
 		label = new JLabel("New label");
@@ -549,41 +509,66 @@ public class TelaPrincipal extends JFrame {
 		comboBox_Semestre = new JComboBox();
 		comboBox_Semestre.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "1°", "2°", "3°", "4°", "5°", "6°", "7°", "8°", "9°", "10°"}));
 		comboBox_Semestre.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Semestre.setBounds(250, 290, 210, 40);
+		comboBox_Semestre.setBounds(250, 368, 210, 40);
 		panel_3.add(comboBox_Semestre);
 
 		comboBox_Turma = new JComboBox();
 		comboBox_Turma.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "A", "B", "C", "D", "E"}));
 		comboBox_Turma.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Turma.setBounds(470, 289, 210, 40);
+		comboBox_Turma.setBounds(470, 367, 210, 40);
 		panel_3.add(comboBox_Turma);
 		
 		panel_5 = new JPanel();
 		panel_5.setLayout(null);
-		panel_5.setBounds(0, 0, 920, 93);
+		panel_5.setBounds(0, 0, 915, 93);
 		panel_3.add(panel_5);
 		
 		lblNewLabel_5 = new JLabel("RGM");
-		lblNewLabel_5.setFont(new Font("Lato", Font.PLAIN, 16));
+		lblNewLabel_5.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblNewLabel_5.setBounds(23, 0, 66, 40);
 		panel_5.add(lblNewLabel_5);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Dialog", Font.PLAIN, 19));
-		textField_1.setColumns(10);
-		textField_1.setBounds(23, 39, 180, 40);
-		panel_5.add(textField_1);
+		txtRgm2 = new JTextField();
+		txtRgm2.setFont(new Font("Dialog", Font.PLAIN, 19));
+		txtRgm2.setColumns(10);
+		txtRgm2.setBounds(23, 39, 180, 40);
+		panel_5.add(txtRgm2);
 		
 		lblNomeDoAluno_2 = new JLabel("Nome do Aluno");
-		lblNomeDoAluno_2.setFont(new Font("Lato", Font.PLAIN, 16));
+		lblNomeDoAluno_2.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblNomeDoAluno_2.setBounds(276, 0, 145, 40);
 		panel_5.add(lblNomeDoAluno_2);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Lato", Font.PLAIN, 18));
-		textField_2.setColumns(10);
-		textField_2.setBounds(276, 39, 372, 40);
-		panel_5.add(textField_2);
+		txtNome2 = new JTextField();
+		txtNome2.setFont(new Font("Dialog", Font.PLAIN, 18));
+		txtNome2.setColumns(10);
+		txtNome2.setBounds(276, 39, 372, 40);
+		panel_5.add(txtNome2);
+		
+		txtBuscar2 = new JButton("");
+		txtBuscar2.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Documentos\\22k\\image\\search.png"));
+		txtBuscar2.setBackground(Color.WHITE);
+		txtBuscar2.setBounds(778, 34, 105, 45);
+		panel_5.add(txtBuscar2);
+		
+		txtError2 = new JTextField();
+		txtError2.setText("Aluno não localizado...");
+		txtError2.setForeground(Color.BLACK);
+		txtError2.setFont(new Font("Dialog", Font.PLAIN, 18));
+		txtError2.setColumns(10);
+		txtError2.setBounds(10, 465, 210, 20);
+		panel_3.add(txtError2);
+		
+		JComboBox comboBoxDisciplina1 = new JComboBox();
+		comboBoxDisciplina1.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Programação orientada a objetos", "Matemática discrete"}));
+		comboBoxDisciplina1.setFont(new Font("Dialog", Font.PLAIN, 18));
+		comboBoxDisciplina1.setBounds(30, 289, 650, 40);
+		panel_3.add(comboBoxDisciplina1);
+		
+		JLabel lblDisciplina_13 = new JLabel("Disciplina");
+		lblDisciplina_13.setFont(new Font("Dialog", Font.PLAIN, 18));
+		lblDisciplina_13.setBounds(30, 262, 155, 28);
+		panel_3.add(lblDisciplina_13);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
@@ -607,7 +592,7 @@ public class TelaPrincipal extends JFrame {
 
 		lblDisciplina_1 = new JLabel("Notas");
 		lblDisciplina_1.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina_1.setBounds(28, 279, 155, 28);
+		lblDisciplina_1.setBounds(28, 261, 155, 28);
 		panel.add(lblDisciplina_1);
 
 		comboBox = new JComboBox();
@@ -618,7 +603,7 @@ public class TelaPrincipal extends JFrame {
 
 		lblDisciplina_4 = new JLabel("Lista de presença");
 		lblDisciplina_4.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina_4.setBounds(414, 279, 155, 28);
+		lblDisciplina_4.setBounds(414, 262, 155, 28);
 		panel.add(lblDisciplina_4);
 
 		comboBox_2 = new JComboBox();
@@ -647,7 +632,7 @@ public class TelaPrincipal extends JFrame {
 			      //==========================================
 			}
 		});
-		btnDelete1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\delete.png"));
+		btnDelete1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Documentos\\22k\\image\\delete.png"));
 		btnDelete1.setBounds(780, 116, 105, 45);
 		panel.add(btnDelete1);
 
@@ -656,20 +641,10 @@ public class TelaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnAlterar1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\editing.png"));
+		btnAlterar1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Documentos\\22k\\image\\editing.png"));
 		btnAlterar1.setBackground(Color.WHITE);
 		btnAlterar1.setBounds(780, 210, 105, 45);
 		panel.add(btnAlterar1);
-
-		btnConsultar1 = new JButton("");
-		btnConsultar1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnConsultar1.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\FACULDADE\\3 Semestre\\Programação voltada a obejeto\\22k\\image\\exchange.png"));
-		btnConsultar1.setBackground(Color.WHITE);
-		btnConsultar1.setBounds(780, 304, 105, 45);
-		panel.add(btnConsultar1);
 
 		btnSalvar1 = new JButton("");
 		btnSalvar1.addActionListener(new ActionListener() {
@@ -684,7 +659,7 @@ public class TelaPrincipal extends JFrame {
 			      //==========================================
 			}
 		});
-		btnSalvar1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Área de Trabalho\\Projeto MVC\\22k\\image\\save.png"));
+		btnSalvar1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Documentos\\22k\\image\\save.png"));
 		btnSalvar1.setBackground(Color.WHITE);
 		btnSalvar1.setBounds(780, 395, 105, 45);
 		panel.add(btnSalvar1);
@@ -699,25 +674,31 @@ public class TelaPrincipal extends JFrame {
 				panel_2.add(lblNewLabel);
 				lblNewLabel.setFont(new Font("Lato", Font.PLAIN, 16));
 				
-						txrRgm = new JTextField();
-						txrRgm.setBounds(23, 39, 180, 40);
-						panel_2.add(txrRgm);
-						txrRgm.setFont(new Font("Dialog", Font.PLAIN, 19));
-						txrRgm.setColumns(10);
+						txtRgm3 = new JTextField();
+						txtRgm3.setBounds(23, 39, 180, 40);
+						panel_2.add(txtRgm3);
+						txtRgm3.setFont(new Font("Dialog", Font.PLAIN, 19));
+						txtRgm3.setColumns(10);
 						
 								lblNomeDoAluno = new JLabel("Nome do Aluno");
 								lblNomeDoAluno.setBounds(276, 0, 145, 40);
 								panel_2.add(lblNomeDoAluno);
 								lblNomeDoAluno.setFont(new Font("Lato", Font.PLAIN, 16));
 								
-										txtPauloCorazimDa = new JTextField();
-										txtPauloCorazimDa.setBounds(276, 39, 372, 40);
-										panel_2.add(txtPauloCorazimDa);
-										txtPauloCorazimDa.setFont(new Font("Lato", Font.PLAIN, 18));
-										txtPauloCorazimDa.setColumns(10);
+										txtNome3 = new JTextField();
+										txtNome3.setBounds(276, 39, 372, 40);
+										panel_2.add(txtNome3);
+										txtNome3.setFont(new Font("Lato", Font.PLAIN, 18));
+										txtNome3.setColumns(10);
+										
+										txtBuscar3 = new JButton("");
+										txtBuscar3.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Documentos\\22k\\image\\search.png"));
+										txtBuscar3.setBackground(Color.WHITE);
+										txtBuscar3.setBounds(778, 34, 105, 45);
+										panel_2.add(txtBuscar3);
 										
 										scrollPane_1 = new JScrollPane();
-										scrollPane_1.setBounds(414, 318, 174, 153);
+										scrollPane_1.setBounds(414, 301, 239, 153);
 										panel.add(scrollPane_1);
 										
 										table_1 = new JTable();
@@ -743,12 +724,14 @@ public class TelaPrincipal extends JFrame {
 												"Data", "Presen\u00E7a"
 											}
 										));
+										table_1.getColumnModel().getColumn(0).setPreferredWidth(101);
+										table_1.getColumnModel().getColumn(1).setPreferredWidth(97);
 										table_1.setRowHeight(30);
-										table_1.setFont(new Font("Lato", Font.PLAIN, 12));
+										table_1.setFont(new Font("Dialog", Font.PLAIN, 16));
 										table_1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 										
 										panel_6 = new JPanel();
-										panel_6.setBounds(28, 318, 350, 153);
+										panel_6.setBounds(28, 300, 350, 153);
 										panel.add(panel_6);
 										panel_6.setLayout(null);
 										
@@ -781,6 +764,14 @@ public class TelaPrincipal extends JFrame {
 																lblDisciplina_12.setFont(new Font("Lato", Font.PLAIN, 18));
 																lblDisciplina_12.setBounds(168, 103, 155, 28);
 																panel_6.add(lblDisciplina_12);
+																
+																txtError3 = new JTextField();
+																txtError3.setText("Aluno não localizado...");
+																txtError3.setForeground(Color.BLACK);
+																txtError3.setFont(new Font("Dialog", Font.PLAIN, 18));
+																txtError3.setColumns(10);
+																txtError3.setBounds(28, 476, 210, 20);
+																panel.add(txtError3);
 
 		boletimPanel = new JPanel();
 		boletimPanel.setBackground(Color.WHITE);
@@ -788,7 +779,7 @@ public class TelaPrincipal extends JFrame {
 		boletimPanel.setLayout(null);
 
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(22, 23, 841, 62);
+		scrollPane.setBounds(25, 117, 854, 62);
 		boletimPanel.add(scrollPane);
 
 		table = new JTable();
@@ -811,6 +802,47 @@ public class TelaPrincipal extends JFrame {
 				return columnTypes[columnIndex];
 			}
 		});
+		
+		panel_8 = new JPanel();
+		panel_8.setLayout(null);
+		panel_8.setBounds(0, 0, 915, 93);
+		boletimPanel.add(panel_8);
+		
+		lblNewLabel_7 = new JLabel("RGM");
+		lblNewLabel_7.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNewLabel_7.setBounds(23, 0, 66, 40);
+		panel_8.add(lblNewLabel_7);
+		
+		txtRgm4 = new JTextField();
+		txtRgm4.setFont(new Font("Dialog", Font.PLAIN, 19));
+		txtRgm4.setColumns(10);
+		txtRgm4.setBounds(23, 39, 180, 40);
+		panel_8.add(txtRgm4);
+		
+		lblNomeDoAluno_4 = new JLabel("Nome do Aluno");
+		lblNomeDoAluno_4.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNomeDoAluno_4.setBounds(276, 0, 145, 40);
+		panel_8.add(lblNomeDoAluno_4);
+		
+		txtNome4 = new JTextField();
+		txtNome4.setFont(new Font("Dialog", Font.PLAIN, 18));
+		txtNome4.setColumns(10);
+		txtNome4.setBounds(276, 39, 372, 40);
+		panel_8.add(txtNome4);
+		
+		txtBuscar4 = new JButton("");
+		txtBuscar4.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Documentos\\22k\\image\\search.png"));
+		txtBuscar4.setBackground(Color.WHITE);
+		txtBuscar4.setBounds(778, 34, 105, 45);
+		panel_8.add(txtBuscar4);
+		
+		txtError4 = new JTextField();
+		txtError4.setText("Aluno não localizado...");
+		txtError4.setForeground(Color.BLACK);
+		txtError4.setFont(new Font("Dialog", Font.PLAIN, 18));
+		txtError4.setColumns(10);
+		txtError4.setBounds(10, 476, 210, 20);
+		boletimPanel.add(txtError4);
 		table.getColumnModel().getColumn(0).setPreferredWidth(69);
 		table.getColumnModel().getColumn(1).setPreferredWidth(133);
 		table.getColumnModel().getColumn(2).setPreferredWidth(100);
