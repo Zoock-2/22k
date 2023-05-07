@@ -35,6 +35,7 @@ import javax.swing.text.MaskFormatter;
 
 import br.com.projeto22k.dao.AlunoDAO;
 import br.com.projeto22k.model.Aluno;
+import java.awt.Toolkit;
 
 public class TelaPrincipal extends JFrame {
 
@@ -116,6 +117,8 @@ public class TelaPrincipal extends JFrame {
 	private JLabel lblNomeDoAluno_3;
 	private JTextField txtNome1;
 	private JButton txtBuscar1;
+	private JButton txtBuscardisciplina;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -138,6 +141,7 @@ public class TelaPrincipal extends JFrame {
 	 * @throws Exception 
 	 */
 	public TelaPrincipal() throws Exception {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\IMAGENS PROJETO\\LOGO.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1100, 600);
 
@@ -494,21 +498,20 @@ public class TelaPrincipal extends JFrame {
 		panel.add(comboBox_6);
 										
 										scrollPane_1 = new JScrollPane();
-										scrollPane_1.setBounds(414, 208, 239, 153);
+										scrollPane_1.setBounds(414, 208, 373, 153);
 										panel.add(scrollPane_1);
 										
 										table_1 = new JTable();
 										scrollPane_1.setViewportView(table_1);
 										AlunoDAO alonpres = new AlunoDAO();
 										Object[][] aluno = {};
-										table_1.setModel(new DefaultTableModel(aluno,
-											
+										table_1.setModel(new DefaultTableModel(
+											new Object[][] {
+											},
 											new String[] {
 												"Data", "Presen\u00E7a"
 											}
-				                                                
 										));
-										
 										table_1.getColumnModel().getColumn(0).setPreferredWidth(101);
 										table_1.getColumnModel().getColumn(1).setPreferredWidth(97);
 										table_1.setRowHeight(30);
@@ -521,23 +524,23 @@ public class TelaPrincipal extends JFrame {
 										panel_6.setLayout(null);
 										
 												lblDisciplina_7 = new JLabel("A1");
-												lblDisciplina_7.setBounds(10, 21, 155, 28);
+												lblDisciplina_7.setBounds(10, 22, 155, 28);
 												panel_6.add(lblDisciplina_7);
-												lblDisciplina_7.setFont(new Font("Lato", Font.PLAIN, 18));
+												lblDisciplina_7.setFont(new Font("Lato", Font.BOLD, 16));
 												
 														lblDisciplina_8 = new JLabel("A2");
 														lblDisciplina_8.setBounds(10, 60, 155, 28);
 														panel_6.add(lblDisciplina_8);
-														lblDisciplina_8.setFont(new Font("Lato", Font.PLAIN, 18));
+														lblDisciplina_8.setFont(new Font("Lato", Font.BOLD, 16));
 														
 																lblDisciplina_9 = new JLabel("AF");
-																lblDisciplina_9.setBounds(10, 103, 155, 28);
+																lblDisciplina_9.setBounds(10, 93, 155, 28);
 																panel_6.add(lblDisciplina_9);
-																lblDisciplina_9.setFont(new Font("Lato", Font.PLAIN, 18));
+																lblDisciplina_9.setFont(new Font("Lato", Font.BOLD, 16));
 																
 																lblDisciplina_10 = new JLabel("4,75");
 																lblDisciplina_10.setFont(new Font("Lato", Font.PLAIN, 18));
-																lblDisciplina_10.setBounds(168, 21, 155, 28);
+																lblDisciplina_10.setBounds(168, 22, 155, 28);
 																panel_6.add(lblDisciplina_10);
 																
 																lblDisciplina_11 = new JLabel("3,8");
@@ -547,7 +550,7 @@ public class TelaPrincipal extends JFrame {
 																
 																lblDisciplina_12 = new JLabel("0");
 																lblDisciplina_12.setFont(new Font("Lato", Font.PLAIN, 18));
-																lblDisciplina_12.setBounds(168, 103, 155, 28);
+																lblDisciplina_12.setBounds(168, 93, 155, 28);
 																panel_6.add(lblDisciplina_12);
 																
 																txtError3 = new JTextField();
@@ -557,6 +560,12 @@ public class TelaPrincipal extends JFrame {
 																txtError3.setColumns(10);
 																txtError3.setBounds(28, 476, 210, 20);
 																panel.add(txtError3);
+																
+																txtBuscardisciplina = new JButton("");
+																txtBuscardisciplina.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\22k\\22k\\image\\search.png"));
+																txtBuscardisciplina.setBackground(Color.WHITE);
+																txtBuscardisciplina.setBounds(682, 117, 105, 45);
+																panel.add(txtBuscardisciplina);
 
 		boletimPanel = new JPanel();
 		boletimPanel.setBackground(Color.WHITE);
@@ -663,6 +672,11 @@ public class TelaPrincipal extends JFrame {
 		txtBuscar1.setBackground(Color.WHITE);
 		txtBuscar1.setBounds(923, 25, 105, 45);
 		panel_7.add(txtBuscar1);
+		
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\22k\\22k\\image\\logo.png"));
+		lblNewLabel.setBounds(10, 11, 90, 63);
+		panel_7.add(lblNewLabel);
 		
 				btnSalvar1 = new JButton("");
 				btnSalvar1.setBounds(924, 487, 105, 45);
