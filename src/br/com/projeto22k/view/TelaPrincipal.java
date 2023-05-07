@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.DefaultComboBoxModel;
@@ -460,13 +461,10 @@ public class TelaPrincipal extends JFrame {
 																																													        	aluno.setTelefone(txtTelefone.getText());
 																																													        	aluno.setCpf(txtCpf.getText());
 																																													        	
-																																													        	/*String opt2 = comboBox_Curso.get();
-																																													        	switch (opt2) {
-																																													        	case "Ciência da computação" : 
-																																													        		aluno.setCurso(1);
-																																													        		break;
-																																													        	}*/
-																																													        	aluno.setCurso(1);
+																																													        	aluno.setCurso((Integer)comboBox_Curso.getSelectedIndex());
+																																													        	
+																																													       
+																																													        	/*aluno.setCurso(1);*/
 																																													        	/*aluno.setCurso(Integer.parseUnsignedInt(comboBox_Curso.getToolTipText()));*/
 																																													        	/*String opt3 = comboBox_Periodo.getToolTipText();
 																																													        	switch (opt3) {
@@ -497,7 +495,7 @@ public class TelaPrincipal extends JFrame {
 																																																}
 																																													        	
 																																													        
-																																													            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+																																													            
 																																													        } else if (resposta == JOptionPane.NO_OPTION) {
 																																													            JOptionPane.showMessageDialog(null, "Fechar");
 																																													        }

@@ -40,7 +40,7 @@ public class Aluno {
 		this.endereco = endereco;
 		this.uf = uf;
 		this.municipio = municipio;
-		Telefone = telefone;
+		this.Telefone = telefone;
 		this.cpf = cpf;
 		this.curso = curso;
 		this.campus = campus;
@@ -49,7 +49,7 @@ public class Aluno {
 		this.cep = cep;
 		this.complemento = complemento;
 		this.numero = numero;
-		Turma = turma;
+		this.Turma = turma;
 	}
 
 
