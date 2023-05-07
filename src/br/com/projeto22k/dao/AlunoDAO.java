@@ -46,7 +46,7 @@ public class AlunoDAO {
 			ps.setString(3, aluno.getEmail());
 			ps.setString(4, aluno.getDtaNascimento());
 			ps.setString(5, aluno.getRua());
-			ps.setInt(6, aluno.getUf());
+			ps.setString(6, aluno.getUf());
 			ps.setString(7, aluno.getMunicipio());
 			ps.setString(8, aluno.getTelefone());
 			ps.setString(9, aluno.getCpf());
@@ -95,7 +95,7 @@ public class AlunoDAO {
 			ps.setString(3, aluno.getEmail());
 			ps.setString(4, aluno.getDtaNascimento());
 			ps.setString(5, aluno.getRua());
-			ps.setInt(6, aluno.getUf());
+			ps.setString(6, aluno.getUf());
 			ps.setString(7, aluno.getMunicipio());
 			ps.setString(8, aluno.getTelefone());
 			ps.setString(9, aluno.getCpf());
@@ -150,7 +150,7 @@ public class AlunoDAO {
 				String email = rs.getString(3);
 				String dtaNascimento = rs.getString(4);
 				String rua = rs.getString(5);
-				int uf = rs.getInt(6);
+				String uf = rs.getString(6);
 				String municipio = rs.getString(7);
 				String telefone = rs.getString(8);
 				String cpf = rs.getString(9);
@@ -185,7 +185,7 @@ public class AlunoDAO {
 				String email = rs.getString(3);
 				String dtaNascimento = rs.getString(4);
 				String rua = rs.getString(5);
-				int uf = rs.getInt(6);
+				String uf = rs.getString(6);
 				String municipio = rs.getString(7);
 				String telefone = rs.getString(8);
 				String cpf = rs.getString(9);

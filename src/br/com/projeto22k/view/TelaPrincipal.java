@@ -449,13 +449,10 @@ public class TelaPrincipal extends JFrame {
 																																													        	aluno.setDtaNascimento(txtData.getText());
 																																													        	aluno.setRua(txtRua.getText());
 																																													        	
-																																													        	String opt = txtUf.getText();
 																																													        	
-																																													        	switch (opt) {
-																																													        	case "sp":
-																																													        		aluno.setUf(1);
-																																													        		break;
-																																													        	}
+																																													        	aluno.setUf(txtUf.getText());
+																																													        		
+																																													        	
 																																													        	
 																																													        	aluno.setMunicipio(txtMunicipio.getText());
 																																													        	aluno.setTelefone(txtTelefone.getText());

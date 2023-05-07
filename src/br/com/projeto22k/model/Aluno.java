@@ -6,7 +6,7 @@ public class Aluno {
 	private String email;
 	private String dtaNascimento;
 	private String rua;
-	private int uf;
+	private String uf;
 	private String municipio;
 	private String Telefone;
 	private String cpf;
@@ -25,7 +25,7 @@ public class Aluno {
 	public Aluno() {
 		// TODO Auto-generated constructor stub
 	}
-	public Aluno(int rgm, String nome, String email, String dtaNascimento, String rua, int uf, String municipio,
+	public Aluno(int rgm, String nome, String email, String dtaNascimento, String rua, String uf, String municipio,
 			String telefone, String cpf, int curso, int periodo, int turma, int campus, String cep, String numero,
 			String complemento, int semestre) {
 		super();
@@ -109,13 +109,13 @@ public class Aluno {
 
 
 
-	public int getUf() {
+	public String getUf() {
 		return uf;
 	}
 
 
 
-	public void setUf(int uf) {
+	public void setUf(String uf) {
 		this.uf = uf;
 	}
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 07-Maio-2023 às 18:19
+-- Tempo de geração: 07-Maio-2023 às 18:21
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.4
 
@@ -33,7 +33,7 @@ CREATE TABLE `Cadaluno` (
   `eMail` varchar(20) NOT NULL,
   `DataNascimento` date DEFAULT NULL,
   `Rua` varchar(30) DEFAULT NULL,
-  `Uf` int(11) NOT NULL DEFAULT 1,
+  `Uf` varchar(3) DEFAULT NULL,
   `Municipio` varchar(35) DEFAULT NULL,
   `telefone` varchar(20) DEFAULT NULL,
   `Cpf` varchar(20) DEFAULT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE `Cadaluno` (
 --
 
 INSERT INTO `Cadaluno` (`RGM`, `Nome`, `eMail`, `DataNascimento`, `Rua`, `Uf`, `Municipio`, `telefone`, `Cpf`, `Curso`, `Periodo`, `Turma`, `Campus`, `cep`, `Num`, `Complemento`, `Semestre`) VALUES
-(134698, 'jkadhfkj', 'khafihugo', '2000-08-28', 'klhfall', 1, 'Sampa', '(19) 24780-1274', '182.749.138-69', 2, 3, 1, 1, '19824-619', '109', 'Perto de algum lugar', 0);
+(134698, 'jkadhfkj', 'khafihugo', '2000-08-28', 'klhfall', '1', 'Sampa', '(19) 24780-1274', '182.749.138-69', 2, 3, 1, 1, '19824-619', '109', 'Perto de algum lugar', 0);
 
 --
 -- Índices para tabelas despejadas
@@ -82,7 +82,6 @@ ALTER TABLE `Cadaluno`
 ALTER TABLE `Cadaluno`
   ADD CONSTRAINT `campusid` FOREIGN KEY (`Campus`) REFERENCES `Campus` (`Idcampus`),
   ADD CONSTRAINT `cursoid` FOREIGN KEY (`Curso`) REFERENCES `Cursos` (`Idcurso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `ifid` FOREIGN KEY (`Uf`) REFERENCES `uf` (`iduf`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `periodoid` FOREIGN KEY (`Periodo`) REFERENCES `periodos` (`idperiodo`),
   ADD CONSTRAINT `turma-id` FOREIGN KEY (`Turma`) REFERENCES `Turma` (`turmaId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
