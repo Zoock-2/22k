@@ -1,4 +1,5 @@
 package br.com.projeto22k.model;
+import java.util.ArrayList;
 
 public class Aluno {
 	private int rgm;
@@ -19,41 +20,10 @@ public class Aluno {
 	private String complemento;
 	private int semestre;
 	private int disciplina;
+	ArrayList <String>presenca;
+	ArrayList <String>dta;
+ 
 	
-	
-
-	// construtor vazio
-	public Aluno() {
-		// TODO Auto-generated constructor stub
-	}
-
-
-
-	public Aluno(int rgm, String nome, String email, String dtaNascimento, String rua, String uf, String municipio,
-			String telefone, String cpf, int curso, int periodo, int turma, int campus, String cep, String numero,
-			String complemento, int semestre, int disciplina) {
-		super();
-		this.rgm = rgm;
-		this.nome = nome;
-		this.email = email;
-		this.dtaNascimento = dtaNascimento;
-		this.rua = rua;
-		this.uf = uf;
-		this.municipio = municipio;
-		this.Telefone = telefone;
-		this.cpf = cpf;
-		this.curso = curso;
-		this.periodo = periodo;
-		this.Turma = turma;
-		this.campus = campus;
-		this.cep = cep;
-		this.numero = numero;
-		this.complemento = complemento;
-		this.semestre = semestre;
-		this.disciplina = disciplina;
-	}
-
-
 
 	public int getRgm() {
 		return rgm;
@@ -267,7 +237,70 @@ public class Aluno {
 
 	public void setDisciplina(int disciplina) {
 		this.disciplina = disciplina;
-	}}
+	}
+
+
+
+	public ArrayList<String> getPresenca() {
+		return presenca;
+	}
+
+
+
+	public void setPresenca(ArrayList<String> presenca) {
+		this.presenca = presenca;
+	}
+
+
+
+	public ArrayList<String> getDta() {
+		return dta;
+	}
+
+
+
+	public void setDta(ArrayList<String> dta) {
+		this.dta = dta;
+	}
+
+
+
+	public Aluno(int rgm, String nome, String email, String dtaNascimento, String rua, String uf, String municipio,
+			String telefone, String cpf, int curso, int periodo, int turma, int campus, String cep, String numero,
+			String complemento, int semestre, int disciplina, ArrayList<String> presenca, ArrayList<String> dta) {
+		super();
+		this.rgm = rgm;
+		this.nome = nome;
+		this.email = email;
+		this.dtaNascimento = dtaNascimento;
+		this.rua = rua;
+		this.uf = uf;
+		this.municipio = municipio;
+		this.Telefone = telefone;
+		this.cpf = cpf;
+		this.curso = curso;
+		this.periodo = periodo;
+		this.Turma = turma;
+		this.campus = campus;
+		this.cep = cep;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.semestre = semestre;
+		this.disciplina = disciplina;
+		this.presenca = presenca;
+		this.dta = dta;
+	}
+
+
+
+	// construtor vazio
+	public Aluno() {
+		// TODO Auto-generated constructor stub
+	}
+}
+
+
+
 	
 
 

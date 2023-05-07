@@ -30,6 +30,7 @@ import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.text.MaskFormatter;
 
 import br.com.projeto22k.dao.AlunoDAO;
@@ -498,27 +499,16 @@ public class TelaPrincipal extends JFrame {
 										
 										table_1 = new JTable();
 										scrollPane_1.setViewportView(table_1);
-										
-										table_1.setModel(new DefaultTableModel(
-											new Object[][] {
-												{"01/01/2001", "3"},
-												{"01/01/2002", "3"},
-												{"01/01/2003", "1"},
-												{"01/01/2003", "0"},
-												{"01/01/2004", "3"},
-												{null, null},
-												{"01/01/2006", "3"},
-												{null, null},
-												{null, null},
-												{null, null},
-												{null, null},
-												{null, null},
-												{null, null},
-											},
+										AlunoDAO alonpres = new AlunoDAO();
+										Object[][] aluno = {};
+										table_1.setModel(new DefaultTableModel(aluno,
+											
 											new String[] {
 												"Data", "Presen\u00E7a"
 											}
+				                                                
 										));
+										
 										table_1.getColumnModel().getColumn(0).setPreferredWidth(101);
 										table_1.getColumnModel().getColumn(1).setPreferredWidth(97);
 										table_1.setRowHeight(30);

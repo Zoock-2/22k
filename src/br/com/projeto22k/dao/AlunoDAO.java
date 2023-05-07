@@ -167,7 +167,7 @@ public class AlunoDAO {
 				String complemento = rs.getString(15);
 				int semestre = rs.getInt(17);
 				int disciplina =rs.getInt(18);
-				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre,disciplina);
+				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre,disciplina,null,null);
 			}
 			return aluno;
 		} catch (SQLException sqle) {
@@ -203,7 +203,7 @@ public class AlunoDAO {
 				String complemento = rs.getString(15);
 				int semestre = rs.getInt(17);
 				int disciplina = rs.getInt(18);
-				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre,disciplina);
+				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre,disciplina,null,null);
 			}
 			return list;
 		} catch (SQLException sqle) {
@@ -214,7 +214,7 @@ public class AlunoDAO {
 		
 	}
 	//metodo presença
-		public void presenca(int rgm, int curso, int disciplina)throws Exception{
+		/*public Object[][] presenca(int rgm, int curso, int disciplina)throws Exception{
 			String SQL = "SELECT `presenca`, `data`FROM Presença WHERE RGM=? AND curso=? AND disciplina=?";
 			ps.setInt(1, rgm);
 			ps.setInt(2, curso);
@@ -222,7 +222,20 @@ public class AlunoDAO {
 			conn = this.conn;
 			ps = conn.prepareStatement(SQL);		
 			rs = ps.executeQuery();
-		}
+			
+			
+			List<Object[]> rows = new ArrayList<>();
+			while (rs.next()) {
+			    Object[] row = new Object[2];
+			    row[0] = rs.getObject("presenca");
+			    row[1] = rs.getObject("data");
+			    rows.add(row);
+			}
+			Object[][] dados = rows.toArray(new Object[0][]);
+
+			return dados ;
+			
+		}*/
 
 }
 
