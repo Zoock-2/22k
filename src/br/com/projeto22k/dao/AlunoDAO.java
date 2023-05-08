@@ -76,41 +76,42 @@ public class AlunoDAO {
 		try {
 			String SQL = "UPDATE Cadaluno set  Nome=?, "
 					+ "eMail=?, DataNascimento=?, "
-					+ "Rua=?, cep=? "
-					+ "Uf=?"
+					+ "Rua=?, Uf=?, "
 					+ "Municipio=?,"
-					+"telefone=?,"
+					+ "telefone=?,"
 					+ "Cpf=?,"
 					+ "Curso=?,"
 					+ "Periodo=?,"
+					+ "Turma=?,"
 					+ "Campus=?,"
-					+ "Turma=?"
-					+ "Num=?"
+					+ "cep=?,"
+					+ "Num=?,"
 					+ "Complemento=?,"
 					+ "Semestre=?,"
-					+ "disp=?"
-					+ "WHERE rgm = ?,";
+					+ "disp=? "
+					+ "WHERE rgm = ?;";
 					
 					
 			ps = conn.prepareStatement(SQL);
-			ps.setInt(1, aluno.getRgm());
-			ps.setString(2, aluno.getNome());
-			ps.setString(3, aluno.getEmail());
-			ps.setString(4, aluno.getDtaNascimento());
-			ps.setString(5, aluno.getRua());
-			ps.setString(6, aluno.getUf());
-			ps.setString(7, aluno.getMunicipio());
-			ps.setString(8, aluno.getTelefone());
-			ps.setString(9, aluno.getCpf());
-			ps.setInt(10,aluno.getCurso());
-			ps.setInt(11, aluno.getPeriodo());
-			ps.setInt(12, aluno.getTurma());
-			ps.setInt(13, aluno.getCampus());
-			ps.setString(14, aluno.getCep());
-			ps.setString(15, aluno.getNumero());
-			ps.setString(16, aluno.getComplemento());
-			ps.setInt(17, aluno.getSemestre());
-			ps.setInt(18, aluno.getDisciplina());
+			
+			ps.setString(1, aluno.getNome());
+			ps.setString(2, aluno.getEmail());
+			ps.setString(3, aluno.getDtaNascimento());
+			ps.setString(4, aluno.getRua());
+			ps.setString(5, aluno.getUf());
+			ps.setString(6, aluno.getMunicipio());
+			ps.setString(7, aluno.getTelefone());
+			ps.setString(8, aluno.getCpf());
+			ps.setInt(9,aluno.getCurso());
+			ps.setInt(10, aluno.getPeriodo());
+			ps.setInt(11, aluno.getTurma());
+			ps.setInt(12, aluno.getCampus());
+			ps.setString(13, aluno.getCep());
+			ps.setString(14, aluno.getNumero());
+			ps.setString(15, aluno.getComplemento());
+			ps.setInt(16, aluno.getSemestre());
+			ps.setInt(17, aluno.getDisciplina());
+			ps.setInt(18, aluno.getRgm());
 			
 			ps.executeUpdate();
 		} catch (SQLException sqle) {
@@ -214,28 +215,7 @@ public class AlunoDAO {
 		
 	}
 	//metodo presença
-		/*public Object[][] presenca(int rgm, int curso, int disciplina)throws Exception{
-			String SQL = "SELECT `presenca`, `data`FROM Presença WHERE RGM=? AND curso=? AND disciplina=?";
-			ps.setInt(1, rgm);
-			ps.setInt(2, curso);
-			ps.setInt(3, disciplina);
-			conn = this.conn;
-			ps = conn.prepareStatement(SQL);		
-			rs = ps.executeQuery();
-			
-			
-			List<Object[]> rows = new ArrayList<>();
-			while (rs.next()) {
-			    Object[] row = new Object[2];
-			    row[0] = rs.getObject("presenca");
-			    row[1] = rs.getObject("data");
-			    rows.add(row);
-			}
-			Object[][] dados = rows.toArray(new Object[0][]);
 
-			return dados ;
-			
-		}*/
 
 }
 

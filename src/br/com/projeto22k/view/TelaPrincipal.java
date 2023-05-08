@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -33,8 +35,13 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.text.MaskFormatter;
 
+import com.mysql.jdbc.Connection;
+
 import br.com.projeto22k.dao.AlunoDAO;
+
 import br.com.projeto22k.model.Aluno;
+import br.com.projeto22k.util.ConnectionFactory;
+
 import java.awt.Toolkit;
 
 public class TelaPrincipal extends JFrame {
@@ -50,7 +57,7 @@ public class TelaPrincipal extends JFrame {
 	private JPanel panel_1;
 	private JPanel boletimPanel;
 	private JTextField txtCinciaDaComputao;
-	private JComboBox comboBox;
+	private JComboBox comboBox_Discplina;
 	private JComboBox comboBox_Campus;
 	private JPanel panel_4;
 	private JLabel lblNewLabel_1;
@@ -119,6 +126,9 @@ public class TelaPrincipal extends JFrame {
 	private JButton txtBuscar1;
 	private JButton txtBuscardisciplina;
 	private JLabel lblNewLabel;
+	protected ResultSet rs;
+	protected boolean presenca;
+	protected Object pres;
 
 	/**
 	 * Launch the application.
@@ -474,11 +484,12 @@ public class TelaPrincipal extends JFrame {
 		lblDisciplina_1.setBounds(28, 168, 155, 28);
 		panel.add(lblDisciplina_1);
 
-		comboBox = new JComboBox();
-		comboBox.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Programação orientada a objetos", "Matemática discrete"}));
-		comboBox.setBounds(28, 117, 350, 40);
-		panel.add(comboBox);
+		comboBox_Discplina = new JComboBox();
+		comboBox_Discplina.setFont(new Font("Lato", Font.PLAIN, 18));
+		comboBox_Discplina.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Programação orientada a objetos", "Matemática discrete"}));
+		comboBox_Discplina.setSelectedIndex(1);
+		comboBox_Discplina.setBounds(28, 117, 350, 40);
+		panel.add(comboBox_Discplina);
 
 		lblDisciplina_4 = new JLabel("Lista de presença");
 		lblDisciplina_4.setFont(new Font("Lato", Font.PLAIN, 18));
@@ -501,22 +512,7 @@ public class TelaPrincipal extends JFrame {
 										scrollPane_1.setBounds(414, 208, 373, 153);
 										panel.add(scrollPane_1);
 										
-										table_1 = new JTable();
-										scrollPane_1.setViewportView(table_1);
-										AlunoDAO alonpres = new AlunoDAO();
-										Object[][] aluno = {};
-										table_1.setModel(new DefaultTableModel(
-											new Object[][] {
-											},
-											new String[] {
-												"Data", "Presen\u00E7a"
-											}
-										));
-										table_1.getColumnModel().getColumn(0).setPreferredWidth(101);
-										table_1.getColumnModel().getColumn(1).setPreferredWidth(97);
-										table_1.setRowHeight(30);
-										table_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-										table_1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+										
 										
 										panel_6 = new JPanel();
 										panel_6.setBounds(28, 207, 350, 153);
@@ -562,6 +558,40 @@ public class TelaPrincipal extends JFrame {
 																panel.add(txtError3);
 																
 																txtBuscardisciplina = new JButton("");
+																txtBuscardisciplina.addActionListener(new ActionListener() {
+																	
+
+																	public void actionPerformed(ActionEvent e) {
+																		try {
+																		String[] cols = {"Data","Presença"};
+																		DefaultTableModel tables = new DefaultTableModel(cols,0);
+																		
+																		
+																		java.sql.Connection conn = ConnectionFactory.getConnection();
+																		String SQL = "SELECT `presenca`, `data`FROM Presença WHERE RGM=? AND curso=? AND disciplina=?";
+																		PreparedStatement ps = conn.prepareStatement(SQL);
+																		ps.setInt(1, Integer.parseInt(txtRgm.getText()));
+																		ps.setInt(2, comboBox_Curso.getSelectedIndex());
+																		ps.setInt(3, comboBox_Discplina.getSelectedIndex());
+																		rs = ps.executeQuery();
+																		while (rs.next()) {
+															                Object[] linha = {rs.getDate("data"),rs.getString("presenca") };
+															                tables.addRow(linha);
+																		}
+																		table_1 = new JTable(tables);
+																		scrollPane_1.setViewportView(table_1);
+																		table_1.getColumnModel().getColumn(0).setPreferredWidth(101);
+																		table_1.getColumnModel().getColumn(1).setPreferredWidth(97);
+																		table_1.setRowHeight(30);
+																		table_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+																		table_1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+																		
+																		
+																		}catch (Exception e2) {
+																			JOptionPane.showMessageDialog(null, e2.getMessage());
+																		}
+																	}
+																});
 																txtBuscardisciplina.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\22k\\22k\\image\\search.png"));
 																txtBuscardisciplina.setBackground(Color.WHITE);
 																txtBuscardisciplina.setBounds(682, 117, 105, 45);
@@ -659,7 +689,8 @@ public class TelaPrincipal extends JFrame {
 					comboBox_Semestre.setSelectedIndex(alun.getSemestre());
 					comboBox_Turma.setSelectedIndex(alun.getTurma());
 					comboBox_2.setSelectedIndex(alun.getCurso());
-					comboBox.setSelectedIndex(alun.getDisciplina());
+					comboBox_Discplina.setSelectedIndex(alun.getDisciplina());
+					comboBox_6.setSelectedIndex(alun.getSemestre());
 					
 					
 					
@@ -686,7 +717,36 @@ public class TelaPrincipal extends JFrame {
 						//==================== Informando que foi salva
 						 int resposta = JOptionPane.showConfirmDialog(null, "Deseja Salvar?");
 					        if (resposta == JOptionPane.YES_OPTION) {
-					            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+					        	
+							
+								Aluno aluno = new Aluno();
+					        	aluno.setRgm(Integer.parseInt(txtRgm.getText()));
+					        	aluno.setNome(txtNome.getText());
+					        	aluno.setEmail(txtEmail.getText());
+					        	aluno.setDtaNascimento(txtData.getText());
+					        	aluno.setRua(txtRua.getText());
+					        	aluno.setUf(txtUf.getText());
+					        	aluno.setMunicipio(txtMunicipio.getText());
+					        	aluno.setTelefone(txtTelefone.getText());
+					        	aluno.setCpf(txtCpf.getText());
+					        	aluno.setComplemento(txtComplemento.getText());
+					        	aluno.setCurso((Integer)comboBox_Curso.getSelectedIndex());																																											        	
+					        	aluno.setPeriodo(comboBox_Periodo.getSelectedIndex());																													        	
+					        	aluno.setTurma(comboBox_Turma.getSelectedIndex());
+					        	aluno.setCampus(comboBox_Campus.getSelectedIndex());
+					        	aluno.setCep(txtCep.getText());
+					        	aluno.setNumero(txtNumero.getText());
+					        	aluno.setSemestre(comboBox_6.getSelectedIndex());
+					        	aluno.setDisciplina(comboBox_Discplina.getSelectedIndex());
+					        	try {
+					        		AlunoDAO dao = new AlunoDAO();
+									// salvar
+									dao.salvar(aluno);
+									JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
+					        	}catch(Exception e1) {
+					        		JOptionPane.showMessageDialog(null, e1.getMessage());
+					        	}
+					            
 					        } else if (resposta == JOptionPane.NO_OPTION) {
 					            JOptionPane.showMessageDialog(null, "Fechar");
 					        }
@@ -701,8 +761,45 @@ public class TelaPrincipal extends JFrame {
 						contentPane.add(btnAlterar1);
 						btnAlterar1.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-							}
-						});
+								
+								int resposta =JOptionPane.showConfirmDialog(null, "Deseja alterar?");
+								if (resposta ==JOptionPane.YES_OPTION) {
+									Aluno aluno = new Aluno();
+									aluno.setRgm(Integer.parseInt(txtRgm1.getText()));
+						        	aluno.setNome(txtNome.getText());
+						        	aluno.setEmail(txtEmail.getText());
+						        	aluno.setDtaNascimento(txtData.getText());
+						        	aluno.setRua(txtRua.getText());
+						        	aluno.setUf(txtUf.getText());
+						        	aluno.setMunicipio(txtMunicipio.getText());
+						        	aluno.setTelefone(txtTelefone.getText());
+						        	aluno.setCpf(txtCpf.getText());
+						        	aluno.setComplemento(txtComplemento.getText());
+						        	aluno.setCurso((Integer)comboBox_Curso.getSelectedIndex());																																											        	
+						        	aluno.setPeriodo(comboBox_Periodo.getSelectedIndex());																													        	
+						        	aluno.setTurma(comboBox_Turma.getSelectedIndex());
+						        	aluno.setCampus(comboBox_Campus.getSelectedIndex());
+						        	aluno.setCep(txtCep.getText());
+						        	aluno.setNumero(txtNumero.getText());
+						        	aluno.setSemestre(comboBox_6.getSelectedIndex());
+						        	aluno.setDisciplina(comboBoxDisciplina1.getSelectedIndex());
+						        	try {
+						        		AlunoDAO dao =new AlunoDAO();
+						        		dao.atualizar(aluno);
+						        		JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+								}catch(Exception e3){
+									JOptionPane.showMessageDialog(null, e3.getMessage());
+								}
+										
+								
+							       
+							}else if (resposta == JOptionPane.NO_OPTION) {
+					            JOptionPane.showMessageDialog(null, "Dados não alterados!");
+					        }
+						}
+							});
+						
+						
 						btnAlterar1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Documentos\\22k\\image\\editing.png"));
 						btnAlterar1.setBackground(Color.WHITE);
 						
@@ -715,6 +812,37 @@ public class TelaPrincipal extends JFrame {
 										//===================== Informando que foi excluido
 										 int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?");
 									        if (resposta == JOptionPane.YES_OPTION) {
+									        	try {
+									        		AlunoDAO dao = new AlunoDAO();
+									        		Aluno aluno = new Aluno();
+									        		aluno.setRgm(Integer.parseInt( txtRgm.getText()));
+													// salvar
+													dao.excluir(aluno);
+													txtNome1.setText(null);
+													txtRgm.setText(null);
+													txtNome.setText(null);
+													txtCpf.setText(null);
+													txtEmail.setText(null);
+													txtTelefone.setText(null);
+													txtData.setText(null);
+													txtCep.setText(null);
+													txtRua.setText(null);
+													txtNumero.setText(null);
+													txtComplemento.setText(null);
+													txtMunicipio.setText(null);
+													txtUf.setText(null);
+													comboBox_Campus.setSelectedIndex(0);
+													comboBox_Curso.setSelectedIndex(0);
+													comboBoxDisciplina1.setSelectedIndex(0);
+													comboBox_Periodo.setSelectedIndex(0);
+													comboBox_Semestre.setSelectedIndex(0);
+													comboBox_Turma.setSelectedIndex(0);
+													comboBox_2.setSelectedIndex(0);
+													comboBox_Discplina.setSelectedIndex(0);
+													comboBox_6.setSelectedIndex(0);
+									        	}catch(Exception e2) {
+									        		JOptionPane.showMessageDialog(null, e2.getMessage());
+									        	}
 									            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
 									        } else if (resposta == JOptionPane.NO_OPTION) {
 									            JOptionPane.showMessageDialog(null, "Dados não excluídos!");
@@ -723,6 +851,37 @@ public class TelaPrincipal extends JFrame {
 									}
 								});
 								btnDelete1.setIcon(new ImageIcon("C:\\Users\\fehlp\\OneDrive\\Documentos\\22k\\image\\delete.png"));
+								
+								JButton btn_limpar = new JButton("");
+								btn_limpar.addActionListener(new ActionListener() {
+									public void actionPerformed(ActionEvent e) {
+										txtNome1.setText(null);
+										txtRgm.setText(null);
+										txtNome.setText(null);
+										txtCpf.setText(null);
+										txtEmail.setText(null);
+										txtTelefone.setText(null);
+										txtData.setText(null);
+										txtCep.setText(null);
+										txtRua.setText(null);
+										txtNumero.setText(null);
+										txtComplemento.setText(null);
+										txtMunicipio.setText(null);
+										txtUf.setText(null);
+										comboBox_Campus.setSelectedIndex(0);
+										comboBox_Curso.setSelectedIndex(0);
+										comboBoxDisciplina1.setSelectedIndex(0);
+										comboBox_Periodo.setSelectedIndex(0);
+										comboBox_Semestre.setSelectedIndex(0);
+										comboBox_Turma.setSelectedIndex(0);
+										comboBox_2.setSelectedIndex(0);
+										comboBox_Discplina.setSelectedIndex(0);
+										comboBox_6.setSelectedIndex(0);
+									}
+								});
+								btn_limpar.setBackground(Color.WHITE);
+								btn_limpar.setBounds(577, 488, 105, 45);
+								contentPane.add(btn_limpar);
 		table.getColumnModel().getColumn(0).setPreferredWidth(69);
 		table.getColumnModel().getColumn(1).setPreferredWidth(133);
 		table.getColumnModel().getColumn(2).setPreferredWidth(100);

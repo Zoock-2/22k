@@ -20,8 +20,8 @@ public class Aluno {
 	private String complemento;
 	private int semestre;
 	private int disciplina;
-	ArrayList <String>presenca;
-	ArrayList <String>dta;
+	private Object Presenca;
+	private Object dta;
  
 	
 
@@ -241,19 +241,19 @@ public class Aluno {
 
 
 
-	public ArrayList<String> getPresenca() {
-		return presenca;
+	public Object getPresenca() {
+		return Presenca;
 	}
 
 
 
 	public void setPresenca(ArrayList<String> presenca) {
-		this.presenca = presenca;
+		this.Presenca = presenca;
 	}
 
 
 
-	public ArrayList<String> getDta() {
+	public Object getDta() {
 		return dta;
 	}
 
@@ -287,7 +287,7 @@ public class Aluno {
 		this.complemento = complemento;
 		this.semestre = semestre;
 		this.disciplina = disciplina;
-		this.presenca = presenca;
+		this.Presenca = presenca;
 		this.dta = dta;
 	}
 
