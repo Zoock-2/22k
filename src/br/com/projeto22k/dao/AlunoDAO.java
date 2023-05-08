@@ -38,9 +38,8 @@ public class AlunoDAO {
 					+ "Periodo, Turma,"
 					+ "Campus, cep,"
 					+ "Num, Complemento,"
-					+ "Semestre,"
 					+ "disp) "
-					+ "values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
+					+ "values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 			ps = conn.prepareStatement(SQL);
 			ps.setInt(1, aluno.getRgm());
 			ps.setString(2, aluno.getNome());
@@ -58,8 +57,7 @@ public class AlunoDAO {
 			ps.setString(14, aluno.getCep());
 			ps.setString(15, aluno.getNumero());
 			ps.setString(16, aluno.getComplemento());
-			ps.setInt(17, aluno.getSemestre());
-			ps.setInt(18, aluno.getDisciplina());
+			ps.setInt(17, aluno.getDisciplina());
 			ps.executeUpdate();
 		} catch (SQLException sqle) {
 			throw new Exception("Erro ao inserir dados " + sqle);
@@ -87,7 +85,6 @@ public class AlunoDAO {
 					+ "cep=?,"
 					+ "Num=?,"
 					+ "Complemento=?,"
-					+ "Semestre=?,"
 					+ "disp=? "
 					+ "WHERE rgm = ?;";
 					
@@ -109,9 +106,8 @@ public class AlunoDAO {
 			ps.setString(13, aluno.getCep());
 			ps.setString(14, aluno.getNumero());
 			ps.setString(15, aluno.getComplemento());
-			ps.setInt(16, aluno.getSemestre());
-			ps.setInt(17, aluno.getDisciplina());
-			ps.setInt(18, aluno.getRgm());
+			ps.setInt(16, aluno.getDisciplina());
+			ps.setInt(17, aluno.getRgm());
 			
 			ps.executeUpdate();
 		} catch (SQLException sqle) {
@@ -166,9 +162,8 @@ public class AlunoDAO {
 				String cep = rs.getString(14);
 				String numero = rs.getString(16);
 				String complemento = rs.getString(15);
-				int semestre = rs.getInt(17);
-				int disciplina =rs.getInt(18);
-				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre,disciplina,null,null);
+				int disciplina =rs.getInt(17);
+				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,disciplina,null,null);
 			}
 			return aluno;
 		} catch (SQLException sqle) {
@@ -202,9 +197,8 @@ public class AlunoDAO {
 				String cep = rs.getString(14);
 				String numero = rs.getString(16);
 				String complemento = rs.getString(15);
-				int semestre = rs.getInt(17);
-				int disciplina = rs.getInt(18);
-				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,semestre,disciplina,null,null);
+				int disciplina = rs.getInt(17);
+				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,disciplina,null,null);
 			}
 			return list;
 		} catch (SQLException sqle) {

@@ -84,13 +84,10 @@ public class TelaPrincipal extends JFrame {
 	private JLabel lblCurso_2;
 	private JComboBox comboBox_Curso;
 	private JComboBox comboBox_2;
-	private JLabel lblSemestre_5;
 	private JLabel lblSemestre_4;
 	private JComboBox comboBox_Periodo;
 	private JLabel label;
-	private JComboBox comboBox_Semestre;
 	private JComboBox comboBox_Turma;
-	private JComboBox comboBox_6;
 	private JLabel lblDisciplina_7;
 	private JLabel lblDisciplina_8;
 	private JLabel lblDisciplina_9;
@@ -408,14 +405,9 @@ public class TelaPrincipal extends JFrame {
 		comboBox_Curso.setBounds(27, 116, 650, 40);
 		panel_3.add(comboBox_Curso);
 
-		lblSemestre_5 = new JLabel("Semestre");
-		lblSemestre_5.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblSemestre_5.setBounds(247, 245, 155, 28);
-		panel_3.add(lblSemestre_5);
-
 		lblSemestre_4 = new JLabel("Turma");
 		lblSemestre_4.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblSemestre_4.setBounds(467, 244, 155, 28);
+		lblSemestre_4.setBounds(260, 244, 155, 28);
 		panel_3.add(lblSemestre_4);
 
 		comboBox_Periodo = new JComboBox();
@@ -428,16 +420,10 @@ public class TelaPrincipal extends JFrame {
 		label.setBounds(548, 366, -227, -36);
 		panel_3.add(label);
 
-		comboBox_Semestre = new JComboBox();
-		comboBox_Semestre.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "1°", "2°", "3°", "4°", "5°", "6°", "7°", "8°", "9°", "10°"}));
-		comboBox_Semestre.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Semestre.setBounds(247, 273, 210, 40);
-		panel_3.add(comboBox_Semestre);
-
 		comboBox_Turma = new JComboBox();
 		comboBox_Turma.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "A", "B", "C", "D", "E"}));
 		comboBox_Turma.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Turma.setBounds(467, 272, 210, 40);
+		comboBox_Turma.setBounds(260, 272, 210, 40);
 		panel_3.add(comboBox_Turma);
 		
 		txtError2 = new JTextField();
@@ -474,11 +460,6 @@ public class TelaPrincipal extends JFrame {
 		lblDisciplina.setBounds(28, 90, 155, 28);
 		panel.add(lblDisciplina);
 
-		lblSemestre = new JLabel("Semestre");
-		lblSemestre.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblSemestre.setBounds(414, 90, 155, 28);
-		panel.add(lblSemestre);
-
 		lblDisciplina_1 = new JLabel("Notas");
 		lblDisciplina_1.setFont(new Font("Lato", Font.PLAIN, 18));
 		lblDisciplina_1.setBounds(28, 168, 155, 28);
@@ -502,11 +483,6 @@ public class TelaPrincipal extends JFrame {
 		comboBox_2.setBounds(28, 39, 350, 40);
 		panel.add(comboBox_2);
 
-		comboBox_6 = new JComboBox();
-		comboBox_6.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "2019-6", "2019-2", "2019-8", "2020-3", "2021-2", "2022-9", "2022-8", "2023-3"}));
-		comboBox_6.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_6.setBounds(414, 118, 239, 40);
-		panel.add(comboBox_6);
 										
 										scrollPane_1 = new JScrollPane();
 										scrollPane_1.setBounds(414, 208, 373, 153);
@@ -594,7 +570,7 @@ public class TelaPrincipal extends JFrame {
 																});
 																txtBuscardisciplina.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\22k\\22k\\image\\search.png"));
 																txtBuscardisciplina.setBackground(Color.WHITE);
-																txtBuscardisciplina.setBounds(682, 117, 105, 45);
+																txtBuscardisciplina.setBounds(414, 39, 105, 118);
 																panel.add(txtBuscardisciplina);
 
 		boletimPanel = new JPanel();
@@ -686,11 +662,10 @@ public class TelaPrincipal extends JFrame {
 					comboBox_Curso.setSelectedIndex(alun.getCurso());
 					comboBoxDisciplina1.setSelectedIndex(alun.getDisciplina());
 					comboBox_Periodo.setSelectedIndex(alun.getPeriodo());
-					comboBox_Semestre.setSelectedIndex(alun.getSemestre());
 					comboBox_Turma.setSelectedIndex(alun.getTurma());
 					comboBox_2.setSelectedIndex(alun.getCurso());
 					comboBox_Discplina.setSelectedIndex(alun.getDisciplina());
-					comboBox_6.setSelectedIndex(alun.getSemestre());
+					comboBoxDisciplina1.setSelectedIndex(alun.getDisciplina());
 					
 					
 					
@@ -736,8 +711,7 @@ public class TelaPrincipal extends JFrame {
 					        	aluno.setCampus(comboBox_Campus.getSelectedIndex());
 					        	aluno.setCep(txtCep.getText());
 					        	aluno.setNumero(txtNumero.getText());
-					        	aluno.setSemestre(comboBox_6.getSelectedIndex());
-					        	aluno.setDisciplina(comboBox_Discplina.getSelectedIndex());
+					        	aluno.setDisciplina(comboBoxDisciplina1.getSelectedIndex());
 					        	try {
 					        		AlunoDAO dao = new AlunoDAO();
 									// salvar
@@ -781,7 +755,6 @@ public class TelaPrincipal extends JFrame {
 						        	aluno.setCampus(comboBox_Campus.getSelectedIndex());
 						        	aluno.setCep(txtCep.getText());
 						        	aluno.setNumero(txtNumero.getText());
-						        	aluno.setSemestre(comboBox_6.getSelectedIndex());
 						        	aluno.setDisciplina(comboBoxDisciplina1.getSelectedIndex());
 						        	try {
 						        		AlunoDAO dao =new AlunoDAO();
@@ -835,15 +808,14 @@ public class TelaPrincipal extends JFrame {
 													comboBox_Curso.setSelectedIndex(0);
 													comboBoxDisciplina1.setSelectedIndex(0);
 													comboBox_Periodo.setSelectedIndex(0);
-													comboBox_Semestre.setSelectedIndex(0);
 													comboBox_Turma.setSelectedIndex(0);
 													comboBox_2.setSelectedIndex(0);
 													comboBox_Discplina.setSelectedIndex(0);
-													comboBox_6.setSelectedIndex(0);
+													JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
 									        	}catch(Exception e2) {
 									        		JOptionPane.showMessageDialog(null, e2.getMessage());
 									        	}
-									            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+									             
 									        } else if (resposta == JOptionPane.NO_OPTION) {
 									            JOptionPane.showMessageDialog(null, "Dados não excluídos!");
 									        }
@@ -872,11 +844,9 @@ public class TelaPrincipal extends JFrame {
 										comboBox_Curso.setSelectedIndex(0);
 										comboBoxDisciplina1.setSelectedIndex(0);
 										comboBox_Periodo.setSelectedIndex(0);
-										comboBox_Semestre.setSelectedIndex(0);
 										comboBox_Turma.setSelectedIndex(0);
 										comboBox_2.setSelectedIndex(0);
 										comboBox_Discplina.setSelectedIndex(0);
-										comboBox_6.setSelectedIndex(0);
 									}
 								});
 								btn_limpar.setBackground(Color.WHITE);

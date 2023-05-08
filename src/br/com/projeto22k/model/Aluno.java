@@ -18,7 +18,6 @@ public class Aluno {
 	private String cep;
 	private String numero;
 	private String complemento;
-	private int semestre;
 	private int disciplina;
 	private Object Presenca;
 	private Object dta;
@@ -217,18 +216,6 @@ public class Aluno {
 
 
 
-	public int getSemestre() {
-		return semestre;
-	}
-
-
-
-	public void setSemestre(int semestre) {
-		this.semestre = semestre;
-	}
-
-
-
 	public int getDisciplina() {
 		return disciplina;
 	}
@@ -267,7 +254,7 @@ public class Aluno {
 
 	public Aluno(int rgm, String nome, String email, String dtaNascimento, String rua, String uf, String municipio,
 			String telefone, String cpf, int curso, int periodo, int turma, int campus, String cep, String numero,
-			String complemento, int semestre, int disciplina, ArrayList<String> presenca, ArrayList<String> dta) {
+			String complemento, int disciplina, ArrayList<String> presenca, ArrayList<String> dta) {
 		super();
 		this.rgm = rgm;
 		this.nome = nome;
@@ -285,7 +272,6 @@ public class Aluno {
 		this.cep = cep;
 		this.numero = numero;
 		this.complemento = complemento;
-		this.semestre = semestre;
 		this.disciplina = disciplina;
 		this.Presenca = presenca;
 		this.dta = dta;
