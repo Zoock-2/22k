@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 07-Maio-2023 às 18:21
+-- Tempo de geração: 08-Maio-2023 às 04:13
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.4
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `Cadaluno` (
   `RGM` int(10) NOT NULL,
   `Nome` varchar(30) NOT NULL,
-  `eMail` varchar(20) NOT NULL,
+  `eMail` varchar(35) NOT NULL,
   `DataNascimento` date DEFAULT NULL,
   `Rua` varchar(30) DEFAULT NULL,
   `Uf` varchar(3) DEFAULT NULL,
@@ -44,15 +44,19 @@ CREATE TABLE `Cadaluno` (
   `cep` varchar(12) DEFAULT NULL,
   `Num` varchar(20) NOT NULL,
   `Complemento` text DEFAULT NULL,
-  `Semestre` int(4) NOT NULL
+  `Semestre` int(4) NOT NULL,
+  `disp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `Cadaluno`
 --
 
-INSERT INTO `Cadaluno` (`RGM`, `Nome`, `eMail`, `DataNascimento`, `Rua`, `Uf`, `Municipio`, `telefone`, `Cpf`, `Curso`, `Periodo`, `Turma`, `Campus`, `cep`, `Num`, `Complemento`, `Semestre`) VALUES
-(134698, 'jkadhfkj', 'khafihugo', '2000-08-28', 'klhfall', '1', 'Sampa', '(19) 24780-1274', '182.749.138-69', 2, 3, 1, 1, '19824-619', '109', 'Perto de algum lugar', 0);
+INSERT INTO `Cadaluno` (`RGM`, `Nome`, `eMail`, `DataNascimento`, `Rua`, `Uf`, `Municipio`, `telefone`, `Cpf`, `Curso`, `Periodo`, `Turma`, `Campus`, `cep`, `Num`, `Complemento`, `Semestre`, `disp`) VALUES
+(124780, 'Felipe Bomfim', 'Thezookcman@gmail', '2000-08-20', 'ihsfak', 'sp', 'São Paulo', '(11) 94568-6567', '125.710.835-71', 2, 3, 2, 1, '12471-987', '209', 'jahfdk', 1, 1),
+(134698, 'jkadhfkj', 'khafihugo', '2000-08-28', 'klhfall', 'rj', 'Sampa', '(19) 24780-1274', '182.749.138-69', 2, 3, 1, 1, '19824-619', '109', 'Perto de algum lugar', 1, 1),
+(30291778, 'LuizFelipe BOmfim', 'Thexkjik', '2000-03-15', 'jfdkslhfk', 'UU', 'São PAulo', '(28) 34792-8537', '   .   .   -  ', 1, 3, 3, 1, '12947-109', 'idbhfik', '1809', 0, 1),
+(156898089, 'Felipe Bomfasss', '890357293fj', '2000-08-27', '390275ruefhdks', 'sp', 'sap', '(28) 35293-8572', '138.579.287-20', 2, 1, 2, 1, '12571-029', '39', 'djaehdf', 1, 1);
 
 --
 -- Índices para tabelas despejadas
@@ -70,7 +74,8 @@ ALTER TABLE `Cadaluno`
   ADD KEY `campusid` (`Campus`),
   ADD KEY `Periodo` (`Periodo`) USING BTREE,
   ADD KEY `Semestre` (`Semestre`),
-  ADD KEY `turma-id` (`Turma`);
+  ADD KEY `turma-id` (`Turma`),
+  ADD KEY `disp` (`disp`) USING BTREE;
 
 --
 -- Restrições para despejos de tabelas
@@ -82,6 +87,7 @@ ALTER TABLE `Cadaluno`
 ALTER TABLE `Cadaluno`
   ADD CONSTRAINT `campusid` FOREIGN KEY (`Campus`) REFERENCES `Campus` (`Idcampus`),
   ADD CONSTRAINT `cursoid` FOREIGN KEY (`Curso`) REFERENCES `Cursos` (`Idcurso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `dispip` FOREIGN KEY (`disp`) REFERENCES `Disciplina` (`idDisciplina`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `periodoid` FOREIGN KEY (`Periodo`) REFERENCES `periodos` (`idperiodo`),
   ADD CONSTRAINT `turma-id` FOREIGN KEY (`Turma`) REFERENCES `Turma` (`turmaId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
