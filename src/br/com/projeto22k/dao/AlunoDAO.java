@@ -163,7 +163,7 @@ public class AlunoDAO {
 				String numero = rs.getString(16);
 				String complemento = rs.getString(15);
 				int disciplina =rs.getInt(17);
-				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,disciplina,null,null);
+				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,disciplina);
 			}
 			return aluno;
 		} catch (SQLException sqle) {
@@ -198,7 +198,7 @@ public class AlunoDAO {
 				String numero = rs.getString(16);
 				String complemento = rs.getString(15);
 				int disciplina = rs.getInt(17);
-				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,disciplina,null,null);
+				aluno = new Aluno(rgm,nome,email,dtaNascimento,rua,uf,municipio,telefone,cpf,curso,periodo,turma,campus,cep,numero,complemento,disciplina);
 			}
 			return list;
 		} catch (SQLException sqle) {

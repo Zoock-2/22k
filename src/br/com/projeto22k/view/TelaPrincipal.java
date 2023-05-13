@@ -72,7 +72,6 @@ public class TelaPrincipal extends JFrame {
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_4;
-	private JLabel lblDisciplina_4;
 	private JLabel lblSemestre_2;
 	private JTextField txtNumero;
 	private JLabel lblDisciplina_3;
@@ -105,7 +104,6 @@ public class TelaPrincipal extends JFrame {
 	private JButton btnDelete1;
 	private JButton btnAlterar1;
 	private JButton btnSalvar1;
-	private JTable table_1;
 	private JPanel panel_6;
 	private JLabel lblDisciplina_10;
 	private JLabel lblDisciplina_11;
@@ -126,6 +124,8 @@ public class TelaPrincipal extends JFrame {
 	protected ResultSet rs;
 	protected boolean presenca;
 	protected Object pres;
+	private JTable table_1;
+	private JTable table_2;
 
 	/**
 	 * Launch the application.
@@ -444,134 +444,118 @@ public class TelaPrincipal extends JFrame {
 		lblDisciplina_13.setFont(new Font("Dialog", Font.PLAIN, 18));
 		lblDisciplina_13.setBounds(27, 167, 155, 28);
 		panel_3.add(lblDisciplina_13);
-
-		panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
-		tabbedPane.addTab("Notas e faltas", null, panel, null);
-		panel.setLayout(null);
-
-		lblCurso = new JLabel("Curso");
-		lblCurso.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblCurso.setBounds(28, 11, 66, 28);
-		panel.add(lblCurso);
-
-		lblDisciplina = new JLabel("Disciplina");
-		lblDisciplina.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina.setBounds(28, 90, 155, 28);
-		panel.add(lblDisciplina);
-
-		lblDisciplina_1 = new JLabel("Notas");
-		lblDisciplina_1.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina_1.setBounds(28, 168, 155, 28);
-		panel.add(lblDisciplina_1);
-
-		comboBox_Discplina = new JComboBox();
-		comboBox_Discplina.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Discplina.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Programação orientada a objetos", "Matemática discrete"}));
-		comboBox_Discplina.setSelectedIndex(1);
-		comboBox_Discplina.setBounds(28, 117, 350, 40);
-		panel.add(comboBox_Discplina);
-
-		lblDisciplina_4 = new JLabel("Lista de presença");
-		lblDisciplina_4.setFont(new Font("Lato", Font.PLAIN, 18));
-		lblDisciplina_4.setBounds(414, 169, 155, 28);
-		panel.add(lblDisciplina_4);
-
-		comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Analise e desenvolvimento de sistemas", "Ciência da computação", "Engenharia de software"}));
-		comboBox_2.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_2.setBounds(28, 39, 350, 40);
-		panel.add(comboBox_2);
-
+		
+				panel = new JPanel();
+				panel.setBackground(new Color(255, 255, 255));
+				tabbedPane.addTab("Notas e faltas", null, panel, null);
+				panel.setLayout(null);
+				
+						lblCurso = new JLabel("Curso");
+						lblCurso.setFont(new Font("Lato", Font.PLAIN, 18));
+						lblCurso.setBounds(28, 11, 66, 28);
+						panel.add(lblCurso);
+						
+								lblDisciplina = new JLabel("Disciplina");
+								lblDisciplina.setFont(new Font("Lato", Font.PLAIN, 18));
+								lblDisciplina.setBounds(28, 90, 155, 28);
+								panel.add(lblDisciplina);
+								
+										lblDisciplina_1 = new JLabel("Notas");
+										lblDisciplina_1.setFont(new Font("Lato", Font.PLAIN, 18));
+										lblDisciplina_1.setBounds(28, 168, 155, 28);
+										panel.add(lblDisciplina_1);
 										
-										scrollPane_1 = new JScrollPane();
-										scrollPane_1.setBounds(414, 208, 373, 153);
-										panel.add(scrollPane_1);
-										
-										
-										
-										panel_6 = new JPanel();
-										panel_6.setBounds(28, 207, 350, 153);
-										panel.add(panel_6);
-										panel_6.setLayout(null);
-										
-												lblDisciplina_7 = new JLabel("A1");
-												lblDisciplina_7.setBounds(10, 22, 155, 28);
-												panel_6.add(lblDisciplina_7);
-												lblDisciplina_7.setFont(new Font("Lato", Font.BOLD, 16));
+												comboBox_Discplina = new JComboBox();
+												comboBox_Discplina.setFont(new Font("Lato", Font.PLAIN, 18));
+												comboBox_Discplina.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Programação orientada a objetos", "Matemática discrete"}));
+												comboBox_Discplina.setSelectedIndex(1);
+												comboBox_Discplina.setBounds(28, 117, 350, 40);
+												panel.add(comboBox_Discplina);
 												
-														lblDisciplina_8 = new JLabel("A2");
-														lblDisciplina_8.setBounds(10, 60, 155, 28);
-														panel_6.add(lblDisciplina_8);
-														lblDisciplina_8.setFont(new Font("Lato", Font.BOLD, 16));
+														comboBox_2 = new JComboBox();
+														comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Analise e desenvolvimento de sistemas", "Ciência da computação", "Engenharia de software"}));
+														comboBox_2.setFont(new Font("Lato", Font.PLAIN, 18));
+														comboBox_2.setBounds(28, 39, 350, 40);
+														panel.add(comboBox_2);
 														
-																lblDisciplina_9 = new JLabel("AF");
-																lblDisciplina_9.setBounds(10, 93, 155, 28);
-																panel_6.add(lblDisciplina_9);
-																lblDisciplina_9.setFont(new Font("Lato", Font.BOLD, 16));
-																
-																lblDisciplina_10 = new JLabel("4,75");
-																lblDisciplina_10.setFont(new Font("Lato", Font.PLAIN, 18));
-																lblDisciplina_10.setBounds(168, 22, 155, 28);
-																panel_6.add(lblDisciplina_10);
-																
-																lblDisciplina_11 = new JLabel("3,8");
-																lblDisciplina_11.setFont(new Font("Lato", Font.PLAIN, 18));
-																lblDisciplina_11.setBounds(168, 60, 155, 28);
-																panel_6.add(lblDisciplina_11);
-																
-																lblDisciplina_12 = new JLabel("0");
-																lblDisciplina_12.setFont(new Font("Lato", Font.PLAIN, 18));
-																lblDisciplina_12.setBounds(168, 93, 155, 28);
-																panel_6.add(lblDisciplina_12);
-																
-																txtError3 = new JTextField();
-																txtError3.setText("Aluno não localizado...");
-																txtError3.setForeground(Color.BLACK);
-																txtError3.setFont(new Font("Dialog", Font.PLAIN, 18));
-																txtError3.setColumns(10);
-																txtError3.setBounds(28, 476, 210, 20);
-																panel.add(txtError3);
-																
-																txtBuscardisciplina = new JButton("");
-																txtBuscardisciplina.addActionListener(new ActionListener() {
-																	
-
-																	public void actionPerformed(ActionEvent e) {
-																		try {
-																		String[] cols = {"Data","Presença"};
-																		DefaultTableModel tables = new DefaultTableModel(cols,0);
-																		
-																		
-																		java.sql.Connection conn = ConnectionFactory.getConnection();
-																		String SQL = "SELECT `presenca`, `data`FROM Presença WHERE RGM=? AND curso=? AND disciplina=?";
-																		PreparedStatement ps = conn.prepareStatement(SQL);
-																		ps.setInt(1, Integer.parseInt(txtRgm.getText()));
-																		ps.setInt(2, comboBox_Curso.getSelectedIndex());
-																		ps.setInt(3, comboBox_Discplina.getSelectedIndex());
-																		rs = ps.executeQuery();
-																		while (rs.next()) {
-															                Object[] linha = {rs.getDate("data"),rs.getString("presenca") };
-															                tables.addRow(linha);
-																		}
-																		table_1 = new JTable(tables);
-																		scrollPane_1.setViewportView(table_1);
-																		table_1.getColumnModel().getColumn(0).setPreferredWidth(101);
-																		table_1.getColumnModel().getColumn(1).setPreferredWidth(97);
-																		table_1.setRowHeight(30);
-																		table_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-																		table_1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-																		
-																		
-																		}catch (Exception e2) {
-																			JOptionPane.showMessageDialog(null, e2.getMessage());
-																		}
-																	}
-																});
-																txtBuscardisciplina.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\22k\\22k\\image\\search.png"));
-																txtBuscardisciplina.setBackground(Color.WHITE);
-																txtBuscardisciplina.setBounds(414, 39, 105, 118);
-																panel.add(txtBuscardisciplina);
+																								
+																								
+																								
+																								
+																								panel_6 = new JPanel();
+																								panel_6.setBounds(28, 207, 350, 153);
+																								panel.add(panel_6);
+																								panel_6.setLayout(null);
+																								
+																										lblDisciplina_7 = new JLabel("A1");
+																										lblDisciplina_7.setBounds(10, 22, 155, 28);
+																										panel_6.add(lblDisciplina_7);
+																										lblDisciplina_7.setFont(new Font("Lato", Font.BOLD, 16));
+																										
+																												lblDisciplina_8 = new JLabel("A2");
+																												lblDisciplina_8.setBounds(10, 60, 155, 28);
+																												panel_6.add(lblDisciplina_8);
+																												lblDisciplina_8.setFont(new Font("Lato", Font.BOLD, 16));
+																												
+																														lblDisciplina_9 = new JLabel("AF");
+																														lblDisciplina_9.setBounds(10, 93, 155, 28);
+																														panel_6.add(lblDisciplina_9);
+																														lblDisciplina_9.setFont(new Font("Lato", Font.BOLD, 16));
+																														
+																														lblDisciplina_10 = new JLabel("4,75");
+																														lblDisciplina_10.setFont(new Font("Lato", Font.PLAIN, 18));
+																														lblDisciplina_10.setBounds(168, 22, 155, 28);
+																														panel_6.add(lblDisciplina_10);
+																														
+																														lblDisciplina_11 = new JLabel("3,8");
+																														lblDisciplina_11.setFont(new Font("Lato", Font.PLAIN, 18));
+																														lblDisciplina_11.setBounds(168, 60, 155, 28);
+																														panel_6.add(lblDisciplina_11);
+																														
+																														lblDisciplina_12 = new JLabel("0");
+																														lblDisciplina_12.setFont(new Font("Lato", Font.PLAIN, 18));
+																														lblDisciplina_12.setBounds(168, 93, 155, 28);
+																														panel_6.add(lblDisciplina_12);
+																														
+																														txtError3 = new JTextField();
+																														txtError3.setText("Aluno não localizado...");
+																														txtError3.setForeground(Color.BLACK);
+																														txtError3.setFont(new Font("Dialog", Font.PLAIN, 18));
+																														txtError3.setColumns(10);
+																														txtError3.setBounds(28, 476, 210, 20);
+																														panel.add(txtError3);
+																														
+																														txtBuscardisciplina = new JButton("");
+																														txtBuscardisciplina.addActionListener(new ActionListener() {
+																															
+																															public void actionPerformed(ActionEvent e) {
+																																
+																															}
+																														});
+																														
+																														
+																														
+																														
+																														
+																														
+																														
+																														txtBuscardisciplina.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\22k\\22k\\image\\search.png"));
+																														txtBuscardisciplina.setBackground(Color.WHITE);
+																														txtBuscardisciplina.setBounds(414, 39, 105, 118);
+																														panel.add(txtBuscardisciplina);
+																														
+																														JScrollPane scrollPane_2 = new JScrollPane();
+																														setVisible(true);
+																														scrollPane_2.setBounds(647, 207, 245, 147);
+																														panel.add(scrollPane_2);
+																														
+																														table_2 = new JTable();
+																														scrollPane_2.setViewportView(table_2);
+																														DefaultTableModel model = new DefaultTableModel();
+																												        model.addColumn("Nome");
+																												        model.addColumn("Idade");
+																												        model.addColumn("Email");
+																												        table_2.setModel(model);
 
 		boletimPanel = new JPanel();
 		boletimPanel.setBackground(Color.WHITE);
@@ -852,13 +836,5 @@ public class TelaPrincipal extends JFrame {
 								btn_limpar.setBackground(Color.WHITE);
 								btn_limpar.setBounds(577, 488, 105, 45);
 								contentPane.add(btn_limpar);
-		table.getColumnModel().getColumn(0).setPreferredWidth(69);
-		table.getColumnModel().getColumn(1).setPreferredWidth(133);
-		table.getColumnModel().getColumn(2).setPreferredWidth(100);
-		table.getColumnModel().getColumn(3).setPreferredWidth(146);
-		table.getColumnModel().getColumn(4).setPreferredWidth(40);
-		table.getColumnModel().getColumn(5).setPreferredWidth(28);
-		table.getColumnModel().getColumn(6).setPreferredWidth(29);
-		table.getColumnModel().getColumn(7).setPreferredWidth(35);
 	}
 }
