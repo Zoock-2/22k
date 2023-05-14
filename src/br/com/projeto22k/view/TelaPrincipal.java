@@ -126,6 +126,8 @@ public class TelaPrincipal extends JFrame {
 	protected Object pres;
 	private JTable table_1;
 	private JTable table_2;
+	private JScrollPane scrollPane_2;
+	private JTable table_3;
 
 	/**
 	 * Launch the application.
@@ -544,6 +546,31 @@ public class TelaPrincipal extends JFrame {
 																														txtBuscardisciplina.setBounds(414, 39, 105, 118);
 																														panel.add(txtBuscardisciplina);
 																														
+																														scrollPane_2 = new JScrollPane();
+																														scrollPane_2.setBounds(437, 207, 311, 150);
+																														panel.add(scrollPane_2);
+																														
+																														table_3 = new JTable();
+																														table_3.setModel(new DefaultTableModel(
+																															new Object[][] {
+																																{null, null},
+																																{null, null},
+																																{null, null},
+																																{null, null},
+																															},
+																															new String[] {
+																																"Data", "Presen\u00E7a"
+																															}
+																														) {
+																															Class[] columnTypes = new Class[] {
+																																Integer.class, Integer.class
+																															};
+																															public Class getColumnClass(int columnIndex) {
+																																return columnTypes[columnIndex];
+																															}
+																														});
+																														scrollPane_2.setViewportView(table_3);
+																														
 																														
 		boletimPanel = new JPanel();
 		boletimPanel.setBackground(Color.WHITE);
@@ -564,7 +591,7 @@ public class TelaPrincipal extends JFrame {
 				{"123456789", "Paulo Corazim da Joanes Maria Pinto", "Ciencia da computacao", "analise de desenvolvimento de sistemas", "1,75", "4", "N", "5,75", "5"},
 			},
 			new String[] {
-				"RGM", "Aluninhos", "Curso", "Disciplinas", "A1", "A2", "AF", "M\u00E9dia Final", "Faltas"
+				"RGM", "Alunos", "Curso", "Disciplinas", "A1", "A2", "AF", "M\u00E9dia Final", "Faltas"
 			}
 		) {
 			Class[] columnTypes = new Class[] {
