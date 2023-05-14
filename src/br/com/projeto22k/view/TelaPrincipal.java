@@ -126,6 +126,7 @@ public class TelaPrincipal extends JFrame {
 	protected Object pres;
 	private JTable table_1;
 	private JTable table_2;
+	private JTable table_3;
 
 	/**
 	 * Launch the application.
@@ -543,6 +544,13 @@ public class TelaPrincipal extends JFrame {
 																														txtBuscardisciplina.setBackground(Color.WHITE);
 																														txtBuscardisciplina.setBounds(414, 39, 105, 118);
 																														panel.add(txtBuscardisciplina);
+																														
+																														JScrollPane scrollPane_2 = new JScrollPane();
+																														scrollPane_2.setBounds(437, 241, 268, 116);
+																														panel.add(scrollPane_2);
+																														
+																														table_3 = new JTable();
+																														scrollPane_2.setViewportView(table_3);
 																														
 																														
 		boletimPanel = new JPanel();
