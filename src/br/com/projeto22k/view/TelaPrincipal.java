@@ -553,7 +553,7 @@ public class TelaPrincipal extends JFrame {
 																														table_3 = new JTable();
 																														table_3.setModel(new DefaultTableModel(
 																															new Object[][] {
-																																{null, null},
+																																{"15/05/2023", null},
 																																{null, null},
 																																{null, null},
 																																{null, null},
@@ -563,7 +563,7 @@ public class TelaPrincipal extends JFrame {
 																															}
 																														) {
 																															Class[] columnTypes = new Class[] {
-																																Integer.class, Integer.class
+																																String.class, Integer.class
 																															};
 																															public Class getColumnClass(int columnIndex) {
 																																return columnTypes[columnIndex];
