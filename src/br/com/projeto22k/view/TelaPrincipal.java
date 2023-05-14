@@ -544,19 +544,7 @@ public class TelaPrincipal extends JFrame {
 																														txtBuscardisciplina.setBounds(414, 39, 105, 118);
 																														panel.add(txtBuscardisciplina);
 																														
-																														JScrollPane scrollPane_2 = new JScrollPane();
-																														setVisible(true);
-																														scrollPane_2.setBounds(647, 207, 245, 147);
-																														panel.add(scrollPane_2);
-																														
-																														table_2 = new JTable();
-																														scrollPane_2.setViewportView(table_2);
-																														DefaultTableModel model = new DefaultTableModel();
-																												        model.addColumn("Nome");
-																												        model.addColumn("Idade");
-																												        model.addColumn("Email");
-																												        table_2.setModel(model);
-
+																														J
 		boletimPanel = new JPanel();
 		boletimPanel.setBackground(Color.WHITE);
 		tabbedPane.addTab("Boletim", null, boletimPanel, null);
