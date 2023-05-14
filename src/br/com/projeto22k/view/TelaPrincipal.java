@@ -544,7 +544,7 @@ public class TelaPrincipal extends JFrame {
 																														txtBuscardisciplina.setBounds(414, 39, 105, 118);
 																														panel.add(txtBuscardisciplina);
 																														
-																														J
+																														
 		boletimPanel = new JPanel();
 		boletimPanel.setBackground(Color.WHITE);
 		tabbedPane.addTab("Boletim", null, boletimPanel, null);
