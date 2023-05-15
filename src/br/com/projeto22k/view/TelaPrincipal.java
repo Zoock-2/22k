@@ -4,12 +4,11 @@ import java.awt.ComponentOrientation;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javax.swing.DefaultComboBoxModel;
@@ -24,6 +23,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
@@ -32,17 +32,12 @@ import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import javax.swing.text.MaskFormatter;
 
-import com.mysql.jdbc.Connection;
-
 import br.com.projeto22k.dao.AlunoDAO;
-
 import br.com.projeto22k.model.Aluno;
-import br.com.projeto22k.util.ConnectionFactory;
+import javax.swing.border.LineBorder;
 
-import java.awt.Toolkit;
 
 public class TelaPrincipal extends JFrame {
 
@@ -105,9 +100,6 @@ public class TelaPrincipal extends JFrame {
 	private JButton btnAlterar1;
 	private JButton btnSalvar1;
 	private JPanel panel_6;
-	private JLabel lblDisciplina_10;
-	private JLabel lblDisciplina_11;
-	private JLabel lblDisciplina_12;
 	private JScrollPane scrollPane_1;
 	private JTextField txtError1;
 	private JTextField txtError3;
@@ -119,7 +111,6 @@ public class TelaPrincipal extends JFrame {
 	private JLabel lblNomeDoAluno_3;
 	private JTextField txtNome1;
 	private JButton txtBuscar1;
-	private JButton txtBuscardisciplina;
 	private JLabel lblNewLabel;
 	protected ResultSet rs;
 	protected boolean presenca;
@@ -128,6 +119,15 @@ public class TelaPrincipal extends JFrame {
 	private JTable table_2;
 	private JScrollPane scrollPane_2;
 	private JTable table_3;
+	private JTextField txtNotaA1;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JButton btnNewButton;
+	private JLabel lblDisciplina_4;
+	private JRadioButton rdbtnPresente;
+	private JRadioButton rdbtnFaltante;
+	private JFormattedTextField txtDataPresenca;
+	private JLabel lblDisciplina_11;
 
 	/**
 	 * Launch the application.
@@ -393,7 +393,7 @@ public class TelaPrincipal extends JFrame {
 		comboBox_Campus = new JComboBox();
 		comboBox_Campus.setFont(new Font("Lato", Font.PLAIN, 18));
 		comboBox_Campus.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Universidade Cidade de São Paulo - Tatuapé", "Universidade Cidade de São Paulo - Pinheiros", "Universidade Cidade de São Paulo - Online"}));
-		comboBox_Campus.setBounds(27, 38, 650, 40);
+		comboBox_Campus.setBounds(27, 38, 602, 40);
 		panel_3.add(comboBox_Campus);
 
 		lblCurso_2 = new JLabel("Curso");
@@ -404,7 +404,7 @@ public class TelaPrincipal extends JFrame {
 		comboBox_Curso = new JComboBox();
 		comboBox_Curso.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Analise e desenvolvimento de sistemas", "Ciência da computação", "Engenharia de software"}));
 		comboBox_Curso.setFont(new Font("Lato", Font.PLAIN, 18));
-		comboBox_Curso.setBounds(27, 116, 650, 40);
+		comboBox_Curso.setBounds(27, 116, 602, 40);
 		panel_3.add(comboBox_Curso);
 
 		lblSemestre_4 = new JLabel("Turma");
@@ -439,7 +439,7 @@ public class TelaPrincipal extends JFrame {
 		JComboBox comboBoxDisciplina1 = new JComboBox();
 		comboBoxDisciplina1.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Programação orientada a objetos", "Matemática discrete"}));
 		comboBoxDisciplina1.setFont(new Font("Dialog", Font.PLAIN, 18));
-		comboBoxDisciplina1.setBounds(27, 194, 650, 40);
+		comboBoxDisciplina1.setBounds(27, 194, 602, 40);
 		panel_3.add(comboBoxDisciplina1);
 		
 		JLabel lblDisciplina_13 = new JLabel("Disciplina");
@@ -453,162 +453,195 @@ public class TelaPrincipal extends JFrame {
 				panel.setLayout(null);
 				
 						lblCurso = new JLabel("Curso");
-						lblCurso.setFont(new Font("Lato", Font.PLAIN, 18));
-						lblCurso.setBounds(28, 11, 66, 28);
+						lblCurso.setFont(new Font("Lato", Font.PLAIN, 14));
+						lblCurso.setBounds(28, 12, 66, 33);
 						panel.add(lblCurso);
 						
-								lblDisciplina = new JLabel("Disciplina");
-								lblDisciplina.setFont(new Font("Lato", Font.PLAIN, 18));
-								lblDisciplina.setBounds(28, 90, 155, 28);
-								panel.add(lblDisciplina);
+								lblDisciplina_1 = new JLabel("Notas");
+								lblDisciplina_1.setFont(new Font("Lato", Font.PLAIN, 18));
+								lblDisciplina_1.setBounds(28, 79, 155, 28);
+								panel.add(lblDisciplina_1);
 								
-										lblDisciplina_1 = new JLabel("Notas");
-										lblDisciplina_1.setFont(new Font("Lato", Font.PLAIN, 18));
-										lblDisciplina_1.setBounds(28, 168, 155, 28);
-										panel.add(lblDisciplina_1);
+										comboBox_Discplina = new JComboBox();
+										comboBox_Discplina.setFont(new Font("Lato", Font.PLAIN, 14));
+										comboBox_Discplina.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Programação orientada a objetos", "Matemática discrete"}));
+										comboBox_Discplina.setBounds(535, 11, 264, 34);
+										panel.add(comboBox_Discplina);
 										
-												comboBox_Discplina = new JComboBox();
-												comboBox_Discplina.setFont(new Font("Lato", Font.PLAIN, 18));
-												comboBox_Discplina.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Programação orientada a objetos", "Matemática discrete"}));
-												comboBox_Discplina.setSelectedIndex(1);
-												comboBox_Discplina.setBounds(28, 117, 350, 40);
-												panel.add(comboBox_Discplina);
+												comboBox_2 = new JComboBox();
+												comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Analise e desenvolvimento de sistemas", "Ciência da computação", "Engenharia de software"}));
+												comboBox_2.setFont(new Font("Lato", Font.PLAIN, 14));
+												comboBox_2.setBounds(91, 11, 350, 34);
+												panel.add(comboBox_2);
 												
-														comboBox_2 = new JComboBox();
-														comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Selecione uma opção...", "Analise e desenvolvimento de sistemas", "Ciência da computação", "Engenharia de software"}));
-														comboBox_2.setFont(new Font("Lato", Font.PLAIN, 18));
-														comboBox_2.setBounds(28, 39, 350, 40);
-														panel.add(comboBox_2);
-														
+																						
+																						
+																						
+																						
+																						panel_6 = new JPanel();
+																						panel_6.setBounds(28, 102, 253, 240);
+																						panel.add(panel_6);
+																						panel_6.setLayout(null);
+																						
+																								lblDisciplina_7 = new JLabel("A1");
+																								lblDisciplina_7.setBounds(37, 46, 76, 28);
+																								panel_6.add(lblDisciplina_7);
+																								lblDisciplina_7.setFont(new Font("Lato", Font.BOLD, 16));
 																								
-																								
-																								
-																								
-																								panel_6 = new JPanel();
-																								panel_6.setBounds(28, 207, 350, 153);
-																								panel.add(panel_6);
-																								panel_6.setLayout(null);
-																								
-																										lblDisciplina_7 = new JLabel("A1");
-																										lblDisciplina_7.setBounds(10, 22, 155, 28);
-																										panel_6.add(lblDisciplina_7);
-																										lblDisciplina_7.setFont(new Font("Lato", Font.BOLD, 16));
+																										lblDisciplina_8 = new JLabel("A2");
+																										lblDisciplina_8.setBounds(36, 91, 76, 28);
+																										panel_6.add(lblDisciplina_8);
+																										lblDisciplina_8.setFont(new Font("Lato", Font.BOLD, 16));
 																										
-																												lblDisciplina_8 = new JLabel("A2");
-																												lblDisciplina_8.setBounds(10, 60, 155, 28);
-																												panel_6.add(lblDisciplina_8);
-																												lblDisciplina_8.setFont(new Font("Lato", Font.BOLD, 16));
+																												lblDisciplina_9 = new JLabel("AF");
+																												lblDisciplina_9.setBounds(38, 137, 76, 28);
+																												panel_6.add(lblDisciplina_9);
+																												lblDisciplina_9.setFont(new Font("Lato", Font.BOLD, 16));
 																												
-																														lblDisciplina_9 = new JLabel("AF");
-																														lblDisciplina_9.setBounds(10, 93, 155, 28);
-																														panel_6.add(lblDisciplina_9);
-																														lblDisciplina_9.setFont(new Font("Lato", Font.BOLD, 16));
-																														
-																														lblDisciplina_10 = new JLabel("4,75");
-																														lblDisciplina_10.setFont(new Font("Lato", Font.PLAIN, 18));
-																														lblDisciplina_10.setBounds(168, 22, 155, 28);
-																														panel_6.add(lblDisciplina_10);
-																														
-																														lblDisciplina_11 = new JLabel("3,8");
-																														lblDisciplina_11.setFont(new Font("Lato", Font.PLAIN, 18));
-																														lblDisciplina_11.setBounds(168, 60, 155, 28);
-																														panel_6.add(lblDisciplina_11);
-																														
-																														lblDisciplina_12 = new JLabel("0");
-																														lblDisciplina_12.setFont(new Font("Lato", Font.PLAIN, 18));
-																														lblDisciplina_12.setBounds(168, 93, 155, 28);
-																														panel_6.add(lblDisciplina_12);
-																														
-																														txtError3 = new JTextField();
-																														txtError3.setText("Aluno não localizado...");
-																														txtError3.setForeground(Color.BLACK);
-																														txtError3.setFont(new Font("Dialog", Font.PLAIN, 18));
-																														txtError3.setColumns(10);
-																														txtError3.setBounds(28, 476, 210, 20);
-																														panel.add(txtError3);
-																														
-																														txtBuscardisciplina = new JButton("");
-																														txtBuscardisciplina.addActionListener(new ActionListener() {
-																															
-																															public void actionPerformed(ActionEvent e) {
-																																
-																															}
-																														});
-																														
-																														
-																														
-																														
-																														
-																														
-																														
-																														txtBuscardisciplina.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\22k\\22k\\image\\search.png"));
-																														txtBuscardisciplina.setBackground(Color.WHITE);
-																														txtBuscardisciplina.setBounds(414, 39, 105, 118);
-																														panel.add(txtBuscardisciplina);
-																														
-																														scrollPane_2 = new JScrollPane();
-																														scrollPane_2.setBounds(437, 207, 311, 150);
-																														panel.add(scrollPane_2);
-																														
-																														table_3 = new JTable();
-																														table_3.setModel(new DefaultTableModel(
-																															new Object[][] {
-																																{"15/05/2023", null},
-																																{null, null},
-																																{null, null},
-																																{null, null},
-																															},
-																															new String[] {
-																																"Data", "Presen\u00E7a"
-																															}
-																														) {
-																															Class[] columnTypes = new Class[] {
-																																String.class, Integer.class
-																															};
-																															public Class getColumnClass(int columnIndex) {
-																																return columnTypes[columnIndex];
-																															}
-																														});
-																														scrollPane_2.setViewportView(table_3);
-																														
-																														
+																												txtNotaA1 = new JTextField();
+																												txtNotaA1.setBounds(112, 46, 76, 28);
+																												panel_6.add(txtNotaA1);
+																												txtNotaA1.setColumns(10);
+																												
+																												textField = new JTextField();
+																												textField.setColumns(10);
+																												textField.setBounds(112, 90, 76, 28);
+																												panel_6.add(textField);
+																												
+																												textField_1 = new JTextField();
+																												textField_1.setColumns(10);
+																												textField_1.setBounds(114, 137, 76, 28);
+																												panel_6.add(textField_1);
+																												
+																												txtError3 = new JTextField();
+																												txtError3.setText("Aluno não localizado...");
+																												txtError3.setForeground(Color.BLACK);
+																												txtError3.setFont(new Font("Dialog", Font.PLAIN, 18));
+																												txtError3.setColumns(10);
+																												txtError3.setBounds(28, 476, 210, 20);
+																												panel.add(txtError3);
+																												
+																												scrollPane_2 = new JScrollPane();
+																												scrollPane_2.setBounds(314, 140, 485, 202);
+																												panel.add(scrollPane_2);
+																												
+																												table_3 = new JTable();
+																												table_3.setModel(new DefaultTableModel(
+																													new Object[][] {
+																														{"", null},
+																														{null, null},
+																														{null, null},
+																														{null, null},
+																														{null, null},
+																														{null, null},
+																														{null, null},
+																														{null, null},
+																														{null, null},
+																														{null, null},
+																														{null, null},
+																														{null, null},
+																													},
+																													new String[] {
+																														"Data", "Presen\u00E7a"
+																													}
+																												) {
+																													Class[] columnTypes = new Class[] {
+																														String.class, Integer.class
+																													};
+																													public Class getColumnClass(int columnIndex) {
+																														return columnTypes[columnIndex];
+																													}
+																													boolean[] columnEditables = new boolean[] {
+																														false, false
+																													};
+																													public boolean isCellEditable(int row, int column) {
+																														return columnEditables[column];
+																													}
+																												});
+																												scrollPane_2.setViewportView(table_3);
+																												
+																												btnNewButton = new JButton("Adicionar ");
+																												btnNewButton.setBounds(664, 102, 91, 31);
+																												panel.add(btnNewButton);
+																												
+																												lblDisciplina_4 = new JLabel("Data");
+																												lblDisciplina_4.setFont(new Font("Lato", Font.PLAIN, 14));
+																												lblDisciplina_4.setBounds(314, 79, 97, 28);
+																												panel.add(lblDisciplina_4);
+																												
+																												rdbtnPresente = new JRadioButton("Presente");
+																												rdbtnPresente.addActionListener(new ActionListener() {
+																													public void actionPerformed(ActionEvent e) {
+																														rdbtnFaltante.setSelected(false);
+																													}
+																												});
+																												rdbtnPresente.setBounds(441, 102, 103, 31);
+																												panel.add(rdbtnPresente);
+																												
+																												rdbtnFaltante = new JRadioButton("Faltante");
+																												rdbtnFaltante.setBounds(562, 102, 92, 31);
+																												panel.add(rdbtnFaltante);
+																												
+																												JFormattedTextField txtDataPresenca_1 = new JFormattedTextField(new MaskFormatter("####-##-##"));
+																												txtDataPresenca_1.setFont(new Font("Dialog", Font.PLAIN, 14));
+																												txtDataPresenca_1.setBounds(314, 102, 103, 28);
+																												panel.add(txtDataPresenca_1);
+																												
+																												lblDisciplina_11 = new JLabel("Disciplina");
+																												lblDisciplina_11.setFont(new Font("Lato", Font.PLAIN, 14));
+																												lblDisciplina_11.setBounds(459, 12, 66, 33);
+																												panel.add(lblDisciplina_11);
+																												
+																												
 		boletimPanel = new JPanel();
 		boletimPanel.setBackground(Color.WHITE);
 		tabbedPane.addTab("Boletim", null, boletimPanel, null);
 		boletimPanel.setLayout(null);
-
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(22, 21, 888, 62);
-		boletimPanel.add(scrollPane);
-
-		table = new JTable();
-		table.setRowHeight(30);
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
-		table.setFont(new Font("Lato", Font.PLAIN, 12));
-		scrollPane.setViewportView(table);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"123456789", "Paulo Corazim da Joanes Maria Pinto", "Ciencia da computacao", "analise de desenvolvimento de sistemas", "1,75", "4", "N", "5,75", "5"},
-			},
-			new String[] {
-				"RGM", "Alunos", "Curso", "Disciplinas", "A1", "A2", "AF", "M\u00E9dia Final", "Faltas"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				String.class, Object.class, Object.class, Object.class, Object.class, Object.class, Object.class, Object.class, Object.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
 		
-		txtError4 = new JTextField();
-		txtError4.setText("Aluno não localizado...");
-		txtError4.setForeground(Color.BLACK);
-		txtError4.setFont(new Font("Dialog", Font.PLAIN, 18));
-		txtError4.setColumns(10);
-		txtError4.setBounds(10, 476, 210, 20);
-		boletimPanel.add(txtError4);
+				scrollPane = new JScrollPane();
+				scrollPane.setBounds(22, 21, 888, 59);
+				boletimPanel.add(scrollPane);
+				
+						table = new JTable();
+						table.setRowHeight(30);
+						table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
+						table.setFont(new Font("Lato", Font.PLAIN, 12));
+						scrollPane.setViewportView(table);
+						table.setModel(new DefaultTableModel(
+							new Object[][] {
+								{null, null, null, null, null, null, null, null, null},
+							},
+							new String[] {
+								"RGM", "Aluno", "Curso", "Disciplina", "A1", "A2", "AF", "M\u00E9dia Final", "Faltas"
+							}
+						) {
+							Class[] columnTypes = new Class[] {
+								Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class, Integer.class
+							};
+							public Class getColumnClass(int columnIndex) {
+								return columnTypes[columnIndex];
+							}
+							boolean[] columnEditables = new boolean[] {
+								false, false, false, false, false, false, false, false, false
+							};
+							public boolean isCellEditable(int row, int column) {
+								return columnEditables[column];
+							}
+						});
+						table.getColumnModel().getColumn(1).setPreferredWidth(76);
+						
+						txtError4 = new JTextField();
+						txtError4.setText("Aluno não localizado...");
+						txtError4.setForeground(Color.BLACK);
+						txtError4.setFont(new Font("Dialog", Font.PLAIN, 18));
+						txtError4.setColumns(10);
+						txtError4.setBounds(10, 476, 210, 20);
+						boletimPanel.add(txtError4);
+																												rdbtnFaltante.addActionListener(new ActionListener() {
+																													public void actionPerformed(ActionEvent e) {
+																														rdbtnPresente.setSelected(false);
+																													}
+																												});
 		
 		panel_7 = new JPanel();
 		panel_7.setBounds(12, 8, 1064, 81);
@@ -617,7 +650,7 @@ public class TelaPrincipal extends JFrame {
 		
 		lblNewLabel_6 = new JLabel("RGM");
 		lblNewLabel_6.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblNewLabel_6.setBounds(146, -4, 66, 40);
+		lblNewLabel_6.setBounds(146, 11, 66, 25);
 		panel_7.add(lblNewLabel_6);
 		
 		txtRgm1 = new JTextField();
@@ -628,10 +661,12 @@ public class TelaPrincipal extends JFrame {
 		
 		lblNomeDoAluno_3 = new JLabel("Nome do Aluno");
 		lblNomeDoAluno_3.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblNomeDoAluno_3.setBounds(399, -4, 145, 40);
+		lblNomeDoAluno_3.setBounds(399, 11, 145, 25);
 		panel_7.add(lblNomeDoAluno_3);
 		
 		txtNome1 = new JTextField();
+		txtNome1.setBorder(new LineBorder(new Color(128, 128, 128)));
+		txtNome1.setEditable(false);
 		txtNome1.setFont(new Font("Dialog", Font.PLAIN, 18));
 		txtNome1.setColumns(10);
 		txtNome1.setBounds(399, 35, 372, 40);
@@ -675,7 +710,7 @@ public class TelaPrincipal extends JFrame {
 		});
 		txtBuscar1.setIcon(new ImageIcon("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\22k\\22k\\image\\search.png"));
 		txtBuscar1.setBackground(Color.WHITE);
-		txtBuscar1.setBounds(923, 25, 105, 45);
+		txtBuscar1.setBounds(925, 30, 105, 40);
 		panel_7.add(txtBuscar1);
 		
 		lblNewLabel = new JLabel("New label");
