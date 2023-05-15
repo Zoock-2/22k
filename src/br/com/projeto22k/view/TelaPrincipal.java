@@ -546,9 +546,17 @@ public class TelaPrincipal extends JFrame {
 																												adic = new JButton("Adicionar ");
 																												adic.addActionListener(new ActionListener() {
 																													public void actionPerformed(ActionEvent e) {
+																														
 																														// Obtenção dos valores dos campos
+																														try {
+																															AlunoDAO aluno = new AlunoDAO();
+																														
 																														String data = data3.getText();
+																														int rgm = Integer.parseInt(txtRgm1.getText());
+																														int disciplina = comboBox_Discplina.getSelectedIndex();
+																														int curso = comboBox_2.getSelectedIndex();
 																														String presencaOuFalta = presen.isSelected() ? "Presença" : "Falta";
+																														aluno.alunopresenca(data,rgm,disciplina,curso);
 
 																														// Criação da nova linha da tabela
 																														Object[] newRow = {data, presencaOuFalta};
@@ -558,6 +566,10 @@ public class TelaPrincipal extends JFrame {
 
 																														// Adição da nova linha ao modelo da tabela
 																														modelo.addRow(newRow);
+																													    }catch (Exception e1) {
+																															// TODO Auto-generated catch block
+																													    	JOptionPane.showMessageDialog(null,e1);
+																														}
 																													}
 																												});
 																												adic.setBounds(664, 102, 91, 31);
