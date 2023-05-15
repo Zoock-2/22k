@@ -118,16 +118,17 @@ public class TelaPrincipal extends JFrame {
 	private JTable table_1;
 	private JTable table_2;
 	private JScrollPane scrollPane_2;
-	private JTable table_3;
+	private JTable table3;
 	private JTextField txtNotaA1;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JButton btnNewButton;
+	private JButton adic;
 	private JLabel lblDisciplina_4;
-	private JRadioButton rdbtnPresente;
-	private JRadioButton rdbtnFaltante;
+	private JRadioButton presen;
+	private JRadioButton Faltante;
 	private JFormattedTextField txtDataPresenca;
 	private JLabel lblDisciplina_11;
+	private JTextField data3;
 
 	/**
 	 * Launch the application.
@@ -525,32 +526,14 @@ public class TelaPrincipal extends JFrame {
 																												scrollPane_2.setBounds(314, 140, 485, 202);
 																												panel.add(scrollPane_2);
 																												
-																												table_3 = new JTable();
-																												table_3.setModel(new DefaultTableModel(
+																												table3 = new JTable();
+																												table3.setModel(new DefaultTableModel(
 																													new Object[][] {
-																														{"", null},
-																														{null, null},
-																														{null, null},
-																														{null, null},
-																														{null, null},
-																														{null, null},
-																														{null, null},
-																														{null, null},
-																														{null, null},
-																														{null, null},
-																														{null, null},
-																														{null, null},
 																													},
 																													new String[] {
 																														"Data", "Presen\u00E7a"
 																													}
 																												) {
-																													Class[] columnTypes = new Class[] {
-																														String.class, Integer.class
-																													};
-																													public Class getColumnClass(int columnIndex) {
-																														return columnTypes[columnIndex];
-																													}
 																													boolean[] columnEditables = new boolean[] {
 																														false, false
 																													};
@@ -558,39 +541,55 @@ public class TelaPrincipal extends JFrame {
 																														return columnEditables[column];
 																													}
 																												});
-																												scrollPane_2.setViewportView(table_3);
+																												scrollPane_2.setViewportView(table3);
 																												
-																												btnNewButton = new JButton("Adicionar ");
-																												btnNewButton.setBounds(664, 102, 91, 31);
-																												panel.add(btnNewButton);
+																												adic = new JButton("Adicionar ");
+																												adic.addActionListener(new ActionListener() {
+																													public void actionPerformed(ActionEvent e) {
+																														// Obtenção dos valores dos campos
+																														String data = data3.getText();
+																														String presencaOuFalta = presen.isSelected() ? "Presença" : "Falta";
+
+																														// Criação da nova linha da tabela
+																														Object[] newRow = {data, presencaOuFalta};
+
+																														// Acesso ao modelo de dados da tabela
+																														DefaultTableModel modelo = (DefaultTableModel) table3.getModel();
+
+																														// Adição da nova linha ao modelo da tabela
+																														modelo.addRow(newRow);
+																													}
+																												});
+																												adic.setBounds(664, 102, 91, 31);
+																												panel.add(adic);
 																												
 																												lblDisciplina_4 = new JLabel("Data");
 																												lblDisciplina_4.setFont(new Font("Lato", Font.PLAIN, 14));
 																												lblDisciplina_4.setBounds(314, 79, 97, 28);
 																												panel.add(lblDisciplina_4);
 																												
-																												rdbtnPresente = new JRadioButton("Presente");
-																												rdbtnPresente.addActionListener(new ActionListener() {
+																												presen = new JRadioButton("Presente");
+																												presen.addActionListener(new ActionListener() {
 																													public void actionPerformed(ActionEvent e) {
-																														rdbtnFaltante.setSelected(false);
+																														Faltante.setSelected(false);
 																													}
 																												});
-																												rdbtnPresente.setBounds(441, 102, 103, 31);
-																												panel.add(rdbtnPresente);
+																												presen.setBounds(441, 102, 103, 31);
+																												panel.add(presen);
 																												
-																												rdbtnFaltante = new JRadioButton("Faltante");
-																												rdbtnFaltante.setBounds(562, 102, 92, 31);
-																												panel.add(rdbtnFaltante);
-																												
-																												JFormattedTextField txtDataPresenca_1 = new JFormattedTextField(new MaskFormatter("####-##-##"));
-																												txtDataPresenca_1.setFont(new Font("Dialog", Font.PLAIN, 14));
-																												txtDataPresenca_1.setBounds(314, 102, 103, 28);
-																												panel.add(txtDataPresenca_1);
+																												Faltante = new JRadioButton("Faltante");
+																												Faltante.setBounds(562, 102, 92, 31);
+																												panel.add(Faltante);
 																												
 																												lblDisciplina_11 = new JLabel("Disciplina");
 																												lblDisciplina_11.setFont(new Font("Lato", Font.PLAIN, 14));
 																												lblDisciplina_11.setBounds(459, 12, 66, 33);
 																												panel.add(lblDisciplina_11);
+																												
+																												data3 = new JFormattedTextField(new MaskFormatter("####-##-##"));
+																												data3.setBounds(314, 102, 96, 28);
+																												panel.add(data3);
+																												data3.setColumns(10);
 																												
 																												
 		boletimPanel = new JPanel();
@@ -637,9 +636,9 @@ public class TelaPrincipal extends JFrame {
 						txtError4.setColumns(10);
 						txtError4.setBounds(10, 476, 210, 20);
 						boletimPanel.add(txtError4);
-																												rdbtnFaltante.addActionListener(new ActionListener() {
+																												Faltante.addActionListener(new ActionListener() {
 																													public void actionPerformed(ActionEvent e) {
-																														rdbtnPresente.setSelected(false);
+																														presen.setSelected(false);
 																													}
 																												});
 		
