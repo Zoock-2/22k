@@ -23,24 +23,21 @@ public class AlunoDAO {
 	}
 
 	// método de salvar
-	public void alunopresenca(String data,int rgm, int disciplina, int curso) throws Exception {
-		if (aluno == null) {
-			throw new Exception("O valor passado nao pode ser nulo");
-		}
+	public void alunopresenca(String presenca ,String data,int rgm, int disciplina, int curso) throws Exception {
 		
 		try{
-			String SQL = "INSERT INTO Presença (presenca, "
-		
+			String SQL = "INSERT INTO Presença (presenca,"
 				+ "data,"
 				+ "Rgm,"
 				+ "disciplina,"
 				+ "curso) "
-				+ "values (?, ? ,? ,?)";
+				+ "values (?, ? ,? ,?, ?)";
 		ps = conn.prepareStatement(SQL);
-		ps.setString(1, data);
-		ps.setInt(2,rgm);
-		ps.setInt(3,disciplina);
-		ps.setInt(4, curso);
+		ps.setString(1, presenca);
+		ps.setString(2, data);
+		ps.setInt(3,rgm);
+		ps.setInt(4,disciplina);
+		ps.setInt(5, curso);
 		ps.executeUpdate();
 		}catch (SQLException sqle) {
 			throw new Exception("Erro ao alterar dados " + sqle);
@@ -95,7 +92,7 @@ public class AlunoDAO {
 
 	public void atualizar(Aluno aluno) throws Exception {
 		if (aluno == null)
-			throw new Exception("O valor passado nao pode ser nulo");
+			throw new Exception("O valor passado nao pode ser nulo.");
 		try {
 			String SQL = "UPDATE Cadaluno set  Nome=?, "
 					+ "eMail=?, DataNascimento=?, "
@@ -146,7 +143,7 @@ public class AlunoDAO {
 
 	public void excluir(Aluno aluno) throws Exception {
 		if (aluno == null)
-			throw new Exception("O valor passado nao pode ser nulo");
+			throw new Exception("O valor passado nao pode ser nulo.");
 		try {
 			String SQL = "DELETE FROM Cadaluno"
 					+ " WHERE rgm = ?";

@@ -551,12 +551,12 @@ public class TelaPrincipal extends JFrame {
 																														try {
 																															AlunoDAO aluno = new AlunoDAO();
 																														
-																														String data = data3.getText();
+																														String data =  data3.getText();
 																														int rgm = Integer.parseInt(txtRgm1.getText());
 																														int disciplina = comboBox_Discplina.getSelectedIndex();
 																														int curso = comboBox_2.getSelectedIndex();
 																														String presencaOuFalta = presen.isSelected() ? "Presença" : "Falta";
-																														aluno.alunopresenca(data,rgm,disciplina,curso);
+																														aluno.alunopresenca(presencaOuFalta,data,rgm,disciplina,curso);
 
 																														// Criação da nova linha da tabela
 																														Object[] newRow = {data, presencaOuFalta};
@@ -568,7 +568,7 @@ public class TelaPrincipal extends JFrame {
 																														modelo.addRow(newRow);
 																													    }catch (Exception e1) {
 																															// TODO Auto-generated catch block
-																													    	JOptionPane.showMessageDialog(null,e1);
+																													    	JOptionPane.showMessageDialog(null,e1.getMessage());
 																														}
 																													}
 																												});
