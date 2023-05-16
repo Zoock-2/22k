@@ -1,5 +1,5 @@
 package br.com.projeto22k.model;
-import java.util.ArrayList;
+
 
 public class Aluno {
 	private int rgm;

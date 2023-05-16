@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.projeto22k.model.Aluno;
+import br.com.projeto22k.model.AlunoNota;
 import br.com.projeto22k.util.ConnectionFactory;
 
 public class AlunoDAO {
@@ -12,6 +13,7 @@ public class AlunoDAO {
 	private PreparedStatement ps;
 	private ResultSet rs; 
 	private Aluno aluno;
+	private AlunoNota alunonota;
 
 	public AlunoDAO() throws Exception {
 		// chama a classe ConnectionFactory e estabele uma conexão
@@ -22,6 +24,30 @@ public class AlunoDAO {
 		}
 	}
 
+	
+		
+	
+	
+	public void setNotas(int rgm,AlunoNota aluno) throws Exception  {
+		
+		try {
+		String SQL ="update Notas set a1=?,"
+				+ "a2=?,"
+				+ "af=?"
+				+ "where rgm=?";
+		ps = conn.prepareStatement(SQL);
+		ps.setFloat(1, aluno.getA1());
+		ps.setFloat(2, aluno.getA2());
+		ps.setFloat(3, aluno.getAf());
+		ps.setInt(4, rgm);
+		ps.executeUpdate();
+	
+	}catch (SQLException sqle) {
+		throw new Exception("Erro ao alterar dados " + sqle);
+	}finally {
+		ConnectionFactory.closeConnection(conn, ps);
+	}
+}
 	// método de salvar
 	public void alunopresenca(String presenca ,String data,int rgm, int disciplina, int curso) throws Exception {
 		
@@ -232,6 +258,25 @@ public class AlunoDAO {
 	}
 	//metodo presença
 
+	public AlunoNota pushNotas(int rgm) throws Exception {
+		
+		try {
+			String SQL ="SELECT a1,a2,af FROM Notas where rGM = ?";
+			conn = this.conn;
+			ps = conn.prepareStatement(SQL);
+			ps.setInt(1, rgm);			
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				float a1 = rs.getFloat(1);
+				float a2 = rs.getFloat(2);
+				float af = rs.getFloat(3);
+				AlunoNota alunonota = new AlunoNota(a1,a2,af);
+			}
+			return alunonota;
+		} catch (SQLException sqle) {
+			throw new Exception(sqle);
+		} 
+}
 
 }
 

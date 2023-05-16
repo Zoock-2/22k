@@ -36,6 +36,8 @@ import javax.swing.text.MaskFormatter;
 
 import br.com.projeto22k.dao.AlunoDAO;
 import br.com.projeto22k.model.Aluno;
+import br.com.projeto22k.model.AlunoNota;
+
 import javax.swing.border.LineBorder;
 
 
@@ -120,8 +122,8 @@ public class TelaPrincipal extends JFrame {
 	private JScrollPane scrollPane_2;
 	private JTable table3;
 	private JTextField txtNotaA1;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtNotaA2;
+	private JTextField txtNotaAf;
 	private JButton adic;
 	private JLabel lblDisciplina_4;
 	private JRadioButton presen;
@@ -504,15 +506,41 @@ public class TelaPrincipal extends JFrame {
 																												panel_6.add(txtNotaA1);
 																												txtNotaA1.setColumns(10);
 																												
-																												textField = new JTextField();
-																												textField.setColumns(10);
-																												textField.setBounds(112, 90, 76, 28);
-																												panel_6.add(textField);
 																												
-																												textField_1 = new JTextField();
-																												textField_1.setColumns(10);
-																												textField_1.setBounds(114, 137, 76, 28);
-																												panel_6.add(textField_1);
+																												txtNotaA2 = new JTextField();
+																												txtNotaA2.setColumns(10);
+																												txtNotaA2.setBounds(112, 90, 76, 28);
+																												panel_6.add(txtNotaA2);
+																												
+																												txtNotaAf = new JTextField();
+																												txtNotaAf.setColumns(10);
+																												txtNotaAf.setBounds(114, 137, 76, 28);
+																												panel_6.add(txtNotaAf);
+																												
+																												JButton salvarnota = new JButton("salvar notas");
+																												salvarnota.addActionListener(new ActionListener() {
+																													public void actionPerformed(ActionEvent arg0) {
+																													
+																													try {
+																														AlunoNota nota = new AlunoNota();
+																														int rgm = Integer.parseInt(txtRgm1.getText());
+																														nota.setA1(Float.parseFloat(txtNotaA1.getText()));
+																														nota.setA2(Float.parseFloat(txtNotaA1.getText()));
+																														nota.setAf(Float.parseFloat(txtNotaA1.getText()));
+																														AlunoDAO dao = new AlunoDAO();
+																														dao.setNotas(rgm, nota);
+																														JOptionPane.showMessageDialog(null, "Nota salva com Sucesso");
+																													} catch (Exception e) {
+																														// TODO Auto-generated catch block
+																														JOptionPane.showMessageDialog(null,e);
+																													}
+																													
+																														                                                             
+																													}
+																												});
+																												salvarnota.setBackground(Color.WHITE);
+																												salvarnota.setBounds(166, 200, 63, 28);
+																												panel_6.add(salvarnota);
 																												
 																												txtError3 = new JTextField();
 																												txtError3.setText("Aluno não localizado...");
@@ -549,7 +577,7 @@ public class TelaPrincipal extends JFrame {
 																														
 																														// Obtenção dos valores dos campos
 																														try {
-																															AlunoDAO aluno = new AlunoDAO();
+																														AlunoDAO aluno = new AlunoDAO();
 																														
 																														String data =  data3.getText();
 																														int rgm = Integer.parseInt(txtRgm1.getText());
@@ -687,10 +715,17 @@ public class TelaPrincipal extends JFrame {
 		txtBuscar1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					AlunoDAO alunoproc = new AlunoDAO();
-
+					AlunoDAO  proxaluno = new AlunoDAO();
+					AlunoDAO  alunoproc = new AlunoDAO();
+					AlunoNota notas = proxaluno.pushNotas(Integer.parseInt(txtRgm1.getText()));
 					Aluno alun = alunoproc.procurarAluno(Integer.parseInt(txtRgm1.getText()));
+					String a1 = (String) String.format("%.2f", notas.getA1());
+					txtNotaA1.setText(a1);
+					txtNotaA2.setText("");
+					txtNotaAf.setText("");
+					
 					txtNome1.setText(alun.getNome());
+					
 					txtRgm.setText(String.format("%d",alun.getRgm()));
 					txtNome.setText(alun.getNome());
 					txtCpf.setText(alun.getCpf());
